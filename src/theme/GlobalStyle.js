@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
 		font-size: 16px;
 		font-size: 1.6rem; 
 		line-height: 1.5; 
+		background-color: #FBFBFB;
 	}
 
 	*, *::before, *::after {
