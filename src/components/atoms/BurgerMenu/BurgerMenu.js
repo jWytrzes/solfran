@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyledButton, StyledBox, StyledInner } from './styles';
 
-const BurgerMenu = () => {
+const BurgerMenu = ({active, ...props}) => {
   return (
-    <StyledButton>
+    <StyledButton {...props}>
       <StyledBox>
-        <StyledInner />
+        <StyledInner isActive={active} />
       </StyledBox>
     </StyledButton>
   );

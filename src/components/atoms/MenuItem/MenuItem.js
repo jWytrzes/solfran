@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyledLi } from './styles';
+import { StyledLi, StyledIconWrapper } from './styles';
 
-const MenuItem = ({ icon, children }) => {
+const MenuItem = ({ icon, children, isActive }) => {
   return (
     <StyledLi>
-      <span>{icon}</span>
+      <StyledIconWrapper isActive={isActive}>{icon}</StyledIconWrapper>
       <span> {children} </span>
     </StyledLi>
   );

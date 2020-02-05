@@ -1,5 +1,6 @@
 import React from 'react';
 import MenuItem from '../../atoms/MenuItem/MenuItem';
+import SocialMedia from '../SocialMedia/SocialMedia';
 import { Home, DollarSign, BookOpen, Monitor, PhoneCall } from 'react-feather';
 
 import { StyledWrapper, StyledUl } from './styles';
@@ -12,16 +13,17 @@ const menuItems = [
   { icon: <PhoneCall />, text: 'Kontakt' },
 ];
 
-const Menu = () => {
+const Menu = props => {
   return (
-    <StyledWrapper>
+    <StyledWrapper {...props}>
       <StyledUl>
-        {menuItems.map(el => (
-          <MenuItem key={el.text} icon={el.icon}>
+        {menuItems.map((el, i) => (
+          <MenuItem isActive={i === 0} key={el.text} icon={el.icon}>
             {el.text}
           </MenuItem>
         ))}
       </StyledUl>
+      <SocialMedia />
     </StyledWrapper>
   );
 };

@@ -9,5 +9,4 @@ export const StyledWrapper = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  background: white;
 `;

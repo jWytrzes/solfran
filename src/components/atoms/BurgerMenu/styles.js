@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const burgerLine = ({ theme }) => `
   width: 100%;
   height: 2px;
-  background-color: ${theme.secondary};
   position: absolute;
 `;
 
@@ -15,6 +14,8 @@ export const StyledButton = styled.button`
   border: 0;
   margin: 0;
   height: 35px;
+  z-index: 99;
+  outline-color: ${({ theme }) => theme.primary};
 `;
 
 export const StyledBox = styled.span`
@@ -29,22 +30,27 @@ export const StyledInner = styled.span`
 
   left: 0;
   top: 50%;
+  background-color: ${({ theme, isActive }) => isActive ? 'transparent' : theme.secondary};
   transform: translateY(-50%);
-  transition: background-color 0.1s 0.2s ease-in-out;
+  transition: background-color 0.1s ease-in-out;
 
   &::before,
   &::after {
     ${burgerLine}
+
     content: '';
     left: 0;
-    transition: transform 0.2s 0.2s ease-in-out;
+    background-color: ${({ theme }) => theme.secondary};
+    transition: transform 0.15s 0.1s ease-in-out;
   }
 
   &::before {
     top: -6px;
+    transform: ${({ isActive }) => isActive ? ' translateY(6px) rotate(45deg)' : ' translateY(0px) rotate(0deg)'}
   }
 
   &::after {
     top: 6px;
+    transform: ${({ isActive }) => isActive ? ' translateY(-6px) rotate(-45deg)' : ' translateY(0px) rotate(0deg)'}
   }
 `;

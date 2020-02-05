@@ -2,6 +2,7 @@ const theme = {
   primary: '#5FC6F5',
   secondary: '#18516C',
   grey: '#FBFBFB',
+  shadow: 'rgba(95, 198, 245, .32)',
   font: {
     size: {
       xxl: '6rem',
