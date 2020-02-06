@@ -20,6 +20,7 @@ export const StyledWrapper = styled.div`
   transform: ${({ active }) =>
     active ? 'translateX(0)' : 'translateX(-100%)'};
   transition: transform 0.2s ease-in-out;
+  z-index: 999;
 `;
 
 export const StyledUl = styled.ul`

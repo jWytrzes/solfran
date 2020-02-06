@@ -14,7 +14,7 @@ export const StyledButton = styled.button`
   border: 0;
   margin: 0;
   height: 35px;
-  z-index: 99;
+  z-index: 9999;
   outline-color: ${({ theme }) => theme.primary};
 `;
 
@@ -30,7 +30,8 @@ export const StyledInner = styled.span`
 
   left: 0;
   top: 50%;
-  background-color: ${({ theme, isActive }) => isActive ? 'transparent' : theme.secondary};
+  background-color: ${({ theme, isActive }) =>
+    isActive ? 'transparent' : theme.secondary};
   transform: translateY(-50%);
   transition: background-color 0.1s ease-in-out;
 
@@ -46,11 +47,17 @@ export const StyledInner = styled.span`
 
   &::before {
     top: -6px;
-    transform: ${({ isActive }) => isActive ? ' translateY(6px) rotate(45deg)' : ' translateY(0px) rotate(0deg)'}
+    transform: ${({ isActive }) =>
+      isActive
+        ? ' translateY(6px) rotate(45deg)'
+        : ' translateY(0px) rotate(0deg)'};
   }
 
   &::after {
     top: 6px;
-    transform: ${({ isActive }) => isActive ? ' translateY(-6px) rotate(-45deg)' : ' translateY(0px) rotate(0deg)'}
+    transform: ${({ isActive }) =>
+      isActive
+        ? ' translateY(-6px) rotate(-45deg)'
+        : ' translateY(0px) rotate(0deg)'};
   }
 `;
