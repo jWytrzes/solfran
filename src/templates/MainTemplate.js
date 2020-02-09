@@ -5,15 +5,15 @@ import theme from '../theme/theme';
 import TopBar from '../components/organisms/TopBar/TopBar';
 
 const MainTemplate = ({ children }) => {
-	return (
-		<div>
-			<GlobalStyle />
-			<ThemeProvider theme={theme}> 
-				<TopBar />
-				{children} 
-			</ThemeProvider>
-		</div>
-	);
+  return (
+    <div>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <TopBar />
+        {children}
+      </ThemeProvider>
+    </div>
+  );
 };
 
 export default MainTemplate;

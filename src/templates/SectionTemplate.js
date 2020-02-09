@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledSection = styled.section`
   padding: ${({ noBottomPadding }) =>
     noBottomPadding ? '50px 25px 0' : '50px 25px'};
-  padding-top: ${({ topPadding }) => (topPadding ? '66px' : 'unset')};
+  padding-top: ${({ topPadding }) => (topPadding ? '66px' : '50px')};
   background-color: ${({ theme, greyBackground }) =>
     greyBackground ? theme.grey : 'transparent'};
   min-height: 100vh;
