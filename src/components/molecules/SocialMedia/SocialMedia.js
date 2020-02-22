@@ -12,7 +12,7 @@ const SocialMedia = () => {
         </a>
       </StyledLi>
       <StyledLi>
-        <a href="https://www.facebook.com/solfranenergy/" target="_blank">
+        <a href="https://m.me/solfranenergy" target="_blank">
           <img src={messengerIcon} alt="messenger icon" />
         </a>
       </StyledLi>
