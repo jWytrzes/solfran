@@ -9,10 +9,11 @@ export const StyledWrapper = styled.div`
   margin: 25px 0;
 `;
 
-export const StyledHeader = styled.header`
+export const StyledHeader = styled.h3`
   font-size: 2rem;
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   margin-bottom: 15px;
+  margin-top: 0;
 `;
 
 export const StyledParagraph = styled.p`

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SectionTemplate from '../../templates/SectionTemplate';
 import Heading from '../../components/atoms/Heading/Heading';
 import OfferBox from '../../components/molecules/OfferBox/OfferBox';
 import PanelsImage from '../../components/atoms/PanelsImage/PanelsImage';
 import { StyledWrapper, FirstList, SecondList } from './styles';
+import OfferPopup from '../../components/molecules/OfferPopup/OfferPopup';
 
 const boxes = [
   {
@@ -29,9 +30,19 @@ const boxes = [
 ];
 
 const OfferSection = ({ greyBackground }) => {
+  const [popupTitle, setPopupTitle] = useState('');
+  const [popupContent, setPopupContent] = useState('');
+  const [isPopupVisible, togglePopup] = useState(false);
+
   const halfLength = Math.floor(boxes.length / 2);
   const leftArray = boxes.slice(0, halfLength);
   const rightArray = boxes.slice(halfLength, boxes.length);
+
+  const openPopup = (title, content) => {
+    setPopupTitle(title);
+    setPopupContent(content);
+    togglePopup(!isPopupVisible);
+  };
 
   return (
     <SectionTemplate noBottomPadding greyBackground={greyBackground}>
@@ -39,15 +50,32 @@ const OfferSection = ({ greyBackground }) => {
       <StyledWrapper>
         <FirstList>
           {leftArray.map((el, i) => (
-            <OfferBox title={el.title} content={el.content} key={el.title} />
+            <OfferBox
+              onClick={() => openPopup(el.title, el.content)}
+              title={el.title}
+              content={el.content}
+              key={el.title}
+            />
           ))}
         </FirstList>
         <PanelsImage />
         <SecondList>
           {rightArray.map((el, i) => (
-            <OfferBox title={el.title} content={el.content} key={el.title} />
+            <OfferBox
+              onClick={() => openPopup(el.title, el.content)}
+              title={el.title}
+              content={el.content}
+              key={el.title}
+            />
           ))}
         </SecondList>
+        {isPopupVisible && (
+          <OfferPopup
+            title={popupTitle}
+            content={popupContent}
+            closePopup={() => togglePopup(false)}
+          />
+        )}
       </StyledWrapper>
     </SectionTemplate>
   );
