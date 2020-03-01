@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Paragraph from '../../atoms/Paragraph/Paragraph';
 
 export const StyledWrapper = styled.div`
   position: relative;
@@ -7,6 +8,7 @@ export const StyledWrapper = styled.div`
   border-radius: 6px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.11);
   margin: 25px 0;
+  z-index: 7;
 `;
 
 export const StyledHeader = styled.h3`
@@ -16,8 +18,7 @@ export const StyledHeader = styled.h3`
   margin-top: 0;
 `;
 
-export const StyledParagraph = styled.p`
-  margin: 0;
+export const StyledParagraph = styled(Paragraph)`
   height: 130px;
   overflow-y: hidden;
   position: relative;

@@ -1,13 +1,14 @@
 import React from 'react';
-import TopBar from '../components/organisms/TopBar/TopBar';
 import HeroSection from '../sections/HeroSection/HeroSection';
 import OfferSection from '../sections/OfferSection/OfferSection';
+import ValuationSection from '../sections/ValuationSection/ValuationSection';
 
 const Home = () => {
   return (
     <>
       <HeroSection />
       <OfferSection greyBackground />
+      <ValuationSection />
     </>
   );
 };

@@ -5,13 +5,14 @@ export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow-y: visible;
 
   ::before,
   ::after {
     content: '';
     position: absolute;
     top: 30%;
-    right: -50%;
+    left: -50%;
     background-repeat: no-repeat;
     z-index: 0;
   }
@@ -25,7 +26,16 @@ export const StyledWrapper = styled.div`
   }
 
   ::after {
-    display: none;
+    content: '';
+    background-image: url(${shape4});
+    background-size: contain;
+    width: 350px;
+    height: 265px;
+    top: unset;
+    left: unset;
+    right: -50%;
+    bottom: -45px;
+    z-index: 0;
   }
 `;
 
