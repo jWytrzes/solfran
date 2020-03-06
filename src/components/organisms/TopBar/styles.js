@@ -4,7 +4,7 @@ export const StyledWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px 10px 8px;
+  padding: 10px 25px 10px 15px;
   position: fixed;
   top: 0;
   left: 0;

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledWrapper, StyledButton, Layer, H3, P } from './styles';
 import { X } from 'react-feather';
 
-const OfferPopup = ({ title, content, closePopup }) => {
+const Popup = ({ title, content, closePopup }) => {
   return (
     <>
       <StyledWrapper>
@@ -19,4 +19,4 @@ const OfferPopup = ({ title, content, closePopup }) => {
   );
 };
 
-export default OfferPopup;
+export default Popup;

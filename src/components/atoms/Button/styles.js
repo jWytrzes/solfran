@@ -19,4 +19,5 @@ export const StyledButton = styled.button`
     primary ? theme.font.weight.bold : theme.font.weight.semiBold};
   box-shadow: ${({ theme, primary }) =>
     primary ? `0 10px 15px ${theme.shadow}` : 'none'};
+  text-decoration: none;
 `;

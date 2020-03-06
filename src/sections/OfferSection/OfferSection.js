@@ -4,7 +4,7 @@ import Heading from '../../components/atoms/Heading/Heading';
 import OfferBox from '../../components/molecules/OfferBox/OfferBox';
 import PanelsImage from '../../components/atoms/PanelsImage/PanelsImage';
 import { StyledWrapper, FirstList, SecondList } from './styles';
-import OfferPopup from '../../components/molecules/OfferPopup/OfferPopup';
+import Popup from '../../components/molecules/Popup/Popup';
 
 const boxes = [
   {
@@ -45,7 +45,7 @@ const OfferSection = ({ greyBackground }) => {
   };
 
   return (
-    <SectionTemplate noBottomPadding greyBackground={greyBackground}>
+    <SectionTemplate id="offer" noBottomPadding greyBackground={greyBackground}>
       <Heading big> Oferta </Heading>
       <StyledWrapper>
         <FirstList>
@@ -70,7 +70,7 @@ const OfferSection = ({ greyBackground }) => {
           ))}
         </SecondList>
         {isPopupVisible && (
-          <OfferPopup
+          <Popup
             title={popupTitle}
             content={popupContent}
             closePopup={() => togglePopup(false)}

@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
 
 	html {
 		font-size: 62.5%;
+		scroll-behavior: smooth;
 	}
 
 	body {
@@ -69,42 +70,6 @@ const GlobalStyle = createGlobalStyle`
 	button, input, select, textarea {
 		font-family: inherit;
 		color: inherit;
-	}
-
-	.swiper-container {
-		width: 100%;
-		padding: 20px 10% 0;
-	}
-
-	.swiper-button-prev, .swiper-button-next {
-		::after {
-			font-size: 20px;
-			color: ${({ theme }) => theme.primary}
-		}
-	}
-
-	.swiper-button-prev {
-		left: -5px;
-	}
-
-	.swiper-button-next {
-		right: -5px;
-	}
-
-	.swiper-slide {
-		background: white;
-		padding: 15px;
-		height: 51vh;
-		overflow-y: auto;
-		border-radius: 15px;
-	}
-
-	.swiper-pagination-progressbar {
-		background: rgba(0,0,0,0.1);
-
-		.swiper-pagination-progressbar-fill {
-			background: ${({ theme }) => theme.primary}
-		}
 	}
 `;
 

@@ -11,7 +11,7 @@ export const StyledWrapper = styled.div`
   background-color: white;
   border-radius: 6px;
   padding: 15px;
-  z-index: 11;
+  z-index: 9999;
   max-height: 80vh;
   overflow-y: auto;
 `;
@@ -35,7 +35,7 @@ export const Layer = styled.div`
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 10;
+  z-index: 9998;
 `;
 
 export const H3 = styled.h3`
@@ -44,7 +44,7 @@ export const H3 = styled.h3`
   margin-top: 0;
 `;
 
-export const P = styled.p`
+export const P = styled.div`
   margin: 0;
   position: relative;
 `;

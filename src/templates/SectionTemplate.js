@@ -17,9 +17,11 @@ const SectionTemplate = ({
   noBottomPadding,
   greyBackground,
   topPadding,
+  id,
 }) => {
   return (
     <StyledSection
+      id={id}
       noBottomPadding={noBottomPadding}
       greyBackground={greyBackground}
       topPadding={topPadding}

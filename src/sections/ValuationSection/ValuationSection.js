@@ -6,7 +6,7 @@ import ValuationForm from '../../components/organisms/ValuationForm/ValuationFor
 
 const ValuationSection = () => {
   return (
-    <SectionTemplate>
+    <SectionTemplate id="valuation">
       <Heading big> Darmowa wycena </Heading>
       <Paragraph>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem facere

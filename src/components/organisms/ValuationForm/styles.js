@@ -19,3 +19,17 @@ export const StyledButton = styled(Button)`
   text-transform: none;
   margin-left: auto;
 `;
+
+export const StyledButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  button {
+    width: 48%;
+  }
+`;
+
+export const StyledError = styled.div`
+  color: red;
+`;

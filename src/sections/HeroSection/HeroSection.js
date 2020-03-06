@@ -24,8 +24,12 @@ const HeroSection = ({ greyBackground }) => {
             warunki dotyczące konkretnej nieruchomości i oczekiwań klienta.
           </p>
           <StyledButtonsWrapper>
-            <Button> Oferta </Button>
-            <Button primary> Wycena </Button>
+            <Button as="a" href="#offer">
+              Oferta
+            </Button>
+            <Button primary as="a" href="#valuation">
+              Wycena
+            </Button>
           </StyledButtonsWrapper>
         </div>
         <StyledImageWrapper>
