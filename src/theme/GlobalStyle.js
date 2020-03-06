@@ -66,6 +66,11 @@ const GlobalStyle = createGlobalStyle`
 		-moz-osx-font-smoothing: grayscale;
 	}
 
+	button, input, select, textarea {
+		font-family: inherit;
+		color: inherit;
+	}
+
 	.swiper-container {
 		width: 100%;
 		padding: 20px 10% 0;

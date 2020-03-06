@@ -14,7 +14,7 @@ const HeroSection = ({ greyBackground }) => {
     <SectionTemplate noBottomPadding topPadding greyBackground={greyBackground}>
       <StyledWrapper>
         <div style={{ margin: 'auto 0' }}>
-          <StyledH1> Solfran Energy </StyledH1>
+          <StyledH1> SolFran Energy </StyledH1>
           <p>
             SolFran Energy współpracuje z kompleksowymi rozwiązaniami w zakresie
             odnawialnych źródeł energii, w których bierzemy odpowiedzialność za

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import HouseImage from '../../components/atoms/HouseImage/HouseImage';
 
 export const StyledWrapper = styled.div`
   position: relative;
