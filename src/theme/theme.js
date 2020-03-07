@@ -1,6 +1,7 @@
 const theme = {
   primary: '#5FC6F5',
   secondary: '#18516C',
+  accent: '#8D83FE',
   grey: '#FBFBFB',
   greyBcg: '#f3f3f3',
   shadow: 'rgba(95, 198, 245, .32)',

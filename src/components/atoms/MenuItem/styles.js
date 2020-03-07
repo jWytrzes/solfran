@@ -4,6 +4,11 @@ export const StyledLi = styled.li`
   display: flex;
   align-items: center;
   font-size: ${({ theme }) => theme.font.size.s};
+
+  a {
+    text-decoration: none;
+    color: inherit !important;
+  }
 `;
 
 export const StyledIconWrapper = styled.span`
@@ -15,10 +20,11 @@ export const StyledIconWrapper = styled.span`
   align-items: center;
   justify-content: center;
   margin-right: 25px;
-  background-color: ${({theme, isActive}) => isActive ? theme.primary : 'transparent'};
+  background-color: ${({ theme, isActive }) =>
+    isActive ? theme.primary : 'transparent'};
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     border-radius: 100%;
     top: 0;
@@ -26,12 +32,12 @@ export const StyledIconWrapper = styled.span`
     width: 100%;
     height: 100%;
     box-shadow: 0 10px 15px ${({ theme }) => theme.shadow};
-    opacity: ${({ isActive}) => isActive ? 1 : 0};
-    transition: opacity .2s ease-in-out;
+    opacity: ${({ isActive }) => (isActive ? 1 : 0)};
+    transition: opacity 0.2s ease-in-out;
   }
 
   svg {
     height: 17px;
-    color: ${({isActive}) => isActive ? 'white' : 'inherit'};
+    color: ${({ isActive }) => (isActive ? 'white' : 'inherit')};
   }
 `;

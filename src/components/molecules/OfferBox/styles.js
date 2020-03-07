@@ -7,7 +7,7 @@ export const StyledWrapper = styled.div`
   padding: 20px;
   border-radius: 6px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.11);
-  margin: 25px 0;
+  margin: 0 0 50px;
   z-index: 7;
 `;
 

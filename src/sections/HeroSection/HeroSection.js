@@ -11,7 +11,12 @@ import HouseImage from '../../components/atoms/HouseImage/HouseImage';
 
 const HeroSection = ({ greyBackground }) => {
   return (
-    <SectionTemplate noBottomPadding topPadding greyBackground={greyBackground}>
+    <SectionTemplate
+      id="hero"
+      noBottomPadding
+      topPadding
+      greyBackground={greyBackground}
+    >
       <StyledWrapper>
         <div style={{ margin: 'auto 0' }}>
           <StyledH1> SolFran Energy </StyledH1>

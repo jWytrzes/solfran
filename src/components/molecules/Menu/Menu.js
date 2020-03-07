@@ -6,11 +6,12 @@ import { Home, DollarSign, BookOpen, Monitor, PhoneCall } from 'react-feather';
 import { StyledWrapper, StyledUl } from './styles';
 
 const menuItems = [
-  { icon: <Home />, text: 'Strona główna' },
-  { icon: <DollarSign />, text: 'Darmowa wycena' },
-  { icon: <BookOpen />, text: 'Oferta' },
-  { icon: <Monitor />, text: 'Blog' },
-  { icon: <PhoneCall />, text: 'Kontakt' },
+  { icon: <Home />, text: 'Strona główna', link: '/#hero' },
+
+  { icon: <BookOpen />, text: 'Oferta', link: '/#offer' },
+  { icon: <DollarSign />, text: 'Darmowa wycena', link: '/#valuation' },
+  { icon: <Monitor />, text: 'Blog', link: '/blog' },
+  { icon: <PhoneCall />, text: 'Kontakt', link: '/#contact' },
 ];
 
 const Menu = props => {
@@ -18,7 +19,13 @@ const Menu = props => {
     <StyledWrapper {...props}>
       <StyledUl>
         {menuItems.map((el, i) => (
-          <MenuItem isActive={i === 0} key={el.text} icon={el.icon}>
+          <MenuItem
+            isActive={i === 0}
+            key={el.text}
+            icon={el.icon}
+            link={el.link}
+            toggleMenu={props.toggleMenu}
+          >
             {el.text}
           </MenuItem>
         ))}

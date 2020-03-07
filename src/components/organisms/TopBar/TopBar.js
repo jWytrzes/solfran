@@ -15,7 +15,10 @@ const TopBar = () => {
         onClick={() => toggleMenu(!isMenuActive)}
       />
       <StyledLogo src={logo} alt="logo" />
-      <Menu active={isMenuActive} />
+      <Menu
+        active={isMenuActive}
+        toggleMenu={() => toggleMenu(!isMenuActive)}
+      />
     </StyledWrapper>
   );
 };

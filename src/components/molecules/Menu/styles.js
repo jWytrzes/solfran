@@ -14,9 +14,9 @@ export const StyledWrapper = styled.div`
   align-items: center;
   justify-content: center;
   background-image: url(${shape1});
-  background-size: 230px;
+  background-size: 280px;
   background-repeat: no-repeat;
-  background-position: 165% 61%;
+  background-position: 237% 61%;
   transform: ${({ active }) =>
     active ? 'translateX(0)' : 'translateX(-100%)'};
   transition: transform 0.2s ease-in-out;
