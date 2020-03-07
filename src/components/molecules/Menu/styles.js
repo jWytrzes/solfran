@@ -13,14 +13,36 @@ export const StyledWrapper = styled.div`
   padding: 25px;
   align-items: center;
   justify-content: center;
-  background-image: url(${shape1});
-  background-size: 280px;
-  background-repeat: no-repeat;
-  background-position: 237% 61%;
   transform: ${({ active }) =>
     active ? 'translateX(0)' : 'translateX(-100%)'};
   transition: transform 0.2s ease-in-out;
   z-index: 999;
+  overflow: hidden;
+
+  ::after {
+    content: '';
+    position: absolute;
+    background-image: url(${shape1});
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 280px;
+    height: 295px;
+    top: 61%;
+    right: -95px;
+    transform: translateY(-50%);
+
+    @media (min-width: 1150px) {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1150px) {
+    transform: translateX(0);
+    position: relative;
+    height: 100%;
+    padding: 0;
+    overflow: visible;
+  }
 `;
 
 export const StyledUl = styled.ul`
@@ -33,4 +55,9 @@ export const StyledUl = styled.ul`
   justify-content: space-between;
   margin-top: auto;
   width: 100%;
+
+  @media (min-width: 1150px) {
+    height: auto;
+    margin: auto 0;
+  }
 `;

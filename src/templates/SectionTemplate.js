@@ -10,6 +10,14 @@ const StyledSection = styled.section`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 1150px) {
+    padding: ${({ noBottomPadding }) =>
+      noBottomPadding ? '50px 12.5% 0' : '50px 12.5%'};
+  }
+
+  @media (min-width: 1460px) {
+  }
 `;
 
 const SectionTemplate = ({

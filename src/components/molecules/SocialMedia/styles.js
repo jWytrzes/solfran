@@ -11,6 +11,12 @@ export const StyledUl = styled.ul`
   svg path {
     fill: ${({ theme, white }) => (white ? 'white' : theme.secondary)};
   }
+
+  @media (min-width: 1150px) {
+    flex-direction: column;
+    margin: auto 0 0;
+    justify-content: center;
+  }
 `;
 
 export const StyledLi = styled.li`
@@ -18,9 +24,18 @@ export const StyledLi = styled.li`
 
   :first-of-type {
     margin-left: 0;
+
+    @media (min-width: 1150px) {
+      margin-left: 0;
+      margin-bottom: 20px;
+    }
   }
 
   a {
     display: block;
+  }
+
+  @media (min-width: 1150px) {
+    margin-left: 0;
   }
 `;

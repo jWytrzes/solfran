@@ -12,7 +12,8 @@ export const StyledWrapper = styled.div`
     content: '';
     position: absolute;
     top: 30%;
-    left: -50%;
+    left: 0;
+    transform: translateX(-50%);
     background-repeat: no-repeat;
     z-index: 0;
   }
@@ -33,7 +34,8 @@ export const StyledWrapper = styled.div`
     height: 265px;
     top: unset;
     left: unset;
-    right: -50%;
+    right: 0;
+    transform: translateX(50%);
     bottom: -45px;
     z-index: 0;
   }
@@ -43,10 +45,22 @@ export const FirstList = styled.div`
   display: flex;
   flex-direction: column;
   order: 1;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+  }
 `;
 
 export const SecondList = styled.div`
   display: flex;
   flex-direction: column;
   order: 2;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+  }
 `;

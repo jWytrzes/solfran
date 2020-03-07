@@ -10,6 +10,15 @@ export const StyledWrapper = styled.div`
   left: 0;
   width: 100%;
   z-index: 999;
+
+  @media (min-width: 1150px) {
+    width: 100px;
+    height: 100vh;
+    flex-direction: column;
+    background-color: white;
+    padding: 40px 15px;
+    box-shadow: 5px 0 20px rgba(51, 51, 51, 0.14);
+  }
 `;
 
 export const StyledLogo = styled.img`

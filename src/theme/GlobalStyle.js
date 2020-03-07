@@ -17,17 +17,13 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
+		position: relative;
 		font-family: 'Montserrat', sans-serif;
 		font-size: 14px;
 		font-size: 1.4rem; 
 		line-height: 1.5;
 		color: #18516C;
-
-		@media(min-width: 992px) {
-			font-size: 1.6rem; 
-			font-size: 16px;
-			padding-top: 0;
-		}
+		overflow-x: hidden;
 
 		::before, ::after {
 			position: absolute;
@@ -55,6 +51,67 @@ const GlobalStyle = createGlobalStyle`
 			background-size: 450px auto;
 			width: 450px;
 			height: 380px;
+		}
+
+		@media(min-width: 992px) {
+			font-size: 1.6rem; 
+			font-size: 16px;
+			padding-top: 0;
+		}
+
+		@media(min-width: 1150px) {
+			::before {
+				width: 1000px;
+				height: 1038px;
+				background-size: cover;
+				background-position: unset;
+				top: -280px;
+				right: -300px;
+			}
+
+			::after {
+				background-position: unset;
+				background-size: cover;
+				width: 360px;
+				height: 312px;
+				top: 0;
+				right: 0;
+				transform: translate(25%, -40%);
+			}
+		}
+
+		@media(min-width: 1440px) {
+			::before {
+				width: 1192px;
+				height: 1210px;
+				top: 0;
+				right: 0;
+				transform: translate(14.3%, -20%);
+				z-index: 0;
+			}
+
+			::after {
+				z-index: 0;
+				width: 600px;
+				height: 505px;
+			}
+		}
+
+		@media(min-width: 1600px) {
+			::before {
+				width: 1492px;
+				height: 1512px;
+				top: 0;
+				right: 0;
+				transform: translate(14.3%, -20%);
+				z-index: 0;
+			}
+
+			::after {
+				z-index: 0;
+				width: 600px;
+				height: 505px;
+			}
 		}
 	}
 

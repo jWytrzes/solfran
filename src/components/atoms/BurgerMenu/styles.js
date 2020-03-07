@@ -16,6 +16,10 @@ export const StyledButton = styled.button`
   height: 35px;
   z-index: 9999;
   outline-color: ${({ theme }) => theme.primary};
+
+  @media (min-width: 1150px) {
+    display: none;
+  }
 `;
 
 export const StyledBox = styled.span`

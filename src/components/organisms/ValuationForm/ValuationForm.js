@@ -14,6 +14,7 @@ import {
   StyledButton,
   StyledButtonsWrapper,
   StyledError,
+  StyledFieldsWrapper,
 } from './styles';
 
 const ValuationForm = () => {
@@ -55,7 +56,7 @@ const ValuationForm = () => {
 
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
-      <div>
+      <StyledFieldsWrapper>
         <FormGroup>
           <Label htmlhtmlFor="city"> Miejscowość montażu </Label>
           <Input
@@ -196,7 +197,7 @@ const ValuationForm = () => {
             placeholder="Wiadomość"
           />
         </FormGroup>
-      </div>
+      </StyledFieldsWrapper>
       <StyledButton
         primary
         autoWidth

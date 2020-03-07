@@ -1,13 +1,66 @@
 import styled from 'styled-components';
 
 export const StyledLi = styled.li`
-  display: flex;
-  align-items: center;
   font-size: ${({ theme }) => theme.font.size.s};
 
   a {
     text-decoration: none;
-    color: inherit !important;
+    color: inherit;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (min-width: 1150px) {
+    position: relative;
+    margin: 10px 0;
+
+    .menu__text {
+      position: absolute;
+      left: 90%;
+      color: white;
+      background-color: ${({ theme }) => theme.secondary};
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: ${({ theme }) => theme.font.size.xs};
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateX(50%);
+      transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out,
+        visibility 0s 0.2s;
+      will-change: visibility;
+
+      ::before {
+        content: '';
+        position: absolute;
+        width: 15px;
+        height: 8px;
+        border-radius: 100%;
+        background-color: ${({ theme }) => theme.secondary};
+        top: 50%;
+        left: 0;
+        transform: translate(-30%, -50%);
+      }
+    }
+
+    :hover {
+      .menu__text {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+      }
+
+      .menu__icon::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  @media (min-width: 1300px) {
+    margin: 20px 0;
   }
 `;
 
@@ -39,5 +92,10 @@ export const StyledIconWrapper = styled.span`
   svg {
     height: 17px;
     color: ${({ isActive }) => (isActive ? 'white' : 'inherit')};
+  }
+
+  @media (min-width: 1150px) {
+    margin-right: auto;
+    margin-left: auto;
   }
 `;

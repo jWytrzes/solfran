@@ -1,13 +1,14 @@
 import React from 'react';
 import SectionTemplate from '../../templates/SectionTemplate';
 import Button from '../../components/atoms/Button/Button';
+import HouseImage from '../../components/atoms/HouseImage/HouseImage';
 import {
   StyledWrapper,
   StyledH1,
   StyledButtonsWrapper,
   StyledImageWrapper,
+  StyledTextWrapper,
 } from './styles';
-import HouseImage from '../../components/atoms/HouseImage/HouseImage';
 
 const HeroSection = ({ greyBackground }) => {
   return (
@@ -18,7 +19,7 @@ const HeroSection = ({ greyBackground }) => {
       greyBackground={greyBackground}
     >
       <StyledWrapper>
-        <div style={{ margin: 'auto 0' }}>
+        <StyledTextWrapper>
           <StyledH1> SolFran Energy </StyledH1>
           <p>
             SolFran Energy współpracuje z kompleksowymi rozwiązaniami w zakresie
@@ -36,7 +37,7 @@ const HeroSection = ({ greyBackground }) => {
               Wycena
             </Button>
           </StyledButtonsWrapper>
-        </div>
+        </StyledTextWrapper>
         <StyledImageWrapper>
           <HouseImage />
         </StyledImageWrapper>

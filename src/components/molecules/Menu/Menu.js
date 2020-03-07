@@ -7,7 +7,6 @@ import { StyledWrapper, StyledUl } from './styles';
 
 const menuItems = [
   { icon: <Home />, text: 'Strona główna', link: '/#hero' },
-
   { icon: <BookOpen />, text: 'Oferta', link: '/#offer' },
   { icon: <DollarSign />, text: 'Darmowa wycena', link: '/#valuation' },
   { icon: <Monitor />, text: 'Blog', link: '/blog' },

@@ -33,3 +33,11 @@ export const StyledButtonsWrapper = styled.div`
 export const StyledError = styled.div`
   color: red;
 `;
+
+export const StyledFieldsWrapper = styled.div`
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+  }
+`;

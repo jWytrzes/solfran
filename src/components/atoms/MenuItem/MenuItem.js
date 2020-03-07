@@ -5,27 +5,28 @@ import { StyledLi, StyledIconWrapper } from './styles';
 
 const MenuItem = ({ icon, children, isActive, link, toggleMenu }) => {
   let linkToInsert = (
-    <Link to={link} onClick={toggleMenu}>
-      {children}
+    <Link to={link}>
+      <StyledIconWrapper className="menu__icon" isActive={isActive}>
+        {icon}
+      </StyledIconWrapper>
+      <span className="menu__text"> {children} </span>
     </Link>
   );
 
   useEffect(() => {
     if (!link.includes('#')) {
       linkToInsert = (
-        <Link2 to={link} onClick={toggleMenu}>
-          {children}
+        <Link2 to={link}>
+          <StyledIconWrapper className="menu__icon" isActive={isActive}>
+            {icon}
+          </StyledIconWrapper>
+          <span className="menu__text"> {children} </span>
         </Link2>
       );
     }
   }, []);
 
-  return (
-    <StyledLi>
-      <StyledIconWrapper isActive={isActive}>{icon}</StyledIconWrapper>
-      {linkToInsert}
-    </StyledLi>
-  );
+  return <StyledLi onClick={toggleMenu}>{linkToInsert}</StyledLi>;
 };
 
 export default MenuItem;
