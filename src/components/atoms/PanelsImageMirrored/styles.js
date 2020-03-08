@@ -12,4 +12,18 @@ export const StyledWrapper = styled.div`
   svg {
     width: 100%;
   }
+
+  @media (min-width: 1150px) {
+    margin: auto 0;
+  }
+
+  @media (min-width: 1440px) {
+    height: 165px;
+
+    svg {
+      height: 100%;
+      width: auto;
+      margin-left: auto;
+    }
+  }
 `;

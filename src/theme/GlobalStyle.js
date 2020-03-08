@@ -99,11 +99,11 @@ const GlobalStyle = createGlobalStyle`
 
 		@media(min-width: 1600px) {
 			::before {
-				width: 1492px;
-				height: 1512px;
+				width: 1400px;
+				height: 1450px;
 				top: 0;
 				right: 0;
-				transform: translate(14.3%, -20%);
+				transform: translate(12.5%, -24.5%);
 				z-index: 0;
 			}
 

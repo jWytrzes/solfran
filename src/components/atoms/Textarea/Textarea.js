@@ -17,6 +17,12 @@ const Textarea = styled.textarea`
     font-family: Montserrat;
     opacity: 0.5;
   }
+
+  @media (min-width: 1440px) {
+    min-height: 50px;
+    height: 50px;
+    padding: 15px;
+  }
 `;
 
 export default Textarea;

@@ -12,8 +12,7 @@ const StyledSection = styled.section`
   flex-direction: column;
 
   @media (min-width: 1150px) {
-    padding: ${({ noBottomPadding }) =>
-      noBottomPadding ? '50px 12.5% 0' : '50px 12.5%'};
+    padding: 50px 12.5%;
   }
 
   @media (min-width: 1460px) {

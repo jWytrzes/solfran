@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import BurgerMenu from '../../atoms/BurgerMenu/BurgerMenu.js';
 import Menu from '../../molecules/Menu/Menu.js';
-import logo from '../../../assets/pictures/logo.svg';
+import logo from '../../../assets/pictures/logo.png';
 
 import { StyledWrapper, StyledLogo } from './styles';
 

@@ -17,17 +17,20 @@ const ContactSection = () => {
         Kontakt
       </Heading>
       <StyledWrapper>
-        <ContactData />
-        <StyledSocialMedia white />
-        <Paragraph>
-          <StyledA
-            href="https://www.freepik.com/free-photos-vectors/background"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Background vectors created by rawpixel.com - www.freepik.com
-          </StyledA>
-        </Paragraph>
+        <div style={{ zIndex: 1 }}>
+          <ContactData />
+          <StyledSocialMedia white />
+          <Paragraph>
+            <StyledA
+              href="https://www.freepik.com/free-photos-vectors/background"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Background vectors created by rawpixel.com - www.freepik.com
+            </StyledA>
+          </Paragraph>
+        </div>
+
         <PanelsImageMirrored />
       </StyledWrapper>
     </StyledSectionTemplate>

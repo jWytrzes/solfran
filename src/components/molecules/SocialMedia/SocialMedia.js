@@ -4,7 +4,7 @@ import { StyledUl, StyledLi } from './styles';
 const SocialMedia = ({ ...props }) => {
   return (
     <StyledUl {...props}>
-      <StyledLi>
+      <StyledLi white={props.white} vertical={props.vertical}>
         <a
           href="https://www.facebook.com/solfranenergy/"
           target="_blank"
@@ -24,7 +24,7 @@ const SocialMedia = ({ ...props }) => {
           </svg>
         </a>
       </StyledLi>
-      <StyledLi>
+      <StyledLi white={props.white} vertical={props.vertical}>
         <a
           href="https://m.me/solfranenergy"
           target="_blank"

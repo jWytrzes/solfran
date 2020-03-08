@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import shape4 from '../../assets/pictures/shape4.svg';
+import shape6 from '../../assets/pictures/shape6.svg';
 
 export const StyledWrapper = styled.div`
   display: flex;
@@ -24,6 +25,19 @@ export const StyledWrapper = styled.div`
     background-size: 100%;
     width: 350px;
     height: 265px;
+
+    @media (min-width: 1150px) {
+      background-image: url(${shape6});
+      width: 816px;
+      height: 646px;
+      top: 50%;
+      transform: translate(-80%, -18%);
+      z-index: 0;
+    }
+
+    @media (min-width: 1440px) {
+      transform: translate(-77%, -5%);
+    }
   }
 
   ::after {
@@ -38,6 +52,13 @@ export const StyledWrapper = styled.div`
     transform: translateX(50%);
     bottom: -45px;
     z-index: 0;
+
+    @media (min-width: 1150px) {
+      width: 434px;
+      height: 368px;
+      top: 40%;
+      transform: translate(89%, 0);
+    }
   }
 `;
 
@@ -51,6 +72,14 @@ export const FirstList = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 20px;
   }
+
+  @media (min-width: 1150px) {
+    order: 1;
+  }
+
+  @media (min-width: 1440px) {
+    width: 50%;
+  }
 `;
 
 export const SecondList = styled.div`
@@ -62,5 +91,14 @@ export const SecondList = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 20px;
+  }
+
+  @media (min-width: 1150px) {
+    order: 3;
+  }
+
+  @media (min-width: 1440px) {
+    width: 50%;
+    margin-left: auto;
   }
 `;

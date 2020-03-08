@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import MenuItem from '../../atoms/MenuItem/MenuItem';
 import SocialMedia from '../SocialMedia/SocialMedia';
 import { Home, DollarSign, BookOpen, Monitor, PhoneCall } from 'react-feather';
@@ -14,6 +14,13 @@ const menuItems = [
 ];
 
 const Menu = props => {
+  const [isDesktop, toggleIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    if (width >= 1150) toggleIsDesktop(true);
+  });
+
   return (
     <StyledWrapper {...props}>
       <StyledUl>
@@ -29,7 +36,7 @@ const Menu = props => {
           </MenuItem>
         ))}
       </StyledUl>
-      <SocialMedia />
+      <SocialMedia vertical={isDesktop} />
     </StyledWrapper>
   );
 };

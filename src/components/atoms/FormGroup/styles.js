@@ -15,4 +15,13 @@ export const StyledWrapper = styled.div`
     left: -5px;
     display: ${({ required }) => (required ? 'block' : 'none')};
   }
+
+  @media (min-width: 768px) {
+    width: calc(50% - 20px);
+  }
+
+  @media (min-width: 1440px) {
+    width: 100%;
+    margin: 0;
+  }
 `;

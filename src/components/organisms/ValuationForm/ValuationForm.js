@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import Input from '../../atoms/Input/Input';
 import Button from '../../atoms/Button/Button';
@@ -57,7 +57,7 @@ const ValuationForm = () => {
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
       <StyledFieldsWrapper>
-        <FormGroup>
+        <FormGroup className="one">
           <Label htmlhtmlFor="city"> Miejscowość montażu </Label>
           <Input
             id="city"
@@ -68,7 +68,7 @@ const ValuationForm = () => {
             placeholder="np. Tarnobrzeg"
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="five">
           <Label>Przybliżony kąt pokrycia dachowego</Label>
           <RadioInput
             id="roofFlat"
@@ -99,7 +99,7 @@ const ValuationForm = () => {
             onChange={formik.handleChange}
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="two">
           <Label htmlhtmlFor="size"> Wielkość instalacji do wyceny </Label>
           <Input
             id="size"
@@ -110,7 +110,7 @@ const ValuationForm = () => {
             placeholder="np. 50 metrów kwadratowych"
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="six">
           <Label htmlhtmlFor="location">
             Miejsce montażu paneli fotowoltaicznych
           </Label>
@@ -119,7 +119,7 @@ const ValuationForm = () => {
             <option value="grunt"> grunt </option>
           </Select>
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="nine">
           <Label htmlhtmlFor="materialType"> Rodzaj pokrycia dachowego </Label>
           <Select name="materialType" id="materialType">
             <option value="blacha trapezowa"> blacha trapezowa </option>
@@ -132,7 +132,7 @@ const ValuationForm = () => {
             <option value="inny"> inny </option>
           </Select>
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="three">
           <Label htmlhtmlFor="name"> Imię i nazwisko </Label>
           <Input
             id="name"
@@ -143,7 +143,7 @@ const ValuationForm = () => {
             placeholder="np. Anna Kowalska"
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="four">
           <Label htmlhtmlFor="phone"> Numer telefonu </Label>
           <Input
             id="phone"
@@ -154,7 +154,7 @@ const ValuationForm = () => {
             placeholder="np. 123 456 789"
           />
         </FormGroup>
-        <FormGroup required>
+        <FormGroup required className="seven">
           <Label htmlhtmlFor="email"> Adres e-mail </Label>
           {formik.errors.email ? (
             <StyledError>{formik.errors.email}</StyledError>
@@ -168,7 +168,7 @@ const ValuationForm = () => {
             placeholder="np. anna.kowalska@email.com"
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="eight">
           <Label> Preferowana forma kontaktu </Label>
           <StyledInlineInputs>
             <RadioInput
@@ -187,7 +187,7 @@ const ValuationForm = () => {
             />
           </StyledInlineInputs>
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="ten">
           <Label htmlhtmlFor="message"> Tu możesz zadać nam pytanie </Label>
           <Textarea
             id="message"

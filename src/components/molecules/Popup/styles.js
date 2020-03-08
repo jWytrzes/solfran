@@ -5,15 +5,16 @@ export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   top: 50%;
-  transform: translateY(-50%);
-  left: 25px;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: calc(100vw - 50px);
   background-color: white;
   border-radius: 6px;
-  padding: 15px;
+  padding: 15px 30px 30px;
   z-index: 9999;
   max-height: 80vh;
   overflow-y: auto;
+  max-width: 600px;
 `;
 
 export const StyledButton = styled.button`

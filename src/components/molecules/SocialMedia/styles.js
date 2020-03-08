@@ -10,24 +10,40 @@ export const StyledUl = styled.ul`
 
   svg path {
     fill: ${({ theme, white }) => (white ? 'white' : theme.secondary)};
+    transition: fill 0.15s ease-in;
+    will-change: fill;
   }
 
   @media (min-width: 1150px) {
-    flex-direction: column;
+    ${({ vertical }) =>
+      vertical &&
+      `flex-direction: column;
     margin: auto 0 0;
-    justify-content: center;
+    justify-content: center;`}
   }
 `;
 
 export const StyledLi = styled.li`
   margin-left: 25px;
 
+  @media (min-width: 1150px) {
+    ${({ vertical }) =>
+      vertical &&
+      `width: fit-content;
+      margin: 0 auto 20px;
+      `}
+  }
+
   :first-of-type {
     margin-left: 0;
+  }
 
+  :last-of-type {
     @media (min-width: 1150px) {
-      margin-left: 0;
-      margin-bottom: 20px;
+      ${({ vertical }) =>
+        vertical &&
+        `margin-bottom: 0;
+      `}
     }
   }
 
@@ -35,7 +51,9 @@ export const StyledLi = styled.li`
     display: block;
   }
 
-  @media (min-width: 1150px) {
-    margin-left: 0;
+  :hover {
+    svg path {
+      fill: ${({ theme, white }) => (white ? theme.secondary : theme.primary)};
+    }
   }
 `;

@@ -6,6 +6,7 @@ const Heading = styled.h2`
     big ? theme.font.weight.bold : theme.font.weight.semiBold};
   margin: 0 0 40px 0;
   color: ${({ color, theme }) => (color ? color : theme.secondary)};
+  z-index: 3;
 `;
 
 export default Heading;

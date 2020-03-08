@@ -25,6 +25,26 @@ export const StyledWrapper = styled.div`
     bottom: -35px;
     left: 50%;
     transform: translateX(-50%);
+
+    @media (min-width: 1150px) {
+      width: 403px;
+      height: 346px;
+      background-size: cover;
+      transform: translate(-15%, 22%);
+      bottom: -50px;
+      z-index: 0;
+    }
+
+    @media (min-width: 1440px) {
+      width: 565px;
+      height: 507px;
+      transform: translate(1%, 39%);
+    }
+  }
+
+  @media (min-width: 1150px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 `;
 
