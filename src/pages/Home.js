@@ -4,7 +4,7 @@ import OfferSection from '../sections/OfferSection/OfferSection';
 import ValuationSection from '../sections/ValuationSection/ValuationSection';
 import ContactSection from '../sections/ContactSection/ContactSection';
 
-const Home = () => {
+const Home = ({ setActiveMenuItem }) => {
   return (
     <>
       <HeroSection />

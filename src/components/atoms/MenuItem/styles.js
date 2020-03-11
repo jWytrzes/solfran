@@ -75,6 +75,8 @@ export const StyledIconWrapper = styled.span`
   margin-right: 25px;
   background-color: ${({ theme, isActive }) =>
     isActive ? theme.primary : 'transparent'};
+  transition: background-color 0.2s ease-in-out;
+  will-change: background-color;
 
   &::after {
     content: '';

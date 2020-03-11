@@ -33,6 +33,7 @@ const SectionTemplate = ({
       noBottomPadding={noBottomPadding}
       greyBackground={greyBackground}
       topPadding={topPadding}
+      className="section"
       {...props}
     >
       {children}

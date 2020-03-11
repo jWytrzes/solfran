@@ -12,7 +12,7 @@ import {
 
 const ContactSection = () => {
   return (
-    <StyledSectionTemplate id="contact" noBottomPadding>
+    <StyledSectionTemplate className="section" id="contact" noBottomPadding>
       <Heading big color="white">
         Kontakt
       </Heading>
@@ -30,7 +30,6 @@ const ContactSection = () => {
             </StyledA>
           </Paragraph>
         </div>
-
         <PanelsImageMirrored />
       </StyledWrapper>
     </StyledSectionTemplate>
