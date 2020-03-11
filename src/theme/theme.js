@@ -1,10 +1,11 @@
 const theme = {
-  primary: '#5FC6F5',
+  //primary: '#5FC6F5',
+  primary: '#8D83FE',
   secondary: '#18516C',
-  accent: '#8D83FE',
+  accent: '#5FC6F5',
   grey: '#FBFBFB',
   greyBcg: '#f3f3f3',
-  shadow: 'rgba(95, 198, 245, .32)',
+  shadow: 'rgba(141, 131, 239, .32)',
   font: {
     size: {
       xxl: '6rem',

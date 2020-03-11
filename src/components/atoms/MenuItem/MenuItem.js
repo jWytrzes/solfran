@@ -15,7 +15,7 @@ const MenuItem = ({ icon, children, isActive, link, toggleMenu, dataSection }) =
   return (
     <StyledLi onClick={toggleMenu} data-section={dataSection} className="menuItem">
       {isAnchorLink && (
-        <Link to={link}>
+        <Link to={link} aria-label={`Przejdź do sekcji ${children}`}>
           <StyledIconWrapper className="menu__icon" isActive={isActive}>
             {icon}
           </StyledIconWrapper>

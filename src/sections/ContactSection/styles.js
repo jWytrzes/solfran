@@ -4,7 +4,7 @@ import SocialMedia from '../../components/molecules/SocialMedia/SocialMedia';
 import shape5 from '../../assets/pictures/shape5.svg';
 
 export const StyledSectionTemplate = styled(SectionTemplate)`
-  background: linear-gradient(to bottom right, #5fc6f5, #e6f9ff);
+  background: linear-gradient(to bottom right, #8d83fe, #efedff);
   min-height: unset;
   overflow: hidden;
 `;

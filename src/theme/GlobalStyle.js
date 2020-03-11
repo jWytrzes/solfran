@@ -3,7 +3,6 @@ import shape2 from '../assets/pictures/shape2.svg';
 import shape3 from '../assets/pictures/shape3.svg';
 
 const GlobalStyle = createGlobalStyle`
-	@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,900&display=swap&subset=latin-ext');
 
 	html, body {
 		margin: 0;
