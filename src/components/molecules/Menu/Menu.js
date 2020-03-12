@@ -27,7 +27,7 @@ const menuItems = [
     link: '/#valuation',
     dataSection: 'valuation',
   },
-  { icon: <Monitor />, text: 'Blog', link: '/blog' },
+  { icon: <Monitor />, text: 'Blog', link: '/blog', dataSection: 'blog' },
   {
     icon: <PhoneCall />,
     text: 'Kontakt',
@@ -51,13 +51,12 @@ const Menu = ({ location, toggleMenu, ...props }) => {
       checkIfOnScreen(el) && visibleSections.push(el);
     });
 
-    let biggest;
+    let biggest = visibleSections[0];
     if (scrollTop === 0) {
       biggest = sections[0];
     } else if (winHeight + scrollTop >= document.body.offsetHeight) {
       biggest = sections[sections.length - 1];
     } else {
-      biggest = visibleSections[0];
       visibleSections.forEach(section => {
         const visiblePart = calculateVisiblePart(section);
         if (visiblePart > calculateVisiblePart(biggest)) biggest = section;
@@ -74,13 +73,16 @@ const Menu = ({ location, toggleMenu, ...props }) => {
     if (width >= 1150) toggleIsDesktop(true);
 
     if (pathname === '/') {
+      setActiveMenuItem('hero');
       window.addEventListener('scroll', handleScrollDebounce);
+    } else {
+      setActiveMenuItem('blog');
     }
 
     return () => {
       window.removeEventListener('scroll', handleScrollDebounce);
     };
-  }, [pathname, handleScrollDebounce]);
+  }, [pathname]);
 
   return (
     <StyledWrapper {...props}>

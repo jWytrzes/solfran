@@ -13,6 +13,7 @@ export const calculateVisiblePart = element => {
   } else {
     visiblePart = elementHeight;
   }
+
   return visiblePart;
 };
 
@@ -23,7 +24,7 @@ export const checkIfOnScreen = element => {
   const winHeight = window.innerHeight;
 
   return (
-    (posTop >= scrollTop && posTop < scrollTop + winHeight) ||
+    (posTop >= scrollTop && posTop <= scrollTop + winHeight) ||
     (posBottom >= scrollTop && posBottom < scrollTop + winHeight) ||
     (posTop <= scrollTop && posBottom >= scrollTop + winHeight)
   );
