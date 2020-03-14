@@ -31,7 +31,7 @@ const menuItems = [
   {
     icon: <PhoneCall />,
     text: 'Kontakt',
-    link: '/#contact',
+    link: '#contact',
     dataSection: 'contact',
   },
 ];

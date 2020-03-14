@@ -111,16 +111,6 @@ export const StyledTextWrapper = styled.div`
   }
 `;
 
-export const StyledH1 = styled.h1`
-  font-size: ${({ theme }) => theme.font.size.xl};
-  font-weight: ${({ theme }) => theme.font.weight.black};
-  margin: 15px 0;
-
-  @media (min-width: 1440px) {
-    font-size: ${({ theme }) => theme.font.size.xxl};
-  }
-`;
-
 export const StyledButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-between;

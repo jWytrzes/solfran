@@ -1,6 +1,16 @@
 import React from 'react';
-const Home = () => {
-  return <>blog</>;
+import ContactSection from '../sections/ContactSection/ContactSection';
+import BlogHeader from '../components/molecules/BlogHeader/BlogHeader';
+import PostsListSection from '../sections/PostsListSection/PostsListSection';
+
+const Blog = () => {
+  return (
+    <>
+      <BlogHeader />
+      <PostsListSection />
+      <ContactSection />
+    </>
+  );
 };
 
-export default Home;
+export default Blog;

@@ -3,12 +3,7 @@ import Heading from '../../components/atoms/Heading/Heading';
 import ContactData from '../../components/molecules/ContactData/ContactData';
 import PanelsImageMirrored from '../../components/atoms/PanelsImageMirrored/PanelsImageMirrored';
 import Paragraph from '../../components/atoms/Paragraph/Paragraph';
-import {
-  StyledSectionTemplate,
-  StyledSocialMedia,
-  StyledWrapper,
-  StyledA,
-} from './styles';
+import { StyledSectionTemplate, StyledSocialMedia, StyledWrapper, StyledA } from './styles';
 
 const ContactSection = () => {
   return (
@@ -21,11 +16,7 @@ const ContactSection = () => {
           <ContactData />
           <StyledSocialMedia white />
           <Paragraph>
-            <StyledA
-              href="https://www.freepik.com/free-photos-vectors/background"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <StyledA href="https://www.freepik.com/free-photos-vectors/background" target="_blank" rel="noopener noreferrer">
               Background vectors created by rawpixel.com - www.freepik.com
             </StyledA>
           </Paragraph>

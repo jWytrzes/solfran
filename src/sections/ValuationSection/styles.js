@@ -6,5 +6,7 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledParagraph = styled(Paragraph)`
-  max-width: 50%;
+  @media (min-width: 992px) {
+    max-width: 50%;
+  }
 `;

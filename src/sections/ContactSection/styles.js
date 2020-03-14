@@ -51,7 +51,7 @@ export const StyledWrapper = styled.div`
 export const StyledA = styled.a`
   display: block;
   text-decoration: none;
-  color: ${({ theme }) => theme.accent};
+  color: white;
   font-size: ${({ theme }) => theme.font.size.xs};
   margin: 20px 0 10px;
 `;
