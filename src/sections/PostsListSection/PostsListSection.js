@@ -22,6 +22,11 @@ const posts = [
     title: 'Lorem ipsum sed diam at consetetur',
     shortContent: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.',
   },
+  {
+    photo: '',
+    title: 'Lorem ipsum sed diam at consetetur',
+    shortContent: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.',
+  },
 ];
 
 const PostsListSection = () => {

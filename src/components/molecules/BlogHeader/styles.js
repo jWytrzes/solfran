@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import shape8 from '../../../assets/pictures/shape8.svg';
+import shape7 from '../../../assets/pictures/shape7.svg';
 
 export const StyledWrapper = styled.div`
   padding: 50px 25px;
@@ -18,9 +19,19 @@ export const StyledWrapper = styled.div`
     right: 0;
     top: 0;
     z-index: 0;
+
+    @media (min-width: 1150px) {
+      background-image: url(${shape7});
+      width: 607px;
+      height: 188px;
+    }
   }
 
   h1 {
     margin: 0;
+  }
+
+  @media (min-width: 1150px) {
+    padding: 50px 12.5%;
   }
 `;
