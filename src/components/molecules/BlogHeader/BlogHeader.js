@@ -2,10 +2,10 @@ import React from 'react';
 import H1 from '../../atoms/H1/H1';
 import { StyledWrapper } from './styles';
 
-const BlogHeader = () => {
+const BlogHeader = ({ children, dark, alignLeft }) => {
   return (
-    <StyledWrapper>
-      <H1> Blog </H1>
+    <StyledWrapper dark={dark} alignLeft={alignLeft}>
+      <H1> {children} </H1>
     </StyledWrapper>
   );
 };

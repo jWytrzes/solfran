@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link as Link2 } from 'react-router-dom';
-import { HashLink as Link } from 'react-router-hash-link';
+import { Link, withRouter } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { StyledLi, StyledIconWrapper } from './styles';
 
 const MenuItem = ({ icon, children, isActive, link, toggleMenu, dataSection }) => {
@@ -12,26 +12,29 @@ const MenuItem = ({ icon, children, isActive, link, toggleMenu, dataSection }) =
     }
   }, [link]);
 
-  return (
-    <StyledLi onClick={toggleMenu} data-section={dataSection} className="menuItem">
-      {isAnchorLink && (
-        <Link to={link} aria-label={`Przejdź do sekcji ${children}`}>
+  if (!isAnchorLink) {
+    return (
+      <StyledLi onClick={toggleMenu} data-section={dataSection} className="menuItem">
+        <Link to={link}>
           <StyledIconWrapper className="menu__icon" isActive={isActive}>
             {icon}
           </StyledIconWrapper>
           <span className="menu__text"> {children} </span>
         </Link>
-      )}
-      {!isAnchorLink && (
-        <Link2 to={link}>
-          <StyledIconWrapper className="menu__icon" isActive={isActive}>
-            {icon}
-          </StyledIconWrapper>
-          <span className="menu__text"> {children} </span>
-        </Link2>
-      )}
+      </StyledLi>
+    );
+  }
+
+  return (
+    <StyledLi onClick={toggleMenu} data-section={dataSection} className="menuItem">
+      <HashLink smooth to={link} aria-label={`Przejdź do sekcji ${children}`}>
+        <StyledIconWrapper className="menu__icon" isActive={isActive}>
+          {icon}
+        </StyledIconWrapper>
+        <span className="menu__text"> {children} </span>
+      </HashLink>
     </StyledLi>
   );
 };
 
-export default MenuItem;
+export default withRouter(MenuItem);

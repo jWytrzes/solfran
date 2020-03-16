@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../theme/GlobalStyle';
 import theme from '../theme/theme';
 import TopBar from '../components/organisms/TopBar/TopBar';
+import ContactSection from '../sections/ContactSection/ContactSection';
 
 const MainTemplate = ({ children }) => {
   return (
@@ -11,6 +12,7 @@ const MainTemplate = ({ children }) => {
         <GlobalStyle />
         <TopBar />
         {children}
+        <ContactSection />
       </ThemeProvider>
     </div>
   );

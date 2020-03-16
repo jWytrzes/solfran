@@ -4,6 +4,7 @@ import Paragraph from '../../atoms/Paragraph/Paragraph';
 
 export const StyledWrapper = styled.div`
   margin-bottom: 70px;
+  cursor: pointer;
 
   @media (min-width: 768px) {
     ${({ bigPost }) =>
@@ -74,10 +75,12 @@ export const StyledH3 = styled.h3`
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   margin: 25px 0;
   min-height: 72px;
+  cursor: pointer;
 `;
 
 export const StyledButton = styled(Button)`
   margin-top: 25px;
+  cursor: pointer;
 `;
 
 export const StyledParagraph = styled(Paragraph)`

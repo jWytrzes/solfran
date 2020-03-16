@@ -1,25 +1,27 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainTemplate from '../templates/MainTemplate';
 import Home from './Home';
 import Blog from './Blog';
+import Post from './Post';
 
 const Root = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <MainTemplate>
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/blog">
+          <Route exact path="/blog">
             <Blog />
           </Route>
-          {/* <Route exact path="/" component={Home} /> */}
-          {/* <Route path="/blog" component={Blog} /> */}
+          <Route path="/blog/:id">
+            <Post />
+          </Route>
         </Switch>
       </MainTemplate>
-    </BrowserRouter>
+    </Router>
   );
 };
 

@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import shape8 from '../../../assets/pictures/shape8.svg';
 import shape7 from '../../../assets/pictures/shape7.svg';
 
-export const StyledWrapper = styled.div`
+export const StyledWrapper = styled.header`
   padding: 50px 25px;
-  text-align: right;
-  color: white;
+  text-align: ${({ alignLeft }) => (alignLeft ? 'left' : 'right')};
+  color: ${({ theme, dark }) => (dark ? theme.secondary : 'white')};
   position: relative;
   z-index: 10;
 
@@ -24,6 +24,11 @@ export const StyledWrapper = styled.div`
       background-image: url(${shape7});
       width: 607px;
       height: 188px;
+    }
+
+    @media (min-width: 1440px) {
+      width: 910px;
+      height: 248px;
     }
   }
 

@@ -53,7 +53,7 @@ const Menu = ({ location, toggleMenu, ...props }) => {
 
     let biggest = visibleSections[0];
     if (scrollTop === 0) {
-      biggest = sections[0];
+      biggest = document.getElementById('hero');
     } else if (winHeight + scrollTop >= document.body.offsetHeight) {
       biggest = sections[sections.length - 1];
     } else {

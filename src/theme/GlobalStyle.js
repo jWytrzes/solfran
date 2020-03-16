@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
 
 	html {
 		font-size: 62.5%;
-		scroll-behavior: smooth;
+		/* scroll-behavior: smooth; */
 	}
 
 	body {
@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
 		line-height: 1.5;
 		color: #18516C;
 		overflow-x: hidden;
+		min-height: 100vh;
 
 		@media(min-width: 992px) {
 			font-size: 1.6rem; 
