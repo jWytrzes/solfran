@@ -10,3 +10,8 @@ export const StyledParagraph = styled(Paragraph)`
     max-width: 50%;
   }
 `;
+
+export const StyledIframe = styled.iframe`
+  margin-top: 50px;
+  border: none;
+`;
