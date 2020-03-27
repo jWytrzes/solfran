@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { debounce } from 'lodash';
 import BurgerMenu from '../../atoms/BurgerMenu/BurgerMenu.js';
 import Menu from '../../molecules/Menu/Menu.js';
-import logo from '../../../assets/pictures/logo.webp';
+import logo from '../../../assets/pictures/logo.png';
 
 import { StyledWrapper, StyledLogo } from './styles';
 
