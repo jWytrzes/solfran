@@ -15,7 +15,7 @@ const BlogPost = ({ title, shortContent, photo, bigPost, id }) => {
   return (
     <StyledWrapper onClick={handleTileClick} bigPost={bigPost}>
       <StyledPhotoWrapper bigPost={bigPost}>
-        <img src={photo || placeholder} alt="Post photo" />
+        <img src={photo || placeholder} alt="Post" />
       </StyledPhotoWrapper>
       <StyledTextWrapper bigPost={bigPost}>
         <header>
