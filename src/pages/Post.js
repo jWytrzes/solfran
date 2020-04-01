@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import BlogHeader from '../components/molecules/BlogHeader/BlogHeader';
 import ShareButtons from '../components/molecules/ShareButtons/ShareButtons';
 import panelsPhoto from '../assets/pictures/panelsPhoto.png';
+import TopBar from '../components/organisms/TopBar/TopBar';
 
 const StyledWrapper = styled.div`
   position: relative;
@@ -49,19 +50,22 @@ const Post = () => {
   }, []);
 
   return (
-    <article>
-      <BlogHeader dark alignLeft>
-        {item.title}
-      </BlogHeader>
-      <StyledWrapper>
-        <ShareButtons />
-        <div>
-          <StyledImg src={item.photo} alt="" />
-          <StyledP bold> {item.shortContent} </StyledP>
-          <StyledP> {item.content} </StyledP>
-        </div>
-      </StyledWrapper>
-    </article>
+    <>
+      <TopBar />
+      <article>
+        <BlogHeader dark alignLeft>
+          {item.title}
+        </BlogHeader>
+        <StyledWrapper>
+          <ShareButtons />
+          <div>
+            <StyledImg src={item.photo} alt="" />
+            <StyledP bold> {item.shortContent} </StyledP>
+            <StyledP> {item.content} </StyledP>
+          </div>
+        </StyledWrapper>
+      </article>
+    </>
   );
 };
 

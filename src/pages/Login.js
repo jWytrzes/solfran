@@ -1,12 +1,16 @@
 import React from 'react';
 import LoginTemplate from '../templates/LoginTemplate';
 import LoginForm from '../components/organisms/LoginForm/LoginForm';
+import TopBar from '../components/organisms/TopBar/TopBar';
 
 const Login = () => {
   return (
-    <LoginTemplate>
-      <LoginForm />
-    </LoginTemplate>
+    <>
+      <TopBar />
+      <LoginTemplate>
+        <LoginForm />
+      </LoginTemplate>
+    </>
   );
 };
 
