@@ -4,6 +4,8 @@ import MainTemplate from '../templates/MainTemplate';
 import Home from './Home';
 import Blog from './Blog';
 import Post from './Post';
+import Login from './Login';
+import AdminPanel from './AdminPanel';
 
 const Root = () => {
   return (
@@ -18,6 +20,12 @@ const Root = () => {
           </Route>
           <Route path="/blog/:id">
             <Post />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/admin">
+            <AdminPanel />
           </Route>
         </Switch>
       </MainTemplate>
