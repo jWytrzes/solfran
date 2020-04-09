@@ -38,6 +38,10 @@ export const StyledWrapper = styled.div`
     @media (min-width: 1440px) {
       transform: translate(-77%, -5%);
     }
+
+    @media (max-height: 950px) {
+      transform: translate(-77%, -10%);
+    }
   }
 
   ::after {
