@@ -45,11 +45,15 @@ const NewPostForm = ({ edit }) => {
     };
 
     if (newPost.title.length) {
-      postsCollection.add(newPost);
+      if (edit) {
+        postsCollection.doc(id).update(newPost);
+      } else {
+        postsCollection.add(newPost);
+      }
     } else {
       alert('Tytuł jest obowiązkowy');
     }
-    console.log(newPost);
+
     setPopup(false);
     setRedirect(true);
   };
