@@ -5,7 +5,9 @@ import Home from './Home';
 import Blog from './Blog';
 import Post from './Post';
 import Login from './Login';
-import AdminPanel from './AdminPanel';
+import AdminHomepage from './AdminHomepage';
+import AdminNewPost from './AdminNewPost';
+import AdminEditPost from './AdminEditPost';
 
 const Root = () => {
   return (
@@ -24,8 +26,14 @@ const Root = () => {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/admin">
-            <AdminPanel />
+          <Route exact path="/admin">
+            <AdminHomepage />
+          </Route>
+          <Route path="/admin/new">
+            <AdminNewPost />
+          </Route>
+          <Route path="/admin/edit/:id">
+            <AdminEditPost />
           </Route>
         </Switch>
       </MainTemplate>

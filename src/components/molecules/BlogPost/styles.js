@@ -60,6 +60,15 @@ export const StyledTextWrapper = styled.div`
     margin-left: ${({ bigPost }) => (bigPost ? 'unset' : 'auto')};
   }
 
+  p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 94px;
+    word-break: break-word;
+  }
+
   @media (min-width: 768px) {
     ${({ bigPost }) =>
       bigPost &&

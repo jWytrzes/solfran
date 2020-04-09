@@ -43,6 +43,14 @@ const GlobalStyle = createGlobalStyle`
 		font-family: inherit;
 		color: inherit;
 	}
+
+	.ql-editor {
+		min-height: 350px;
+	}
+
+	#postShortContent .ql-editor {
+		min-height: 150px;
+	}
 `;
 
 export default GlobalStyle;

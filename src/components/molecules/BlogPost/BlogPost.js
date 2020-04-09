@@ -21,7 +21,8 @@ const BlogPost = ({ title, shortContent, photo, bigPost, id }) => {
         <header>
           <StyledH3> {title} </StyledH3>
         </header>
-        <StyledParagraph>{shortContent}</StyledParagraph>
+        {/* <StyledParagraph>{shortContent}</StyledParagraph> */}
+        {shortContent}
         <StyledButton primary>Więcej</StyledButton>
       </StyledTextWrapper>
     </StyledWrapper>

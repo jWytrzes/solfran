@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Button from '../../atoms/Button/Button';
 import Heading from '../../atoms/Heading/Heading';
+import { Link } from 'react-router-dom';
 
 export const StyledWrapper = styled.div`
   margin: 40px 0;
@@ -34,10 +34,22 @@ export const StyledHeading = styled(Heading)`
   align-items: center;
 `;
 
-export const StyledButton = styled(Button)`
+export const StyledLink = styled(Link)`
   text-transform: none;
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   letter-spacing: 1px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  border-radius: 100px;
+  padding: 11px 20px;
+  border: 3px solid ${({ theme }) => theme.primary};
+  background-color: ${({ theme }) => theme.primary};
+  color: white;
+  box-shadow: ${({ theme }) => `0 10px 15px ${theme.shadow}`};
+  text-decoration: none;
 
   svg {
     margin-right: 10px;

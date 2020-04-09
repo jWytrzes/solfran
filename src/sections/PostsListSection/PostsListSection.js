@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { firestore } from '../../base';
+import ReactHtmlParser from 'react-html-parser';
 import BlogGridTemplate from '../../templates/BlogGridTemplate';
 import BlogPost from '../../components/molecules/BlogPost/BlogPost';
 import { StyledNoContent } from './styles';
@@ -24,7 +25,7 @@ const PostsListSection = () => {
     return (
       <BlogGridTemplate>
         {posts.map((post, i) => (
-          <BlogPost bigPost={i === 0} title={post.title} shortContent={post.shortContent} photo={post.photo} key={post.id} id={post.id} />
+          <BlogPost bigPost={i === 0} title={post.title} shortContent={ReactHtmlParser (post.shortContent)} photo={post.photo} content={post.content} key={post.id} id={post.id} />
         ))}
       </BlogGridTemplate>
     );
