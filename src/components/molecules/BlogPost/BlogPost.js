@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import placeholder from '../../../assets/pictures/panelsPhoto.png';
 import { StyledWrapper, StyledPhotoWrapper, StyledH3, StyledButton, StyledTextWrapper } from './styles';
 
-const BlogPost = ({ title, shortContent, photo, bigPost, id }) => {
+const BlogPost = ({ title, shortContent, content, photo, bigPost, id }) => {
   const [redirect, setRedirect] = useState(false);
 
   const handleTileClick = () => setRedirect(true);

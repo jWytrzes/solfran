@@ -7,7 +7,7 @@ import { StyledSectionTemplate, StyledSocialMedia, StyledWrapper, StyledA } from
 
 const ContactSection = () => {
   return (
-    <StyledSectionTemplate className="section" id="contact" noBottomPadding>
+    <StyledSectionTemplate className="section" id="contact" noBottomPadding style={{ marginTop: 'auto' }}>
       <Heading big color="white">
         Kontakt
       </Heading>

@@ -30,7 +30,6 @@ const PostsListSection = () => {
             title={post.title}
             shortContent={ReactHtmlParser(post.shortContent)}
             photo={post.photo}
-            content={post.content}
             key={post.id}
             id={post.id}
           />

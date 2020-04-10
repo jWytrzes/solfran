@@ -51,6 +51,12 @@ const GlobalStyle = createGlobalStyle`
 	#postShortContent .ql-editor {
 		min-height: 150px;
 	}
+
+	#root > div {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
 `;
 
 export default GlobalStyle;
