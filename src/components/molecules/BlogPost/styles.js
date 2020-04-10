@@ -59,15 +59,6 @@ export const StyledTextWrapper = styled.div`
     margin-left: ${({ bigPost }) => (bigPost ? 'unset' : 'auto')};
   }
 
-  p {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    height: 94px;
-    word-break: break-word;
-  }
-
   @media (min-width: 768px) {
     ${({ bigPost }) =>
       bigPost &&
@@ -78,8 +69,21 @@ export const StyledTextWrapper = styled.div`
   }
 `;
 
+export const StyledShortContent = styled.div`
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 94px;
+  word-break: break-word;
+
+  p {
+    margin: 0;
+  }
+`;
+
 export const StyledH3 = styled.h3`
-  font-size: ${({ theme }) => theme.font.size.m};
+  font-size: ${({ theme, bigPost }) => (bigPost ? theme.font.size.l : theme.font.size.m)};
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   margin: 25px 0;
   min-height: 72px;

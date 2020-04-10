@@ -12,6 +12,14 @@ export const StyledInput = styled(Input)`
   background-color: transparent;
   border: 1px solid #ccc;
   border-radius: 0;
+  color: #333;
+  font-size: 14px;
+  font-size: 1.4rem;
+
+  @media (min-width: 992px) {
+    font-size: 1.6rem;
+    font-size: 16px;
+  }
 `;
 
 export const StyledLabel = styled(Label)`

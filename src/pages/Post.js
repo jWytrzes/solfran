@@ -24,6 +24,12 @@ const StyledWrapper = styled.div`
   }
 `;
 
+const StyledContentWrapper = styled.div`
+  p {
+    margin: 0;
+  }
+`;
+
 const StyledImg = styled.img`
   display: inline-block;
   max-width: 100%;
@@ -63,11 +69,11 @@ const Post = () => {
         </BlogHeader>
         <StyledWrapper>
           <ShareButtons />
-          <div>
-            <StyledImg src={item.photo} alt="" />
+          <StyledContentWrapper>
+            {item.photo && <StyledImg src={item.photo} alt="" />}
             {ReactHtmlParser(item.shortContent)}
             {ReactHtmlParser(item.content)}
-          </div>
+          </StyledContentWrapper>
         </StyledWrapper>
       </article>
     </>

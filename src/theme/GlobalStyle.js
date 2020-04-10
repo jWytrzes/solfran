@@ -52,10 +52,21 @@ const GlobalStyle = createGlobalStyle`
 		min-height: 150px;
 	}
 
+	#root .ql-container {
+		font-family: inherit;
+		font-size: inherit;
+	}
+
 	#root > div {
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
+	}
+
+	blockquote {
+		background-color: ${({ theme }) => theme.greyBcg};
+		padding: 15px;
+		border-radius: 5px;
 	}
 `;
 

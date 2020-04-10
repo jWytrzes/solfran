@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import placeholder from '../../../assets/pictures/panelsPhoto.png';
-import { StyledWrapper, StyledPhotoWrapper, StyledH3, StyledButton, StyledTextWrapper } from './styles';
+import { StyledWrapper, StyledPhotoWrapper, StyledH3, StyledButton, StyledTextWrapper, StyledShortContent } from './styles';
 
 const BlogPost = ({ title, shortContent, content, photo, bigPost, id }) => {
   const [redirect, setRedirect] = useState(false);
@@ -19,9 +19,10 @@ const BlogPost = ({ title, shortContent, content, photo, bigPost, id }) => {
       </StyledPhotoWrapper>
       <StyledTextWrapper bigPost={bigPost}>
         <header>
-          <StyledH3> {title} </StyledH3>
+          <StyledH3 bigPost={bigPost}> {title} </StyledH3>
         </header>
-        {shortContent}
+        <StyledShortContent>{shortContent}</StyledShortContent>
+
         <StyledButton primary>Więcej</StyledButton>
       </StyledTextWrapper>
     </StyledWrapper>
