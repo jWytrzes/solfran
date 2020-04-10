@@ -40,7 +40,6 @@ const NewPostForm = ({ edit }) => {
       title,
       shortContent,
       content,
-      createdAt: new Date().toLocaleString(),
       photo: '',
     };
 
@@ -48,7 +47,7 @@ const NewPostForm = ({ edit }) => {
       if (edit) {
         postsCollection.doc(id).update(newPost);
       } else {
-        postsCollection.add(newPost);
+        postsCollection.add({ ...newPost, createdAt: new Date().toLocaleString() });
       }
     } else {
       alert('Tytuł jest obowiązkowy');
