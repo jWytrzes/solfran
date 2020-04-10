@@ -9,12 +9,12 @@ const PostsListSection = () => {
   const [posts, setPosts] = useState([]);
   const postsCollection = firestore.collection('posts');
 
-  const documentsCollection = doc => {
+  const documentsCollection = (doc) => {
     return { id: doc.id, ...doc.data() };
   };
 
   useEffect(() => {
-    const subscribe = postsCollection.onSnapshot(snapshot => {
+    const subscribe = postsCollection.orderBy('createdAt', 'desc').onSnapshot((snapshot) => {
       const dataFromCollection = snapshot.docs.map(documentsCollection);
       setPosts(dataFromCollection);
     });
@@ -25,7 +25,15 @@ const PostsListSection = () => {
     return (
       <BlogGridTemplate>
         {posts.map((post, i) => (
-          <BlogPost bigPost={i === 0} title={post.title} shortContent={ReactHtmlParser (post.shortContent)} photo={post.photo} content={post.content} key={post.id} id={post.id} />
+          <BlogPost
+            bigPost={i === 0}
+            title={post.title}
+            shortContent={ReactHtmlParser(post.shortContent)}
+            photo={post.photo}
+            content={post.content}
+            key={post.id}
+            id={post.id}
+          />
         ))}
       </BlogGridTemplate>
     );

@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
-import analytics from 'firebase/analytics';
-import database from 'firebase/firestore';
+import 'firebase/analytics';
+import 'firebase/firestore';
+import 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FB_API_KEY,
@@ -12,7 +13,9 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_FB_APP_ID,
   measurementId: process.env.REACT_APP_FB_MEASUREMENT_ID,
 };
-console.log(process.env.REACT_APP_FB_PROJECT_ID);
+
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+
 export const firestore = firebase.firestore();
+export const auth = firebase.auth();

@@ -1,26 +1,36 @@
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Redirect, withRouter } from 'react-router-dom';
 import { useFormik } from 'formik';
+import { auth } from '../../../base';
+import { AuthContext } from '../../../utils/Auth';
 import FormGroup from '../../atoms/FormGroup/FormGroup';
 import Label from '../../atoms/Label/Label';
 import Input from '../../atoms/Input/Input';
 import Button from '../../atoms/Button/Button';
 import { StyledForm } from './styles';
 
-const LoginForm = () => {
-  const [redirect, setRedirect] = useState(false);
+const LoginForm = ({ history }) => {
   const formik = useFormik({
     initialValues: {
       login: '',
       password: '',
     },
-    onSubmit: values => {
-      //send request here
-      //if request is ok
-      console.log('here');
-      setRedirect(true);
+    onSubmit: async (values) => {
+      const { login, password } = values;
+      try {
+        await auth.signInWithEmailAndPassword(login, password);
+        history.push('/admin');
+      } catch (error) {
+        alert(error);
+      }
     },
   });
+
+  const { currentUser } = useContext(AuthContext);
+
+  if (currentUser) {
+    return <Redirect to="/admin" />;
+  }
 
   return (
     <>
@@ -40,9 +50,8 @@ const LoginForm = () => {
           Zaloguj
         </Button>
       </StyledForm>
-      {redirect && <Redirect push to="/admin" />}
     </>
   );
 };
 
-export default LoginForm;
+export default withRouter(LoginForm);

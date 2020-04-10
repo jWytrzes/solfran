@@ -13,7 +13,7 @@ const PostsTable = () => {
   };
 
   useEffect(() => {
-    const subscribe = postsCollection.onSnapshot((snapshot) => {
+    const subscribe = postsCollection.orderBy('createdAt', 'desc').onSnapshot((snapshot) => {
       const dataFromCollection = snapshot.docs.map(documentsCollection);
       setPosts(dataFromCollection);
     });

@@ -23,7 +23,6 @@ const NewPostForm = ({ edit }) => {
         .get()
         .then(function (doc) {
           if (doc.exists) {
-            console.log(doc.data());
             setTitle(doc.data().title);
             setContent(doc.data().content);
             setShortContent(doc.data().shortContent);

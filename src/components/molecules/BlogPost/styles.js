@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import Button from '../../atoms/Button/Button';
-import Paragraph from '../../atoms/Paragraph/Paragraph';
 
 export const StyledWrapper = styled.div`
   margin-bottom: 70px;
@@ -90,12 +89,4 @@ export const StyledH3 = styled.h3`
 export const StyledButton = styled(Button)`
   margin-top: 25px;
   cursor: pointer;
-`;
-
-export const StyledParagraph = styled(Paragraph)`
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  height: 85px;
 `;

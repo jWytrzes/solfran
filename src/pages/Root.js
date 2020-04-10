@@ -8,36 +8,34 @@ import Login from './Login';
 import AdminHomepage from './AdminHomepage';
 import AdminNewPost from './AdminNewPost';
 import AdminEditPost from './AdminEditPost';
+import { AuthProvider } from '../utils/Auth';
+import PrivateRoute from '../utils/PrivateRoute';
 
 const Root = () => {
   return (
-    <Router>
-      <MainTemplate>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/blog">
-            <Blog />
-          </Route>
-          <Route path="/blog/:id">
-            <Post />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/admin">
-            <AdminHomepage />
-          </Route>
-          <Route path="/admin/new">
-            <AdminNewPost />
-          </Route>
-          <Route path="/admin/edit/:id">
-            <AdminEditPost />
-          </Route>
-        </Switch>
-      </MainTemplate>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <MainTemplate>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/blog">
+              <Blog />
+            </Route>
+            <Route path="/blog/:id">
+              <Post />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <PrivateRoute exact path="/admin" component={AdminHomepage} />
+            <PrivateRoute path="/admin/new" component={AdminNewPost} />
+            <PrivateRoute path="/admin/edit/:id" component={AdminEditPost} />
+          </Switch>
+        </MainTemplate>
+      </Router>
+    </AuthProvider>
   );
 };
 
