@@ -74,11 +74,15 @@ export const StyledShortContent = styled.div`
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  height: 94px;
+  height: 88px;
   word-break: break-word;
 
   p {
     margin: 0;
+  }
+
+  @media (min-width: 992px) {
+    height: 94px;
   }
 `;
 

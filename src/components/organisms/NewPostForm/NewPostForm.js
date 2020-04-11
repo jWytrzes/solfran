@@ -5,6 +5,7 @@ import useFirebaseUpload from '../../../utils/useFirebaseUpload';
 import ReactQuill from 'react-quill';
 import Popup from '../../molecules/Popup/Popup';
 import Button from '../../atoms/Button/Button';
+import Loader from '../Loader/Loader';
 import 'react-quill/dist/quill.snow.css';
 import { StyledWrapper, StyledInput, StyledLabel, StyledButton, StyledButtonsWrapper } from './styles';
 
@@ -12,6 +13,7 @@ const NewPostForm = ({ edit }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [shortContent, setShortContent] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const [popup, setPopup] = useState(false);
   const [redirect, setRedirect] = useState(false);
@@ -23,6 +25,7 @@ const NewPostForm = ({ edit }) => {
 
   useEffect(() => {
     if (edit) {
+      setLoading(true);
       postsCollection
         .doc(id)
         .get()
@@ -36,6 +39,7 @@ const NewPostForm = ({ edit }) => {
               downloadUrl: doc.data().photo,
             });
           }
+          setLoading(false);
         })
         .catch(function (error) {
           console.error('Error removing document: ', error);
@@ -50,7 +54,7 @@ const NewPostForm = ({ edit }) => {
       title,
       shortContent,
       content,
-      photo: data && data.downloadUrl || '',
+      photo: (data && data.downloadUrl) || '',
     };
 
     if (newPost.title.length) {
@@ -139,6 +143,7 @@ const NewPostForm = ({ edit }) => {
       </StyledButton>
       {popup && <Popup title="Czy na pewno chcesz dodać post?" content={popupContent} closePopup={() => setPopup(false)} />}
       {redirect && <Redirect push to="/admin" />}
+      {loading && <Loader />}
     </StyledWrapper>
   );
 };

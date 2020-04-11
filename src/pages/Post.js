@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import BlogHeader from '../components/molecules/BlogHeader/BlogHeader';
 import ShareButtons from '../components/molecules/ShareButtons/ShareButtons';
 import TopBar from '../components/organisms/TopBar/TopBar';
+import Loader from '../components/organisms/Loader/Loader';
 
 const StyledWrapper = styled.div`
   position: relative;
@@ -44,16 +45,19 @@ const StyledImg = styled.img`
 
 const Post = () => {
   const [item, setItem] = useState({});
+  const [loading, setLoading] = useState(true);
   const postsCollection = firestore.collection('posts');
   const { id } = useParams();
 
   useEffect(() => {
+    setLoading(true);
     postsCollection
       .doc(id)
       .get()
       .then(function (doc) {
         if (doc.exists) {
           setItem({ ...doc.data() });
+          setLoading(false);
         }
       })
       .catch(function (error) {
@@ -79,6 +83,7 @@ const Post = () => {
           </StyledContentWrapper>
         </StyledWrapper>
       </article>
+      {loading && <Loader />}
     </>
   );
 };
