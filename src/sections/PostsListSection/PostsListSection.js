@@ -14,10 +14,14 @@ const PostsListSection = () => {
   };
 
   useEffect(() => {
-    const subscribe = postsCollection.orderBy('createdAt', 'desc').onSnapshot((snapshot) => {
-      const dataFromCollection = snapshot.docs.map(documentsCollection);
-      setPosts(dataFromCollection);
-    });
+    const subscribe = postsCollection
+      .orderBy('createdAt', 'desc')
+      .get()
+      .then((snapshot) => {
+        const dataFromCollection = snapshot.docs.map(documentsCollection);
+        setPosts(dataFromCollection);
+      });
+
     return () => subscribe;
   }, []);
 

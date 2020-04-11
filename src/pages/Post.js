@@ -33,6 +33,7 @@ const StyledContentWrapper = styled.div`
 const StyledImg = styled.img`
   display: inline-block;
   max-width: 100%;
+  background-color: white;
 
   @media (min-width: 1150px) {
     max-width: 50%;
@@ -71,8 +72,10 @@ const Post = () => {
           <ShareButtons />
           <StyledContentWrapper>
             {item.photo && <StyledImg src={item.photo} alt="" />}
-            {ReactHtmlParser(item.shortContent)}
-            {ReactHtmlParser(item.content)}
+            <div>
+              {ReactHtmlParser(item.shortContent)}
+              {ReactHtmlParser(item.content)}
+            </div>
           </StyledContentWrapper>
         </StyledWrapper>
       </article>

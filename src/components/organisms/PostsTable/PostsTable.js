@@ -6,6 +6,7 @@ import { StyledWrapper, StyledHeader, StyledBadge, StyledHeading, StyledLink } f
 
 const PostsTable = () => {
   const [posts, setPosts] = useState([]);
+  const [refresh, setRefresh] = useState(false);
   const postsCollection = firestore.collection('posts');
 
   const documentsCollection = (doc) => {
@@ -13,12 +14,16 @@ const PostsTable = () => {
   };
 
   useEffect(() => {
-    const subscribe = postsCollection.orderBy('createdAt', 'desc').onSnapshot((snapshot) => {
-      const dataFromCollection = snapshot.docs.map(documentsCollection);
-      setPosts(dataFromCollection);
-    });
+    const subscribe = postsCollection
+      .orderBy('createdAt', 'desc')
+      .get()
+      .then((snapshot) => {
+        const dataFromCollection = snapshot.docs.map(documentsCollection);
+        setPosts(dataFromCollection);
+      });
+
     return () => subscribe;
-  }, []);
+  }, [refresh]);
 
   return (
     <StyledWrapper>
@@ -32,7 +37,7 @@ const PostsTable = () => {
       </StyledHeader>
       <div>
         {posts.length &&
-          posts.map((post, i) => <TableRow id={post.id} title={post.title} createdAt={post.createdAt} key={post.id} even={i % 2 === 0} />)}
+          posts.map((post, i) => <TableRow id={post.id} title={post.title} createdAt={post.createdAt} key={post.id} even={i % 2 === 0} refresh={() => setRefresh(!refresh)} />)}
       </div>
     </StyledWrapper>
   );

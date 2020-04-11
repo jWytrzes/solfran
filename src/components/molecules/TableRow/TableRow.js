@@ -16,7 +16,7 @@ import {
 } from './styles';
 import { Link as LinkIcon, Edit, X } from 'react-feather';
 
-const TableRow = ({ id, title, createdAt, even }) => {
+const TableRow = ({ id, title, createdAt, even, refresh }) => {
   const [popup, setPopup] = useState(false);
   const postsCollection = firestore.collection('posts');
 
@@ -26,10 +26,14 @@ const TableRow = ({ id, title, createdAt, even }) => {
       .delete()
       .then(function () {
         console.log('Document successfully deleted!');
+
       })
       .catch(function (error) {
         console.error('Error removing document: ', error);
+        alert('Coś poszło nie tak');
       });
+    setPopup(false);
+    refresh();
   };
 
   const popupContent = (

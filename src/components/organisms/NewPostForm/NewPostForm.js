@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
-import { firestore } from '../../../base';
+import { firestore, storage } from '../../../base';
+import useFirebaseUpload from '../../../utils/useFirebaseUpload';
 import ReactQuill from 'react-quill';
 import Popup from '../../molecules/Popup/Popup';
 import Button from '../../atoms/Button/Button';
@@ -11,8 +12,12 @@ const NewPostForm = ({ edit }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [shortContent, setShortContent] = useState('');
+
   const [popup, setPopup] = useState(false);
   const [redirect, setRedirect] = useState(false);
+
+  const [{ data, isLoading, isError, progress }, setFileData, setData] = useFirebaseUpload();
+
   const postsCollection = firestore.collection('posts');
   const { id } = useParams();
 
@@ -26,6 +31,10 @@ const NewPostForm = ({ edit }) => {
             setTitle(doc.data().title);
             setContent(doc.data().content);
             setShortContent(doc.data().shortContent);
+            setData({
+              ...data,
+              downloadUrl: doc.data().photo,
+            });
           }
         })
         .catch(function (error) {
@@ -34,12 +43,14 @@ const NewPostForm = ({ edit }) => {
     }
   }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     const newPost = {
       title,
       shortContent,
       content,
-      photo: '',
+      photo: data && data.downloadUrl || '',
     };
 
     if (newPost.title.length) {
@@ -59,9 +70,9 @@ const NewPostForm = ({ edit }) => {
   const shortContentModules = {
     toolbar: [
       ['bold', 'italic', 'underline', 'strike'],
-      [{ script: 'sub' }, { script: 'super' }], // superscript/subscript
-      ['link', 'image'], // add's image support
-      [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+      [{ script: 'sub' }, { script: 'super' }],
+      ['link'],
+      [{ color: [] }, { background: [] }],
       [{ font: [] }],
       [{ align: [] }],
 
@@ -74,12 +85,12 @@ const NewPostForm = ({ edit }) => {
       ['bold', 'italic', 'underline', 'strike'],
       ['blockquote'],
       [{ list: 'ordered' }, { list: 'bullet' }],
-      [{ script: 'sub' }, { script: 'super' }], // superscript/subscript
+      [{ script: 'sub' }, { script: 'super' }],
 
-      [{ size: ['small', false, 'large', 'huge'] }], // custom dropdown
+      [{ size: ['small', false, 'large', 'huge'] }],
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
-      ['link', 'image'], // add's image support
-      [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+      ['link', 'image'],
+      [{ color: [] }, { background: [] }],
       [{ font: [] }],
       [{ align: [] }],
 
@@ -96,10 +107,27 @@ const NewPostForm = ({ edit }) => {
     </StyledButtonsWrapper>
   );
 
+  const deleteFileButton = data && Boolean(data.downloadUrl.length);
+  const progressVal = isLoading && progress;
+
   return (
     <StyledWrapper>
       <StyledLabel htmlFor="postTitle"> Tytuł posta: </StyledLabel>
       <StyledInput id="postTitle" value={title} onChange={(e) => setTitle(e.target.value)} />
+
+      <StyledLabel htmlFor="imageUpload"> Miniaturka postu: </StyledLabel>
+      <StyledInput
+        id="imageUpload"
+        type="file"
+        accept="image/*"
+        onChange={(e) => {
+          setFileData(e.target.files[0]);
+        }}
+      ></StyledInput>
+
+      {isError && <div>ERROR: {isError.message}</div>}
+      {progressVal && <div> Dodawanie pliku: {progress.value}% </div>}
+      {deleteFileButton && <Button onClick={() => setData({ ...data, downloadUrl: '' })}> Usuń plik </Button>}
 
       <StyledLabel htmlFor="postShortContent"> Krótki opis (widoczny w kafelku): </StyledLabel>
       <ReactQuill id="postShortContent" theme="snow" modules={shortContentModules} value={shortContent} onChange={setShortContent} />
