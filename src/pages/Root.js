@@ -8,6 +8,7 @@ import Login from './Login';
 import AdminHomepage from './AdminHomepage';
 import AdminNewPost from './AdminNewPost';
 import AdminEditPost from './AdminEditPost';
+import AdminValuationRequests from './AdminValuationRequests';
 import { AuthProvider } from '../utils/Auth';
 import PrivateRoute from '../utils/PrivateRoute';
 
@@ -32,6 +33,7 @@ const Root = () => {
             <PrivateRoute exact path="/admin" component={AdminHomepage} />
             <PrivateRoute path="/admin/new" component={AdminNewPost} />
             <PrivateRoute path="/admin/edit/:id" component={AdminEditPost} />
+            <PrivateRoute path="/admin/valuationRequests" component={AdminValuationRequests} />
           </Switch>
         </MainTemplate>
       </Router>

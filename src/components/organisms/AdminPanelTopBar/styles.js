@@ -39,3 +39,17 @@ export const StyledLink = styled(Link)`
     color: inherit;
   }
 `;
+
+export const StyledList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin: auto auto auto 50px;
+`;
+
+export const StyledTextLink = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme, isactive }) => (isactive ? theme.primary : '#333')};
+  font-weight: ${({ theme, isactive }) => (isactive ? theme.font.weight.semiBold : theme.font.weight.regular)};
+  margin-right: 30px;
+`;

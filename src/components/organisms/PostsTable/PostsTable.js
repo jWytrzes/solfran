@@ -32,6 +32,7 @@ const PostsTable = () => {
   return (
     <StyledWrapper>
       <StyledHeader>
+        {console.log(posts)}
         <StyledHeading big>
           Posty <StyledBadge> {posts.length} </StyledBadge>
         </StyledHeading>

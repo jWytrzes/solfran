@@ -108,3 +108,9 @@ export const StyledFieldsWrapper = styled.div`
     grid-area: ten;
   }
 `;
+
+export const StyledRecaptchaWrapper = styled.div`
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-end;
+`;

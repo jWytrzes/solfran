@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
+import Reaptcha from 'reaptcha';
+import { functions } from '../../../base';
 import Input from '../../atoms/Input/Input';
 import Button from '../../atoms/Button/Button';
 import Textarea from '../../atoms/Textarea/Textarea';
@@ -8,12 +10,21 @@ import Label from '../../atoms/Label/Label';
 import FormGroup from '../../atoms/FormGroup/FormGroup';
 import RadioInput from '../../atoms/RadioInput/RadioInput';
 import Popup from '../../molecules/Popup/Popup';
-import { StyledForm, StyledInlineInputs, StyledButton, StyledButtonsWrapper, StyledError, StyledFieldsWrapper } from './styles';
+import {
+  StyledForm,
+  StyledInlineInputs,
+  StyledButton,
+  StyledButtonsWrapper,
+  StyledError,
+  StyledFieldsWrapper,
+  StyledRecaptchaWrapper,
+} from './styles';
 
 const ValuationForm = () => {
   const [isPopupVisible, togglePopup] = useState(false);
+  const [verified, setVerified] = useState(false);
 
-  const validate = values => {
+  const validate = (values) => {
     const errors = {};
     if (!values.email) {
       errors.email = 'Adres e-mail jest wymagany';
@@ -24,6 +35,14 @@ const ValuationForm = () => {
     togglePopup(false);
     return errors;
   };
+
+  function dataCallback(response) {
+    console.log('dataCallback', response);
+    window.location.href = '/checkRecaptcha?response=' + encodeURIComponent(response);
+  }
+  function dataExpiredCallback() {
+    console.log('dataExpiredCallback');
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -39,11 +58,27 @@ const ValuationForm = () => {
       message: '',
     },
     validate,
-    onSubmit: values => {
+    onSubmit: (values) => {
       togglePopup(false);
       console.log(JSON.stringify(values, null, 2));
+      if (verified) {
+      }
     },
   });
+
+  const onVerify = (recaptchaResponse) => {
+    console.log(recaptchaResponse, '!!!!');
+
+    const checkRecaptcha = functions.httpsCallable('checkRecaptcha');
+    checkRecaptcha({ response: recaptchaResponse })
+      .then((result) => {
+        result.human && setVerified(true);
+      })
+      .catch((error) => {
+        setVerified(false);
+        console.log('Error: ', error);
+      });
+  };
 
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
@@ -125,7 +160,12 @@ const ValuationForm = () => {
           <Textarea id="message" name="message" onChange={formik.handleChange} value={formik.values.message} placeholder="Wiadomość" />
         </FormGroup>
       </StyledFieldsWrapper>
-      <StyledButton primary autoWidth onClick={() => togglePopup(!isPopupVisible)} type="button">
+
+      <StyledRecaptchaWrapper>
+        <Reaptcha sitekey="6LfT3OgUAAAAABAPLno17OGXacdswrmdu5ep50So" onVerify={onVerify} />
+      </StyledRecaptchaWrapper>
+
+      <StyledButton primary autoWidth onClick={() => togglePopup(!isPopupVisible)} disabled={!verified} type="button">
         Wyślij zapytanie
       </StyledButton>
 

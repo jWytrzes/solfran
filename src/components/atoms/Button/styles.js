@@ -10,11 +10,12 @@ export const StyledButton = styled.button`
   width: ${({ autoWidth }) => (autoWidth ? 'auto' : '150px')};
   padding: ${({ autoWidth }) => (autoWidth ? '11px  20px' : '11px 0')};
   border: 3px solid ${({ theme, primary }) => (primary ? theme.primary : theme.secondary)};
-  background-color: ${({ theme, primary }) => (primary ? theme.primary : 'white')};
+  background-color: ${({ theme, primary }) => (primary ? theme.primary : 'transparent')};
   color: ${({ theme, primary }) => (primary ? 'white' : theme.secondary)};
   opacity: ${({ primary }) => (primary ? 1 : 0.5)};
   font-weight: ${({ theme, primary }) => (primary ? theme.font.weight.bold : theme.font.weight.semiBold)};
   box-shadow: ${({ theme, primary }) => (primary ? `0 10px 15px ${theme.shadow}` : 'none')};
   text-decoration: none;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'auto' : 'pointer')};
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
 `;

@@ -24,8 +24,8 @@ const GlobalStyle = createGlobalStyle`
 		min-height: 100vh;
 
 		@media(min-width: 992px) {
-			font-size: 1.6rem; 
 			font-size: 16px;
+			font-size: 1.6rem; 
 			padding-top: 0;
 		}
 	}
