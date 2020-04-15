@@ -42,7 +42,9 @@ const RequestTableRow = ({ data, num }) => {
         <StyledDetail>
           Rodzaj pokrycia dachowego: <span>{data.materialType}</span>
         </StyledDetail>
-        <StyledDetail> Wiadomość: {data.message} </StyledDetail>
+        <StyledDetail fullWidth>
+          Wiadomość: <span>{data.message} </span>
+        </StyledDetail>
       </StyledDetails>
     </StyledRow>
   );

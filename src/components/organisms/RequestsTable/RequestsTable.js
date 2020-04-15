@@ -21,7 +21,6 @@ const RequestsTable = () => {
       .get()
       .then((snapshot) => {
         const dataFromCollection = snapshot.docs.map(documentsCollection);
-        console.log(dataFromCollection);
         setRequests(dataFromCollection);
         setLoading(false);
       });

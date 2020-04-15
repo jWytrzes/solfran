@@ -1,14 +1,14 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { auth } from '../../../base';
-import { AuthContext } from '../../../utils/Auth';
 import FormGroup from '../../atoms/FormGroup/FormGroup';
 import Label from '../../atoms/Label/Label';
 import Input from '../../atoms/Input/Input';
 import Button from '../../atoms/Button/Button';
 import { StyledForm } from './styles';
 import Loader from '../../organisms/Loader/Loader';
+import { checkUserToken } from '../../../utils';
 
 const LoginForm = ({ history }) => {
   const [loading, setLoading] = useState(false);
@@ -22,8 +22,12 @@ const LoginForm = ({ history }) => {
       setLoading(true);
       const { login, password } = values;
       try {
-        await auth.signInWithEmailAndPassword(login, password);
-        history.push('/admin');
+        await auth.signInWithEmailAndPassword(login, password).then(() => {
+          auth.currentUser.getIdToken().then((token) => {
+            localStorage.setItem('userToken', token);
+            history.push('/admin');
+          });
+        });
       } catch (error) {
         alert(error);
       }
@@ -31,11 +35,10 @@ const LoginForm = ({ history }) => {
     },
   });
 
-  const { currentUser } = useContext(AuthContext);
-
-  if (currentUser) {
-    return <Redirect to="/admin" />;
-  }
+  useEffect(() => {
+    const authenticated = checkUserToken();
+    if (authenticated) history.push('/admin');
+  }, []);
 
   return (
     <>
@@ -56,6 +59,7 @@ const LoginForm = ({ history }) => {
         </Button>
       </StyledForm>
       {loading && <Loader />}
+      {/* {redirect && <Redirect to="/admin" />} */}
     </>
   );
 };

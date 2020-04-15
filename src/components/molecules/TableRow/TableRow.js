@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { firestore } from '../../../base';
 import Popup from '../Popup/Popup';
 import Button from '../../atoms/Button/Button';
 import {
@@ -16,30 +15,19 @@ import {
 } from './styles';
 import { Link as LinkIcon, Edit, X } from 'react-feather';
 
-const TableRow = ({ id, title, createdAt, even, refresh }) => {
+const TableRow = ({ id, title, createdAt, even, deletePost }) => {
   const [popup, setPopup] = useState(false);
-  const postsCollection = firestore.collection('posts');
-
-  const deletePost = () => {
-    postsCollection
-      .doc(id)
-      .delete()
-      .then(function () {
-        console.log('Document successfully deleted!');
-
-      })
-      .catch(function (error) {
-        console.error('Error removing document: ', error);
-        alert('Coś poszło nie tak');
-      });
-    setPopup(false);
-    refresh();
-  };
 
   const popupContent = (
     <StyledButtonsWrapper>
       <Button onClick={() => setPopup(false)}> Anuluj </Button>
-      <Button primary onClick={deletePost}>
+      <Button
+        primary
+        onClick={() => {
+          setPopup(false);
+          deletePost(id);
+        }}
+      >
         Usuń
       </Button>
     </StyledButtonsWrapper>

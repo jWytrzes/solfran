@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import Reaptcha from 'reaptcha';
-import { functions } from '../../../base';
+import { functions, firestore } from '../../../base';
 import Input from '../../atoms/Input/Input';
 import Button from '../../atoms/Button/Button';
 import Textarea from '../../atoms/Textarea/Textarea';
 import Select from '../../atoms/Select/Select';
 import Label from '../../atoms/Label/Label';
+import Paragraph from '../../atoms/Paragraph/Paragraph';
 import FormGroup from '../../atoms/FormGroup/FormGroup';
 import RadioInput from '../../atoms/RadioInput/RadioInput';
 import Popup from '../../molecules/Popup/Popup';
@@ -18,11 +19,16 @@ import {
   StyledError,
   StyledFieldsWrapper,
   StyledRecaptchaWrapper,
+  StyledLoader,
 } from './styles';
+import { Loader } from 'react-feather';
 
 const ValuationForm = () => {
   const [isPopupVisible, togglePopup] = useState(false);
+  const [sendPopup, toggleSendPopup] = useState(false);
+  const [loader, setLoader] = useState(false);
   const [verified, setVerified] = useState(false);
+  const requestsCollection = firestore.collection('valuationRequests');
 
   const validate = (values) => {
     const errors = {};
@@ -36,43 +42,41 @@ const ValuationForm = () => {
     return errors;
   };
 
-  function dataCallback(response) {
-    console.log('dataCallback', response);
-    window.location.href = '/checkRecaptcha?response=' + encodeURIComponent(response);
-  }
-  function dataExpiredCallback() {
-    console.log('dataExpiredCallback');
-  }
+  const initValues = {
+    city: '',
+    angle: 'nie wiem',
+    power: '',
+    location: 'budynek, garaż, wiata itp.',
+    materialType: 'blacha trapezowa',
+    name: '',
+    phone: '',
+    email: '',
+    contactForm: 'telefoniczny',
+    message: '',
+  };
 
   const formik = useFormik({
-    initialValues: {
-      city: '',
-      angle: 'nie wiem',
-      power: '',
-      location: '',
-      materialType: '',
-      name: '',
-      phone: '',
-      email: '',
-      contactForm: 'telefoniczny',
-      message: '',
-    },
+    initialValues: initValues,
     validate,
     onSubmit: (values) => {
       togglePopup(false);
       console.log(JSON.stringify(values, null, 2));
       if (verified) {
+        requestsCollection.add({ ...values, createdAt: new Date().toLocaleString() }).then(() => {
+          setLoader(true);
+          toggleSendPopup(true);
+          formik.handleReset();
+          setLoader(false);
+        });
       }
     },
   });
 
   const onVerify = (recaptchaResponse) => {
-    console.log(recaptchaResponse, '!!!!');
-
     const checkRecaptcha = functions.httpsCallable('checkRecaptcha');
     checkRecaptcha({ response: recaptchaResponse })
       .then((result) => {
-        result.human && setVerified(true);
+        result.data.human && setVerified(true);
       })
       .catch((error) => {
         setVerified(false);
@@ -100,14 +104,14 @@ const ValuationForm = () => {
         </FormGroup>
         <FormGroup className="six">
           <Label htmlFor="location">Miejsce montażu paneli fotowoltaicznych</Label>
-          <Select name="location" id="location">
+          <Select onChange={formik.handleChange} value={formik.values.location} name="location" id="location">
             <option value="budynek, garaż, wiata itp.">budynek, garaż, wiata itp.</option>
             <option value="grunt"> grunt </option>
           </Select>
         </FormGroup>
         <FormGroup className="nine">
           <Label htmlFor="materialType"> Rodzaj pokrycia dachowego </Label>
-          <Select name="materialType" id="materialType">
+          <Select onChange={formik.handleChange} value={formik.values.materialType} name="materialType" id="materialType">
             <option value="blacha trapezowa"> blacha trapezowa </option>
             <option value="blachodachówka"> blachodachówka </option>
             <option value="dachówka ceramiczna/betonowa">dachówka ceramiczna/betonowa</option>
@@ -162,6 +166,11 @@ const ValuationForm = () => {
       </StyledFieldsWrapper>
 
       <StyledRecaptchaWrapper>
+        {loader && (
+          <StyledLoader>
+            <Loader />
+          </StyledLoader>
+        )}
         <Reaptcha sitekey="6LfT3OgUAAAAABAPLno17OGXacdswrmdu5ep50So" onVerify={onVerify} />
       </StyledRecaptchaWrapper>
 
@@ -183,6 +192,23 @@ const ValuationForm = () => {
             </StyledButtonsWrapper>
           }
           closePopup={() => togglePopup(false)}
+        />
+      )}
+
+      {sendPopup && (
+        <Popup
+          title="Formularz został przesłany."
+          content={
+            <>
+              <Paragraph> Skontaktujemy się z Panią/Panem najszybciej, jak to będzie możliwe.</Paragraph>
+              <StyledButtonsWrapper>
+                <Button onClick={() => toggleSendPopup(false)} type="button">
+                  Zamknij
+                </Button>
+              </StyledButtonsWrapper>
+            </>
+          }
+          closePopup={() => toggleSendPopup(false)}
         />
       )}
     </StyledForm>

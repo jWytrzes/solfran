@@ -9,6 +9,7 @@ const AdminPanelTopBar = ({ location }) => {
   const { pathname } = location;
 
   const logOut = () => {
+    localStorage.removeItem('userToken');
     auth.signOut();
   };
 

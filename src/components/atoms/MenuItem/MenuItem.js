@@ -37,4 +37,4 @@ const MenuItem = ({ icon, children, isActive, link, toggleMenu, dataSection }) =
   );
 };
 
-export default withRouter(MenuItem);
+export default MenuItem;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Button from '../../atoms/Button/Button';
 
 export const StyledForm = styled.form`
@@ -113,4 +113,20 @@ export const StyledRecaptchaWrapper = styled.div`
   margin-top: 40px;
   display: flex;
   justify-content: flex-end;
+`;
+
+const spin = keyframes`
+  100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
+`;
+
+export const StyledLoader = styled.div`
+  margin: 20px 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+
+  svg {
+    animation: ${spin} 2s linear infinite;
+  }
 `;

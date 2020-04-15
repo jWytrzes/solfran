@@ -35,6 +35,8 @@ export const StyledDetail = styled.div`
   display: inline-block;
   font-weight: ${({ theme }) => theme.font.weight.bold};
   margin: 15px 0;
+  grid-column-start: ${({ fullWidth }) => (fullWidth ? 1 : 'unset')};
+  grid-column-end: ${({ fullWidth }) => (fullWidth ? 4 : 'unset')};
 
   span {
     font-weight: ${({ theme }) => theme.font.weight.regular};

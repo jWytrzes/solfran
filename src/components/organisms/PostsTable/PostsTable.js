@@ -8,9 +8,24 @@ import { StyledWrapper, StyledHeader, StyledBadge, StyledHeading, StyledLink } f
 const PostsTable = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [refresh, setRefresh] = useState(false);
   const postsCollection = firestore.collection('posts');
 
+  const deletePost = (id) => {
+    postsCollection
+      .doc(id)
+      .delete()
+      .then(function () {
+        console.log('Document successfully deleted!');
+        const itemToRemove = posts.findIndex((item) => item.id === id);
+        const newPosts = [...posts];
+        newPosts.splice(itemToRemove, 1);
+        setPosts(newPosts);
+      })
+      .catch(function (error) {
+        console.error('Error removing document: ', error);
+        alert('Coś poszło nie tak');
+      });
+  };
   const documentsCollection = (doc) => {
     return { id: doc.id, ...doc.data() };
   };
@@ -27,12 +42,11 @@ const PostsTable = () => {
       });
 
     return () => subscribe;
-  }, [refresh]);
+  }, []);
 
   return (
     <StyledWrapper>
       <StyledHeader>
-        {console.log(posts)}
         <StyledHeading big>
           Posty <StyledBadge> {posts.length} </StyledBadge>
         </StyledHeading>
@@ -43,14 +57,7 @@ const PostsTable = () => {
       <div>
         {posts.length &&
           posts.map((post, i) => (
-            <TableRow
-              id={post.id}
-              title={post.title}
-              createdAt={post.createdAt}
-              key={post.id}
-              even={i % 2 === 0}
-              refresh={() => setRefresh(!refresh)}
-            />
+            <TableRow id={post.id} title={post.title} createdAt={post.createdAt} key={post.id} even={i % 2 === 0} deletePost={deletePost} />
           ))}
       </div>
       {loading && <Loader />}
