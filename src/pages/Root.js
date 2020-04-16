@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainTemplate from '../templates/MainTemplate';
 import Home from './Home';
@@ -10,8 +10,16 @@ import AdminNewPost from './AdminNewPost';
 import AdminEditPost from './AdminEditPost';
 import AdminValuationRequests from './AdminValuationRequests';
 import PrivateRoute from '../utils/PrivateRoute';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Root = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+    });
+  }, []);
+
   return (
     <Router>
       <MainTemplate>

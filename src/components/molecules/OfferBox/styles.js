@@ -9,6 +9,8 @@ export const StyledWrapper = styled.div`
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.11);
   margin: 0 0 50px;
   z-index: 7;
+  cursor: pointer;
+  z-index: 99;
 
   @media (min-width: 1150px) {
     margin: 0;

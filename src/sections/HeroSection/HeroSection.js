@@ -9,13 +9,14 @@ const HeroSection = ({ greyBackground }) => {
     <StyledSectionTemplate id="hero" noBottomPadding topPadding greyBackground={greyBackground} className="section">
       <StyledWrapper>
         <StyledTextWrapper>
-          <H1> SolFran Energy </H1>
-          <p>
+          <H1 data-aos="fade-up">SolFran Energy</H1>
+          <p data-aos="fade-up" data-aos-delay="50">
             SolFran Energy współpracuje z kompleksowymi rozwiązaniami w zakresie odnawialnych źródeł energii, w których bierzemy odpowiedzialność za
             całą instalację - od planowania do ukończonej instalacji. Aby wszystko było idealnie dostosowane do każdego klienta, zawsze zaczynamy od
             bezpłatnej wizyty domow ej , w której sprawdzamy warunki dotyczące konkretnej nieruchomości i oczekiwań klienta.
           </p>
-          <StyledButtonsWrapper>
+
+          <StyledButtonsWrapper data-aos="fade-up" data-aos-delay="100">
             <Button as="a" href="#offer">
               Oferta
             </Button>
@@ -24,7 +25,7 @@ const HeroSection = ({ greyBackground }) => {
             </Button>
           </StyledButtonsWrapper>
         </StyledTextWrapper>
-        <StyledImageWrapper>
+        <StyledImageWrapper data-aos="zoom-in" data-aos-duration="500">
           <HouseImage />
         </StyledImageWrapper>
       </StyledWrapper>

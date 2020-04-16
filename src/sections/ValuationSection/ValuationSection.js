@@ -7,13 +7,13 @@ import { StyledWrapper, StyledParagraph } from './styles';
 const ValuationSection = () => {
   return (
     <SectionTemplate id="valuation">
-      <Heading big> Darmowa wycena </Heading>
+      <Heading big data-aos="fade-up">
+        Darmowa wycena
+      </Heading>
       <StyledWrapper>
-        <StyledParagraph>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem facere
-          odit odio, in dolor id sint enim ratione perferendis quae voluptas
-          consequuntur. Ipsum quos laborum aliquid corporis, magni doloribus
-          alias.
+        <StyledParagraph data-aos="fade-up">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem facere odit odio, in dolor id sint enim ratione perferendis quae voluptas
+          consequuntur. Ipsum quos laborum aliquid corporis, magni doloribus alias.
         </StyledParagraph>
         <ValuationForm />
       </StyledWrapper>

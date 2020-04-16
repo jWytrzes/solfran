@@ -46,7 +46,9 @@ const OfferSection = ({ greyBackground }) => {
 
   return (
     <SectionTemplate id="offer" noBottomPadding greyBackground={greyBackground}>
-      <Heading big> Oferta </Heading>
+      <Heading big data-aos="fade-up">
+        Oferta
+      </Heading>
       <StyledWrapper>
         <FirstList>
           {leftArray.map((el, i) => (
@@ -55,10 +57,13 @@ const OfferSection = ({ greyBackground }) => {
               title={el.title}
               content={el.content}
               key={el.title}
+              data-aos="fade-right"
+              data-aos-delay={i * 100}
+              data-aos-duration="600"
             />
           ))}
         </FirstList>
-        <PanelsImage />
+        <PanelsImage data-aos="zoom-in" data-aos-delay="200" data-aos-duration="600" />
         <SecondList>
           {rightArray.map((el, i) => (
             <OfferBox
@@ -66,16 +71,14 @@ const OfferSection = ({ greyBackground }) => {
               title={el.title}
               content={el.content}
               key={el.title}
+              data-aos="fade-left"
+              data-aos-delay={i * 100}
+              data-aos-duration="600"
             />
           ))}
         </SecondList>
-        {isPopupVisible && (
-          <Popup
-            title={popupTitle}
-            content={popupContent}
-            closePopup={() => togglePopup(false)}
-          />
-        )}
+
+        {isPopupVisible && <Popup title={popupTitle} content={popupContent} closePopup={() => togglePopup(false)} />}
       </StyledWrapper>
     </SectionTemplate>
   );

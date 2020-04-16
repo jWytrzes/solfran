@@ -89,29 +89,29 @@ const ValuationForm = () => {
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
       <StyledFieldsWrapper>
-        <FormGroup className="one">
+        <FormGroup data-aos="fade-up" className="one">
           <Label htmlFor="city"> Miejscowość montażu </Label>
           <Input id="city" name="city" type="text" onChange={formik.handleChange} value={formik.values.city} placeholder="np. Tarnobrzeg" />
         </FormGroup>
-        <FormGroup className="five">
+        <FormGroup data-aos="fade-up" className="five">
           <Label>Przybliżony kąt pokrycia dachowego</Label>
           <RadioInput id="roofFlat" name="angle" value="dach płaski" checked={formik.values.angle === 'dach płaski'} onChange={formik.handleChange} />
           <RadioInput id="roofLesser35" name="angle" value="< 35°" checked={formik.values.angle === '< 35°'} onChange={formik.handleChange} />
           <RadioInput id="roofMore35" name="angle" value="> 35°" checked={formik.values.angle === '> 35°'} onChange={formik.handleChange} />
           <RadioInput id="notKnown" name="angle" value="nie wiem" checked={formik.values.angle === 'nie wiem'} onChange={formik.handleChange} />
         </FormGroup>
-        <FormGroup className="two">
+        <FormGroup data-aos="fade-up" className="two">
           <Label htmlFor="power"> Planowana moc instalacji (w watach) </Label>
           <Input id="power" name="power" type="text" onChange={formik.handleChange} value={formik.values.power} placeholder="np. 1000 kWh" />
         </FormGroup>
-        <FormGroup className="six">
+        <FormGroup data-aos="fade-up" className="six">
           <Label htmlFor="location">Miejsce montażu paneli fotowoltaicznych</Label>
           <Select onChange={formik.handleChange} value={formik.values.location} name="location" id="location">
             <option value="budynek, garaż, wiata itp.">budynek, garaż, wiata itp.</option>
             <option value="grunt"> grunt </option>
           </Select>
         </FormGroup>
-        <FormGroup className="nine">
+        <FormGroup data-aos="fade-up" className="nine">
           <Label htmlFor="materialType"> Rodzaj pokrycia dachowego </Label>
           <Select onChange={formik.handleChange} value={formik.values.materialType} name="materialType" id="materialType">
             <option value="blacha trapezowa"> blacha trapezowa </option>
@@ -122,15 +122,15 @@ const ValuationForm = () => {
             <option value="inny"> inny </option>
           </Select>
         </FormGroup>
-        <FormGroup className="three">
+        <FormGroup data-aos="fade-up" className="three">
           <Label htmlFor="name"> Imię i nazwisko </Label>
           <Input id="name" name="name" type="text" onChange={formik.handleChange} value={formik.values.name} placeholder="np. Anna Kowalska" />
         </FormGroup>
-        <FormGroup className="four">
+        <FormGroup data-aos="fade-up" className="four">
           <Label htmlFor="phone"> Numer telefonu </Label>
           <Input id="phone" name="phone" type="tel" onChange={formik.handleChange} value={formik.values.phone} placeholder="np. 123 456 789" />
         </FormGroup>
-        <FormGroup required className="seven">
+        <FormGroup data-aos="fade-up" required className="seven">
           <Label htmlFor="email"> Adres e-mail </Label>
           {formik.errors.email ? <StyledError>{formik.errors.email}</StyledError> : null}
           <Input
@@ -142,7 +142,7 @@ const ValuationForm = () => {
             placeholder="np. anna.kowalska@email.com"
           />
         </FormGroup>
-        <FormGroup className="eight">
+        <FormGroup data-aos="fade-up" className="eight">
           <Label> Preferowana forma kontaktu </Label>
           <StyledInlineInputs>
             <RadioInput
@@ -161,7 +161,7 @@ const ValuationForm = () => {
             />
           </StyledInlineInputs>
         </FormGroup>
-        <FormGroup className="ten">
+        <FormGroup data-aos="fade-up" className="ten">
           <Label htmlFor="message"> Tu możesz zadać nam pytanie </Label>
           <Textarea id="message" name="message" onChange={formik.handleChange} value={formik.values.message} placeholder="Wiadomość" />
         </FormGroup>
@@ -176,7 +176,7 @@ const ValuationForm = () => {
         <Reaptcha sitekey="6LfT3OgUAAAAABAPLno17OGXacdswrmdu5ep50So" onVerify={onVerify} />
       </StyledRecaptchaWrapper>
 
-      <StyledButton primary autoWidth onClick={() => togglePopup(!isPopupVisible)} disabled={!verified} type="button">
+      <StyledButton primary autoWidth onClick={() => togglePopup(!isPopupVisible)} disabled={!verified} type="button" data-aos="zoom-in">
         Wyślij zapytanie
       </StyledButton>
 

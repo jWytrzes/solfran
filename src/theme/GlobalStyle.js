@@ -68,6 +68,32 @@ const GlobalStyle = createGlobalStyle`
 		padding: 15px;
 		border-radius: 5px;
 	}
+
+	.customHeroImageTransform {
+		display: flex;
+		margin-top: auto;
+
+		@media (min-width: 768px) {
+			max-width: 75%;
+			margin: auto 12.5% 0;
+		}
+
+		@media (min-width: 1150px) {
+			position: absolute;
+			width: 60%;
+			right: -10%;
+			margin: 0;
+		}
+
+		@media (min-width: 1600px) {
+			max-width: 850px;
+		}
+	}
+
+	.rr-zIndex {
+		position: relative;
+		z-index: 99;
+	}
 `;
 
 export default GlobalStyle;

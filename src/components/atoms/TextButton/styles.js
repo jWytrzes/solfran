@@ -11,6 +11,7 @@ export const StyledButton = styled.button`
   padding: 5px 0;
   margin-left: auto;
   margin-top: 15px;
+  cursor: pointer;
 `;
 
 export const StyledIcon = styled.span`

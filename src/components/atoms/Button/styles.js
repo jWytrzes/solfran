@@ -18,4 +18,9 @@ export const StyledButton = styled.button`
   text-decoration: none;
   cursor: ${({ disabled }) => (disabled ? 'auto' : 'pointer')};
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+  /* transition: transform 0.1s ease-in; */
+
+  /* :hover {
+    transform: scale(1.05);
+  } */
 `;

@@ -5,11 +5,11 @@ import logo from '../../../assets/pictures/logo.webp';
 
 import { StyledWrapper, StyledLogo } from './styles';
 
-const TopBar = () => {
+const TopBar = ({ ...props }) => {
   const [isMenuActive, toggleMenu] = useState(false);
 
   return (
-    <StyledWrapper>
+    <StyledWrapper {...props}>
       <BurgerMenu active={isMenuActive} onClick={() => toggleMenu(!isMenuActive)} />
       <StyledLogo src={logo} alt="logo" />
       <Menu active={isMenuActive} toggleMenu={() => toggleMenu(!isMenuActive)} />
