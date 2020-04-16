@@ -10,14 +10,8 @@ import AdminNewPost from './AdminNewPost';
 import AdminEditPost from './AdminEditPost';
 import AdminValuationRequests from './AdminValuationRequests';
 import PrivateRoute from '../utils/PrivateRoute';
-import { checkUserToken } from '../utils';
 
 const Root = () => {
-  let authenticated = checkUserToken();
-  if (!authenticated && window.location.pathname !== '/login') {
-    window.location.href = '/login';
-  }
-
   return (
     <Router>
       <MainTemplate>

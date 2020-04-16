@@ -14,6 +14,7 @@ export const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 40px;
+  flex-wrap: wrap;
 `;
 
 export const StyledBadge = styled.span`
@@ -72,4 +73,20 @@ export const StyledTableCell = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const StyledStats = styled.div`
+  display: flex;
+  font-size: ${({ theme }) => theme.font.size.s};
+  width: 100%;
+  margin-top: 20px;
+
+  div {
+    margin-right: 20px;
+  }
+`;
+
+export const StyledImportant = styled.div`
+  color: ${({ theme }) => theme.primary};
+  font-weight: ${({ theme }) => theme.font.weight.semiBold};
 `;

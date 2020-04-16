@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { firestore } from '../../../base';
 import Loader from '../Loader/Loader';
 import RequestTableRow from '../../molecules/RequestTableRow/RequestTableRow';
-import { StyledWrapper, StyledHeader, StyledBadge, StyledHeading, StyledTableHeader, StyledTableCell } from './styles';
+import { StyledWrapper, StyledHeader, StyledBadge, StyledHeading, StyledTableHeader, StyledTableCell, StyledStats, StyledImportant } from './styles';
 
 const RequestsTable = () => {
   const [loading, setLoading] = useState(false);
-  const [refresh, setRefresh] = useState(false);
   const [requests, setRequests] = useState([]);
   const requestsCollection = firestore.collection('valuationRequests');
 
@@ -26,7 +25,21 @@ const RequestsTable = () => {
       });
 
     return () => subscribe;
-  }, [refresh]);
+  }, []);
+
+  const updateItem = (id, currentValue) => {
+    requestsCollection
+      .doc(id)
+      .update({
+        checked: !currentValue,
+      })
+      .then(() => {
+        const itemToUpdate = requests.findIndex((item) => item.id === id);
+        const newRequests = [...requests];
+        newRequests[itemToUpdate].checked = !currentValue;
+        setRequests(newRequests);
+      });
+  };
 
   return (
     <StyledWrapper>
@@ -34,6 +47,10 @@ const RequestsTable = () => {
         <StyledHeading big>
           Posty <StyledBadge> {requests.length} </StyledBadge>
         </StyledHeading>
+        <StyledStats>
+          <div>Obsłużone: {requests.filter((item) => item.checked).length} </div>
+          <StyledImportant>Nieobsłużone: {requests.filter((item) => !item.checked).length} </StyledImportant>
+        </StyledStats>
       </StyledHeader>
       <StyledTableHeader>
         <StyledTableCell width="40px">#</StyledTableCell>
@@ -48,8 +65,7 @@ const RequestsTable = () => {
         </StyledTableCell>
       </StyledTableHeader>
       <div>
-        {requests.length &&
-          requests.map((request, i) => <RequestTableRow key={request.id} data={request} num={i} refresh={() => setRefresh(!refresh)} />)}
+        {requests.length && requests.map((request, i) => <RequestTableRow key={request.id} data={request} num={i} updateItem={updateItem} />)}
       </div>
       {loading && <Loader />}
     </StyledWrapper>

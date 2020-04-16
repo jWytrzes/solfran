@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyledRow, StyledTableCell, StyledDetails, StyledDetail, StyledCheckbox } from './styles';
 import Button from '../../atoms/Button/Button';
 
-const RequestTableRow = ({ data, num }) => {
+const RequestTableRow = ({ data, num, updateItem }) => {
   const [visible, setVisibility] = useState(false);
 
   return (
@@ -23,7 +23,7 @@ const RequestTableRow = ({ data, num }) => {
         </Button>
       </StyledTableCell>
       <StyledTableCell width="40px">
-        <StyledCheckbox type="checkbox" />
+        <StyledCheckbox type="checkbox" checked={data.checked} onChange={() => updateItem(data.id, data.checked)} />
       </StyledTableCell>
 
       <StyledDetails visible={visible}>

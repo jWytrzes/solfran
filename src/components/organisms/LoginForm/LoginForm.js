@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { auth } from '../../../base';
 import FormGroup from '../../atoms/FormGroup/FormGroup';

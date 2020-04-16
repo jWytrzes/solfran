@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
-import { firestore, storage } from '../../../base';
+import { firestore } from '../../../base';
 import useFirebaseUpload from '../../../utils/useFirebaseUpload';
 import ReactQuill from 'react-quill';
 import Popup from '../../molecules/Popup/Popup';
