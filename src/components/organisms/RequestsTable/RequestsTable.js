@@ -65,7 +65,7 @@ const RequestsTable = () => {
         </StyledTableCell>
       </StyledTableHeader>
       <div>
-        {requests.length && requests.map((request, i) => <RequestTableRow key={request.id} data={request} num={i} updateItem={updateItem} />)}
+        {requests.length ? requests.map((request, i) => <RequestTableRow key={request.id} data={request} num={i} updateItem={updateItem} />) : null}
       </div>
       {loading && <Loader />}
     </StyledWrapper>

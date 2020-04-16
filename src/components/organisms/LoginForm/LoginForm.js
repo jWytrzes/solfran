@@ -6,7 +6,7 @@ import FormGroup from '../../atoms/FormGroup/FormGroup';
 import Label from '../../atoms/Label/Label';
 import Input from '../../atoms/Input/Input';
 import Button from '../../atoms/Button/Button';
-import { StyledForm } from './styles';
+import { StyledForm, StyledWrapper } from './styles';
 import Loader from '../../organisms/Loader/Loader';
 import { checkUserToken } from '../../../utils';
 
@@ -41,7 +41,7 @@ const LoginForm = ({ history }) => {
   }, []);
 
   return (
-    <>
+    <StyledWrapper>
       <StyledForm onSubmit={formik.handleSubmit}>
         <h3> Logowanie </h3>
         <FormGroup style={{ width: '100%' }}>
@@ -59,8 +59,7 @@ const LoginForm = ({ history }) => {
         </Button>
       </StyledForm>
       {loading && <Loader />}
-      {/* {redirect && <Redirect to="/admin" />} */}
-    </>
+    </StyledWrapper>
   );
 };
 

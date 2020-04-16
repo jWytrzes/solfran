@@ -55,10 +55,11 @@ const PostsTable = () => {
         </StyledLink>
       </StyledHeader>
       <div>
-        {posts.length &&
-          posts.map((post, i) => (
-            <TableRow id={post.id} title={post.title} createdAt={post.createdAt} key={post.id} even={i % 2 === 0} deletePost={deletePost} />
-          ))}
+        {posts.length
+          ? posts.map((post, i) => (
+              <TableRow id={post.id} title={post.title} createdAt={post.createdAt} key={post.id} even={i % 2 === 0} deletePost={deletePost} />
+            ))
+          : null}
       </div>
       {loading && <Loader />}
     </StyledWrapper>
