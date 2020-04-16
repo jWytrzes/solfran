@@ -6,7 +6,7 @@ import RequestsTable from '../components/organisms/RequestsTable/RequestsTable';
 const AdminValuationRequests = () => {
   return (
     <AdminPanelTemplate>
-      <H1> SolFran Energy - Prośby o wycenę </H1>
+      <H1 data-aos="fade"> SolFran Energy - Prośby o wycenę </H1>
       <RequestsTable />
     </AdminPanelTemplate>
   );

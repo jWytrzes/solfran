@@ -15,7 +15,7 @@ import {
 } from './styles';
 import { Link as LinkIcon, Edit, X } from 'react-feather';
 
-const TableRow = ({ id, title, createdAt, even, deletePost }) => {
+const TableRow = ({ id, title, createdAt, even, deletePost, ...props }) => {
   const [popup, setPopup] = useState(false);
 
   const popupContent = (
@@ -34,7 +34,7 @@ const TableRow = ({ id, title, createdAt, even, deletePost }) => {
   );
 
   return (
-    <StyledWrapper even={even}>
+    <StyledWrapper even={even} {...props}>
       <StyledHeader>
         <StyledHeading> {title} </StyledHeading>
         <StyledId> {id} </StyledId>

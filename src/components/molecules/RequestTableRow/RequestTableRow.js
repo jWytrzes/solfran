@@ -3,11 +3,11 @@ import { StyledRow, StyledTableCell, StyledDetails, StyledDetail, StyledCheckbox
 import Button from '../../atoms/Button/Button';
 import NoInfomation from '../../atoms/NoInformation/NoInformation';
 
-const RequestTableRow = ({ data, num, updateItem }) => {
+const RequestTableRow = ({ data, num, updateItem, ...props }) => {
   const [visible, setVisibility] = useState(false);
 
   return (
-    <StyledRow even={num % 2 === 0}>
+    <StyledRow even={num % 2 === 0} {...props}>
       <StyledTableCell width="40px"> {num + 1} </StyledTableCell>
       <StyledTableCell> {data.createdAt} </StyledTableCell>
       <StyledTableCell> {data.name.length ? data.name : <NoInfomation />} </StyledTableCell>

@@ -6,7 +6,7 @@ import AdminPanelTemplate from '../templates/AdminPanelTemplate';
 const AdminHomepage = () => {
   return (
     <AdminPanelTemplate>
-      <H1> SolFran Energy - Blog </H1>
+      <H1 data-aos="fade"> SolFran Energy - Blog </H1>
       <PostsTable />
     </AdminPanelTemplate>
   );

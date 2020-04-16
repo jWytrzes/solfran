@@ -57,7 +57,7 @@ const PostsTable = () => {
       <div>
         {posts.length
           ? posts.map((post, i) => (
-              <TableRow id={post.id} title={post.title} createdAt={post.createdAt} key={post.id} even={i % 2 === 0} deletePost={deletePost} />
+              <TableRow id={post.id} title={post.title} createdAt={post.createdAt} key={post.id} even={i % 2 === 0} deletePost={deletePost} data-aos="fade-up" data-aos-delay={i*50} />
             ))
           : null}
       </div>

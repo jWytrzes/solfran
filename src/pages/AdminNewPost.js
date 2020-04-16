@@ -6,7 +6,7 @@ import NewPostForm from '../components/organisms/NewPostForm/NewPostForm';
 const AdminNewPost = () => {
   return (
     <AdminPanelTemplate>
-      <H1> Nowy post </H1>
+      <H1 data-aos="fade"> Nowy post </H1>
       <NewPostForm />
     </AdminPanelTemplate>
   );

@@ -41,7 +41,7 @@ const LoginForm = ({ history }) => {
   }, []);
 
   return (
-    <StyledWrapper>
+    <StyledWrapper data-aos="zoom-in">
       <StyledForm onSubmit={formik.handleSubmit}>
         <h3> Logowanie </h3>
         <FormGroup style={{ width: '100%' }}>

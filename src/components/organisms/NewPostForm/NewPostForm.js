@@ -116,28 +116,35 @@ const NewPostForm = ({ edit }) => {
 
   return (
     <StyledWrapper>
-      <StyledLabel htmlFor="postTitle"> Tytuł posta: </StyledLabel>
-      <StyledInput id="postTitle" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <div data-aos="fade-up">
+        <StyledLabel htmlFor="postTitle"> Tytuł posta: </StyledLabel>
+        <StyledInput id="postTitle" value={title} onChange={(e) => setTitle(e.target.value)} />
+      </div>
 
-      <StyledLabel htmlFor="imageUpload"> Miniaturka postu: </StyledLabel>
-      <StyledInput
-        id="imageUpload"
-        type="file"
-        accept="image/*"
-        onChange={(e) => {
-          setFileData(e.target.files[0]);
-        }}
-      ></StyledInput>
+      <div data-aos="fade-up">
+        <StyledLabel htmlFor="imageUpload"> Miniaturka postu: </StyledLabel>
+        <StyledInput
+          id="imageUpload"
+          type="file"
+          accept="image/*"
+          onChange={(e) => {
+            setFileData(e.target.files[0]);
+          }}
+        ></StyledInput>
+        {isError && <div>ERROR: {isError.message}</div>}
+        {progressVal && <div> Dodawanie pliku: {progress.value}% </div>}
+        {deleteFileButton && <Button onClick={() => setData({ ...data, downloadUrl: '' })}> Usuń plik </Button>}
+      </div>
 
-      {isError && <div>ERROR: {isError.message}</div>}
-      {progressVal && <div> Dodawanie pliku: {progress.value}% </div>}
-      {deleteFileButton && <Button onClick={() => setData({ ...data, downloadUrl: '' })}> Usuń plik </Button>}
+      <div data-aos="fade-up">
+        <StyledLabel htmlFor="postShortContent"> Krótki opis (widoczny w kafelku): </StyledLabel>
+        <ReactQuill id="postShortContent" theme="snow" modules={shortContentModules} value={shortContent} onChange={setShortContent} />
+      </div>
 
-      <StyledLabel htmlFor="postShortContent"> Krótki opis (widoczny w kafelku): </StyledLabel>
-      <ReactQuill id="postShortContent" theme="snow" modules={shortContentModules} value={shortContent} onChange={setShortContent} />
-
-      <StyledLabel htmlFor="postContent"> Treść: </StyledLabel>
-      <ReactQuill id="postContent" theme="snow" modules={contentModules} value={content} onChange={setContent} />
+      <div data-aos="fade-up">
+        <StyledLabel htmlFor="postContent"> Treść: </StyledLabel>
+        <ReactQuill id="postContent" theme="snow" modules={contentModules} value={content} onChange={setContent} />
+      </div>
       <StyledButton primary onClick={() => setPopup(true)}>
         Opublikuj
       </StyledButton>

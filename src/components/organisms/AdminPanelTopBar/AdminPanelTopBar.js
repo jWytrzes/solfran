@@ -5,7 +5,7 @@ import { Power } from 'react-feather';
 import { StyledWrapper, StyledLink, StyledLogoLink, StyledList, StyledTextLink } from './styles';
 import { withRouter } from 'react-router-dom';
 
-const AdminPanelTopBar = ({ location }) => {
+const AdminPanelTopBar = ({ location, ...props }) => {
   const { pathname } = location;
 
   const logOut = () => {
@@ -25,7 +25,7 @@ const AdminPanelTopBar = ({ location }) => {
   ];
 
   return (
-    <StyledWrapper>
+    <StyledWrapper {...props}>
       <StyledLogoLink to="/admin">
         <img src={logo} alt="Logo" />
       </StyledLogoLink>

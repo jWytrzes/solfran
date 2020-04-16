@@ -6,7 +6,7 @@ import TopBar from '../components/organisms/TopBar/TopBar';
 const Blog = () => {
   return (
     <>
-      <TopBar />
+      <TopBar data-aos="fade-right" data-aos-delay="300" />
       <BlogHeader> Blog </BlogHeader>
       <PostsListSection />
     </>

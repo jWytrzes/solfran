@@ -57,12 +57,12 @@ const Post = () => {
       .then(function (doc) {
         if (doc.exists) {
           setItem({ ...doc.data() });
-          setLoading(false);
         }
       })
       .catch(function (error) {
         console.error('Error removing document: ', error);
       });
+    setLoading(false);
   }, []);
 
   return (
@@ -73,9 +73,9 @@ const Post = () => {
           {item.title}
         </BlogHeader>
         <StyledWrapper>
-          <ShareButtons />
-          <StyledContentWrapper>
-            {item.photo && <StyledImg src={item.photo} alt="" />}
+          <ShareButtons data-aos="fade-right" />
+          <StyledContentWrapper data-aos="fade-up">
+            {item.photo && <StyledImg src={item.photo} alt="" data-aos="zoom-in" />}
             <div>
               {ReactHtmlParser(item.shortContent)}
               {ReactHtmlParser(item.content)}

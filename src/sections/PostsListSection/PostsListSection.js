@@ -9,6 +9,7 @@ import { StyledNoContent } from './styles';
 const PostsListSection = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [noPosts, setNoPosts] = useState(false);
   const postsCollection = firestore.collection('posts');
 
   const documentsCollection = (doc) => {
@@ -23,6 +24,7 @@ const PostsListSection = () => {
       .then((snapshot) => {
         const dataFromCollection = snapshot.docs.map(documentsCollection);
         setPosts(dataFromCollection);
+        !dataFromCollection.length && setNoPosts(true);
         setLoading(false);
       });
 
@@ -40,6 +42,8 @@ const PostsListSection = () => {
             photo={post.photo}
             key={post.id}
             id={post.id}
+            data-aos="fade-up"
+            data-aos-delay={i * 50}
           />
         ))}
         {loading && <Loader />}
@@ -48,8 +52,8 @@ const PostsListSection = () => {
   }
 
   return (
-    <StyledNoContent>
-      <h2> Jeszcze nie ma tu postów. Wróć wkrótce! </h2>
+    <StyledNoContent data-aos="fade-up">
+      {noPosts && <h2> Jeszcze nie ma tu postów. Wróć wkrótce! </h2>}
       {loading && <Loader />}
     </StyledNoContent>
   );

@@ -7,6 +7,7 @@ export const StyledWrapper = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.greyBcg};
   padding-bottom: 40px;
   overflow-x: auto;
+  overflow-y: hidden;
 `;
 
 export const StyledHeader = styled.header`
