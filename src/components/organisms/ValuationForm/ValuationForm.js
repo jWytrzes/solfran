@@ -60,10 +60,9 @@ const ValuationForm = () => {
     validate,
     onSubmit: (values) => {
       togglePopup(false);
-      console.log(JSON.stringify(values, null, 2));
       if (verified) {
+        setLoader(true);
         requestsCollection.add({ ...values, createdAt: new Date().toLocaleString() }).then(() => {
-          setLoader(true);
           toggleSendPopup(true);
           formik.handleReset();
           setLoader(false);
@@ -74,13 +73,16 @@ const ValuationForm = () => {
 
   const onVerify = (recaptchaResponse) => {
     const checkRecaptcha = functions.httpsCallable('checkRecaptcha');
+    setLoader(true);
     checkRecaptcha({ response: recaptchaResponse })
       .then((result) => {
         result.data.human && setVerified(true);
+        setLoader(false);
       })
       .catch((error) => {
         setVerified(false);
         console.log('Error: ', error);
+        setLoader(false);
       });
   };
 
@@ -201,6 +203,7 @@ const ValuationForm = () => {
           content={
             <>
               <Paragraph> Skontaktujemy się z Panią/Panem najszybciej, jak to będzie możliwe.</Paragraph>
+              <br />
               <StyledButtonsWrapper>
                 <Button onClick={() => toggleSendPopup(false)} type="button">
                   Zamknij
