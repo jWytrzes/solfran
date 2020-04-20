@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import Button from '../../atoms/Button/Button';
+import FormGroup from '../../atoms/FormGroup/FormGroup';
 
 export const StyledForm = styled.form`
   margin-top: 50px;
@@ -128,5 +129,14 @@ export const StyledLoader = styled.div`
 
   svg {
     animation: ${spin} 2s linear infinite;
+  }
+`;
+
+export const StyledFormGroup = styled(FormGroup)`
+  display: flex;
+  margin-top: 20px;
+
+  div {
+    white-space: normal;
   }
 `;

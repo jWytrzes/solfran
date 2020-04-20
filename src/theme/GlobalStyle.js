@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
 		color: #18516C;
 		overflow-x: hidden;
 		min-height: 100vh;
+		scroll-behavior: smooth;
 
 		@media(min-width: 992px) {
 			font-size: 16px;

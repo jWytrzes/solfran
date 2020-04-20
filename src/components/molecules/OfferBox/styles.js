@@ -18,7 +18,7 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledParagraph = styled(Paragraph)`
-  height: calc(1.4rem * 5 * 1.4);
+  height: calc(1.4rem * 5 * 1.45);
   overflow-y: hidden;
   position: relative;
   display: -webkit-box;

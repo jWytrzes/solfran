@@ -3,6 +3,7 @@ import Button from '../../components/atoms/Button/Button';
 import HouseImage from '../../components/atoms/HouseImage/HouseImage';
 import H1 from '../../components/atoms/H1/H1';
 import { StyledSectionTemplate, StyledWrapper, StyledButtonsWrapper, StyledImageWrapper, StyledTextWrapper } from './styles';
+import { HashLink } from 'react-router-hash-link';
 
 const HeroSection = ({ greyBackground }) => {
   return (
@@ -17,10 +18,10 @@ const HeroSection = ({ greyBackground }) => {
           </p>
 
           <StyledButtonsWrapper data-aos="fade-up" data-aos-delay="100">
-            <Button as="a" href="#offer">
+            <Button as={HashLink} smooth to="#offer">
               Oferta
             </Button>
-            <Button primary as="a" href="#valuation">
+            <Button primary as={HashLink} smooth to="#valuation">
               Wycena
             </Button>
           </StyledButtonsWrapper>

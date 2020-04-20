@@ -20,6 +20,7 @@ import {
   StyledFieldsWrapper,
   StyledRecaptchaWrapper,
   StyledLoader,
+  StyledFormGroup,
 } from './styles';
 import { Loader } from 'react-feather';
 
@@ -37,6 +38,9 @@ const ValuationForm = () => {
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
       errors.email = 'Adres e-mail musi być poprawny';
     }
+    if (!values.rodo) {
+      errors.rodo = 'Zgoda na przetwarzanie danych jest niezbędna do przesłania zapytania';
+    }
 
     togglePopup(false);
     return errors;
@@ -53,6 +57,7 @@ const ValuationForm = () => {
     email: '',
     contactForm: 'telefoniczny',
     message: '',
+    rodo: true,
   };
 
   const formik = useFormik({
@@ -166,6 +171,19 @@ const ValuationForm = () => {
           <Textarea id="message" name="message" onChange={formik.handleChange} value={formik.values.message} placeholder="Wiadomość" />
         </FormGroup>
       </StyledFieldsWrapper>
+
+      <StyledFormGroup required>
+        <Input type="checkbox" name="rodo" id="rodo" onChange={formik.handleChange} value={formik.values.rodo} />
+        <Label htmlFor="rodo">
+          <div>
+            Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z ustawą o ochronie danych osobowych. Dane będą przetwarzane w celu wysłania
+            zapytania poprzez powyższy formularz, dokonania wyceny instalacji i dostarczenia informacji zwrotnej dotyczącej wykonanej wyceny za pomocą
+            kontaktu telefonicznego lub e-mailowego. Podanie danych jest dobrowolne, ale niezbędne do przetworzenia zapytania. Zostałem poinformowany,
+            że przysługuje mi prawo dostępu do swoich danych, możliwości ich poprawiania, żądania zaprzestania ich przetwarzania. Administratorem
+            danych osobowych jest Michał Frańczak SolFran Energy, ul.Hieronima Dekutowskiego 16/20 39-400 Tarnobrzeg.
+          </div>
+        </Label>
+      </StyledFormGroup>
 
       <StyledRecaptchaWrapper>
         {loader && (

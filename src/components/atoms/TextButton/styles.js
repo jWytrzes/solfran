@@ -12,10 +12,21 @@ export const StyledButton = styled.button`
   margin-left: auto;
   margin-top: 15px;
   cursor: pointer;
+
+  svg {
+    transform: translateX(-10px);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  :hover {
+    svg {
+      transform: translateX(0px);
+    }
+  }
 `;
 
 export const StyledIcon = styled.span`
   display: inline-flex;
   align-items: center;
-  margin-left: 10px;
+  margin-left: 20px;
 `;

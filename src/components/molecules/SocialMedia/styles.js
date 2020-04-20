@@ -18,8 +18,8 @@ export const StyledUl = styled.ul`
     ${({ vertical }) =>
       vertical &&
       `flex-direction: column;
-    margin: auto 0 0;
-    justify-content: center;`}
+      margin: auto 0 0;
+      justify-content: center;`}
   }
 `;
 
@@ -30,8 +30,7 @@ export const StyledLi = styled.li`
     ${({ vertical }) =>
       vertical &&
       `width: fit-content;
-      margin: 0 auto 20px;
-      `}
+      margin: 0 auto 20px;`}
   }
 
   :first-of-type {
@@ -51,9 +50,16 @@ export const StyledLi = styled.li`
     display: block;
   }
 
+  svg {
+    transition: transform 0.15s ease-in-out;
+  }
+
   :hover {
-    svg path {
-      fill: ${({ theme, white }) => (white ? theme.secondary : theme.primary)};
+    svg {
+      transform: scale(1.1);
+      path {
+        fill: ${({ theme, white }) => (white ? theme.secondary : theme.primary)};
+      }
     }
   }
 `;

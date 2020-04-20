@@ -17,10 +17,11 @@ export const StyledButton = styled.button`
   box-shadow: ${({ theme, primary }) => (primary ? `0 10px 15px ${theme.shadow}` : 'none')};
   text-decoration: none;
   cursor: ${({ disabled }) => (disabled ? 'auto' : 'pointer')};
-  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
-  /* transition: transform 0.1s ease-in; */
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)} !important;
+  transform: scale(0.95);
+  transition: transform 0.1s ease-in;
 
-  /* :hover {
-    transform: scale(1.05);
-  } */
+  :hover {
+    transform: scale(1);
+  }
 `;
