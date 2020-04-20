@@ -134,9 +134,21 @@ export const StyledLoader = styled.div`
 
 export const StyledFormGroup = styled(FormGroup)`
   display: flex;
-  margin-top: 20px;
+  margin-top: 30px;
 
-  div {
+  span {
     white-space: normal;
+    text-align: justify;
+    display: inline-flex;
+    width: calc(100% - 23px);
+  }
+
+  @media (min-width: 768px) {
+    width: 100%;
+  }
+
+  @media (min-width: 1366px) {
+    width: calc(50% - 20px);
+    margin-left: auto;
   }
 `;

@@ -173,15 +173,17 @@ const ValuationForm = () => {
       </StyledFieldsWrapper>
 
       <StyledFormGroup required>
-        <Input type="checkbox" name="rodo" id="rodo" onChange={formik.handleChange} value={formik.values.rodo} />
+        {formik.errors.rodo ? <StyledError>{formik.errors.rodo}</StyledError> : null}
+
         <Label htmlFor="rodo">
-          <div>
+          <Input type="checkbox" name="rodo" id="rodo" onChange={formik.handleChange} checked={formik.values.rodo} />
+          <span>
             Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z ustawą o ochronie danych osobowych. Dane będą przetwarzane w celu wysłania
             zapytania poprzez powyższy formularz, dokonania wyceny instalacji i dostarczenia informacji zwrotnej dotyczącej wykonanej wyceny za pomocą
-            kontaktu telefonicznego lub e-mailowego. Podanie danych jest dobrowolne, ale niezbędne do przetworzenia zapytania. Zostałem poinformowany,
-            że przysługuje mi prawo dostępu do swoich danych, możliwości ich poprawiania, żądania zaprzestania ich przetwarzania. Administratorem
-            danych osobowych jest Michał Frańczak SolFran Energy, ul.Hieronima Dekutowskiego 16/20 39-400 Tarnobrzeg.
-          </div>
+            kontaktu telefonicznego lub e-mailowego. Podanie danych jest dobrowolne, ale niezbędne do przetworzenia zapytania. Zostałam/zostałem
+            poinformowana/poinformowany, że przysługuje mi prawo dostępu do swoich danych, możliwości ich poprawiania, żądania zaprzestania ich
+            przetwarzania. Administratorem danych osobowych jest Michał Frańczak SolFran Energy, ul.Hieronima Dekutowskiego 16/20 39-400 Tarnobrzeg.
+          </span>
         </Label>
       </StyledFormGroup>
 
