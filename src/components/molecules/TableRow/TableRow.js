@@ -2,37 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Popup from '../Popup/Popup';
 import Button from '../../atoms/Button/Button';
-import {
-  StyledWrapper,
-  StyledHeader,
-  StyledHeading,
-  StyledId,
-  StyledOptionsWrapper,
-  StyledDate,
-  StyledButtons,
-  StyledButton,
-  StyledButtonsWrapper,
-} from './styles';
+import { StyledWrapper, StyledHeader, StyledHeading, StyledId, StyledOptionsWrapper, StyledDate, StyledButtons, StyledButton } from './styles';
 import { Link as LinkIcon, Edit, X } from 'react-feather';
 
-const TableRow = ({ id, title, createdAt, even, deletePost, ...props }) => {
-  const [popup, setPopup] = useState(false);
-
-  const popupContent = (
-    <StyledButtonsWrapper>
-      <Button onClick={() => setPopup(false)}> Anuluj </Button>
-      <Button
-        primary
-        onClick={() => {
-          setPopup(false);
-          deletePost(id);
-        }}
-      >
-        Usuń
-      </Button>
-    </StyledButtonsWrapper>
-  );
-
+const TableRow = ({ id, title, createdAt, even, deletePost, togglePopup, ...props }) => {
   return (
     <StyledWrapper even={even} {...props}>
       <StyledHeader>
@@ -48,12 +21,11 @@ const TableRow = ({ id, title, createdAt, even, deletePost, ...props }) => {
           <StyledButton as={Link} to={`/admin/edit/${id}`} backgroundcolor="#5FC6F5">
             <Edit size="18" />
           </StyledButton>
-          <StyledButton backgroundcolor="#FE4848" onClick={() => setPopup(true)}>
+          <StyledButton backgroundcolor="#FE4848" onClick={() => togglePopup(true, id)}>
             <X size="18" />
           </StyledButton>
         </StyledButtons>
       </StyledOptionsWrapper>
-      {popup && <Popup title="Czy na pewno chcesz usunąć post?" content={popupContent} closePopup={() => setPopup(false)} />}
     </StyledWrapper>
   );
 };

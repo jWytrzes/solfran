@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, withRouter } from 'react-router-dom';
 import { firestore } from '../base';
 import ReactHtmlParser from 'react-html-parser';
 import styled from 'styled-components';
@@ -43,7 +43,7 @@ const StyledImg = styled.img`
   }
 `;
 
-const Post = () => {
+const Post = ({ history }) => {
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true);
   const postsCollection = firestore.collection('posts');
@@ -57,17 +57,20 @@ const Post = () => {
       .then(function (doc) {
         if (doc.exists) {
           setItem({ ...doc.data() });
+          setLoading(false);
+        } else {
+          history.push('/404');
         }
       })
       .catch(function (error) {
-        console.error('Error removing document: ', error);
+        console.error('Error finding document: ', error);
       });
-    setLoading(false);
   }, []);
 
   return (
     <>
       <TopBar />
+
       <article>
         <BlogHeader dark alignLeft>
           {item.title}
@@ -88,4 +91,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default withRouter(Post);

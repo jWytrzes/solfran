@@ -71,22 +71,4 @@ export const StyledButton = styled.button`
   cursor: pointer;
 `;
 
-export const StyledButtonsWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  margin-top: 50px;
 
-  button {
-    width: 48%;
-    max-width: 170px;
-  }
-
-  @media (min-width: 768px) {
-    justify-content: flex-end;
-
-    button {
-      margin-left: 25px;
-    }
-  }
-`;

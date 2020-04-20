@@ -172,7 +172,7 @@ const ValuationForm = () => {
         </FormGroup>
       </StyledFieldsWrapper>
 
-      <StyledFormGroup required>
+      <StyledFormGroup data-aos="fade-up" required>
         {formik.errors.rodo ? <StyledError>{formik.errors.rodo}</StyledError> : null}
 
         <Label htmlFor="rodo">

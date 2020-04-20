@@ -12,6 +12,7 @@ import AdminValuationRequests from './AdminValuationRequests';
 import PrivateRoute from '../utils/PrivateRoute';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import NotFound from './NotFound';
 
 const Root = () => {
   useEffect(() => {
@@ -36,6 +37,9 @@ const Root = () => {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route>
+            <NotFound />
           </Route>
           <PrivateRoute exact path="/admin" component={AdminHomepage} />
           <PrivateRoute path="/admin/new" component={AdminNewPost} />
