@@ -38,13 +38,13 @@ const Root = () => {
           <Route path="/login">
             <Login />
           </Route>
-          <Route>
-            <NotFound />
-          </Route>
           <PrivateRoute exact path="/admin" component={AdminHomepage} />
           <PrivateRoute path="/admin/new" component={AdminNewPost} />
           <PrivateRoute path="/admin/edit/:id" component={AdminEditPost} />
           <PrivateRoute path="/admin/valuationRequests" component={AdminValuationRequests} />
+          <Route>
+            <NotFound />
+          </Route>
         </Switch>
       </MainTemplate>
     </Router>
