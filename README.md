@@ -4,7 +4,7 @@ This is a simple website made with ReactJS which main goal is to present offer o
 Project has only two branches:
 
 - `master` is a production version of website and it is deployed [here](https://www.solfranenergy.pl/). This version has currently no connections to backend so there are no blog or valuation form components.
-- `dev` is a WIP branch. It is deployed for test [here](https://www.solfranenergy.pl/). There is access to [admin panel](https://solfran-d9446.firebaseapp.com/admin]) with credentials: - login: test@solfran.pl - password: M0pjKc4#
+- `dev` is a WIP branch. It is deployed for test [here](https://solfran-d9446.firebaseapp.com). There is access to [admin panel](https://solfran-d9446.firebaseapp.com/admin) with credentials: - login: test@solfran.pl - password: M0pjKc4#
 
 Parts of website that use backend are connected with firestore. Valuation form is also using firebase function to
 validate reCaptcha.
