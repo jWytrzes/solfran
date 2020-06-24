@@ -21,6 +21,7 @@ import {
   StyledRecaptchaWrapper,
   StyledLoader,
   StyledFormGroup,
+  StyledCheckbox,
 } from './styles';
 import { Loader } from 'react-feather';
 
@@ -57,7 +58,7 @@ const ValuationForm = () => {
     email: '',
     contactForm: 'telefoniczny',
     message: '',
-    rodo: true,
+    rodo: false,
   };
 
   const formik = useFormik({
@@ -176,7 +177,7 @@ const ValuationForm = () => {
         {formik.errors.rodo ? <StyledError>{formik.errors.rodo}</StyledError> : null}
 
         <Label htmlFor="rodo">
-          <Input type="checkbox" name="rodo" id="rodo" onChange={formik.handleChange} checked={formik.values.rodo} />
+          <StyledCheckbox type="checkbox" name="rodo" id="rodo" onChange={formik.handleChange} checked={formik.values.rodo} />
           <span>
             Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z ustawą o ochronie danych osobowych. Dane będą przetwarzane w celu wysłania
             zapytania poprzez powyższy formularz, dokonania wyceny instalacji i dostarczenia informacji zwrotnej dotyczącej wykonanej wyceny za pomocą

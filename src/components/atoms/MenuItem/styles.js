@@ -27,28 +27,14 @@ export const StyledLi = styled.li`
       letter-spacing: 1px;
       visibility: hidden;
       opacity: 0;
-      transform: translateX(50%);
-      transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, visibility 0s 0.2s;
+      transition: opacity 0.2s ease-in-out, visibility 0s 0.2s;
       will-change: visibility;
-
-      ::before {
-        content: '';
-        position: absolute;
-        width: 15px;
-        height: 8px;
-        border-radius: 100%;
-        background-color: ${({ theme }) => theme.secondary};
-        top: 50%;
-        left: 0;
-        transform: translate(-30%, -50%);
-      }
     }
 
     :hover {
       .menu__text {
         visibility: visible;
         opacity: 1;
-        transform: translateX(0);
         transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
       }
 

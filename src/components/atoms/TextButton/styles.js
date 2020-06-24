@@ -14,7 +14,7 @@ export const StyledButton = styled.button`
   cursor: pointer;
 
   svg {
-    transform: translateX(-10px);
+    transform: translateX(-4px);
     transition: transform 0.2s ease-in-out;
   }
 

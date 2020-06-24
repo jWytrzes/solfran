@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import Button from '../../atoms/Button/Button';
 import FormGroup from '../../atoms/FormGroup/FormGroup';
+import Input from '../../atoms/Input/Input';
 
 export const StyledForm = styled.form`
   margin-top: 50px;
@@ -24,6 +25,7 @@ export const StyledInlineInputs = styled.div`
 export const StyledButton = styled(Button)`
   text-transform: none;
   margin-left: auto;
+  margin-top: 30px;
 
   @media (min-width: 1440px) {
     margin-top: 60px;
@@ -140,7 +142,7 @@ export const StyledFormGroup = styled(FormGroup)`
     white-space: normal;
     text-align: justify;
     display: inline-flex;
-    width: calc(100% - 23px);
+    width: calc(100% - 33px);
   }
 
   @media (min-width: 768px) {
@@ -148,7 +150,13 @@ export const StyledFormGroup = styled(FormGroup)`
   }
 
   @media (min-width: 1366px) {
-    width: calc(50% - 20px);
+    width: calc(50% - 30px);
     margin-left: auto;
   }
+`;
+
+export const StyledCheckbox = styled(Input)`
+  position: relative;
+  top: 3px;
+  margin-right: 10px;
 `;
