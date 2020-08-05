@@ -31,7 +31,7 @@ export const StyledLabel = styled(Label)`
 `;
 
 export const StyledButton = styled(Button)`
-  margin: 20px 0 20px auto;
+  margin: 20px 0 20px 20px;
 `;
 
 export const StyledH2 = styled.h2`
@@ -63,4 +63,22 @@ export const StyledLoader = styled(Loader)`
   left: 0;
   transform: translate(-172%, 35%);
   margin: 0;
+`;
+
+export const StyledNotification = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  color: #56a31f;
+
+  svg {
+    margin-right: 10px;
+  }
+`;
+
+export const StyledButtonsWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
 `;
