@@ -9,6 +9,8 @@ Project has only two branches:
 Parts of website that use backend are connected with firestore. Valuation form is also using firebase function to
 validate reCaptcha.
 
+EDIT: Due to client's request valuation form was deleted and the possibility to edit text on homepage was added. There is third branch which contains this changes and it is currently deployed on [https://solfran-d9446.firebaseapp.com](https://solfran-d9446.firebaseapp.com) insetad of the "dev" branch.
+
 ## Available Scripts
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
