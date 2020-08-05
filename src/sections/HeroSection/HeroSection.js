@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import AOS from 'aos';
 import { firestore } from '../../base';
 import Button from '../../components/atoms/Button/Button';
 import HouseImage from '../../components/atoms/HouseImage/HouseImage';
@@ -21,6 +20,7 @@ const HeroSection = ({ greyBackground }) => {
       .catch(function (error) {
         console.error('Error: ', error);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

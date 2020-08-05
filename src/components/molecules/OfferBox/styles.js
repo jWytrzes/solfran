@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Paragraph from '../../atoms/Paragraph/Paragraph';
 
 export const StyledWrapper = styled.div`
   position: relative;

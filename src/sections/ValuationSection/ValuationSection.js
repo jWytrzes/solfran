@@ -18,6 +18,7 @@ const ValuationSection = () => {
       .catch(function (error) {
         console.error('Error: ', error);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

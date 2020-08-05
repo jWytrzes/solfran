@@ -1,7 +1,7 @@
 import React from 'react';
 import TextButton from '../../atoms/TextButton/TextButton';
-import { StyledWrapper } from './styles';
 import Heading from '../../atoms/Heading/Heading';
+import { StyledWrapper } from './styles';
 
 const OfferBox = ({ title, content, ...props }) => {
   return (

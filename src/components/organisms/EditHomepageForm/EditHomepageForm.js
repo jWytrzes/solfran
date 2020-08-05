@@ -78,6 +78,7 @@ const EditHomepageForm = () => {
       .catch(function (error) {
         console.error('Error: ', error);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const updateOfferTitle = (index) => (e) => {
@@ -128,7 +129,7 @@ const EditHomepageForm = () => {
 
   const handleOfferSave = () => {
     setOfferSuccess(false);
-    offer.map((item) => {
+    offer.forEach((item) => {
       homepageOfferCollection
         .doc(item.id)
         .update({ title: item.title, content: item.content })

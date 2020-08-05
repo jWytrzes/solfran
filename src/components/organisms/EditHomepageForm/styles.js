@@ -47,8 +47,12 @@ export const StyledH2 = styled.h2`
 
 export const StyledColumnsWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   grid-gap: 20px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 export const StyledItem = styled.div`
