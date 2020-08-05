@@ -10,17 +10,18 @@ import Login from './Login';
 import AdminHomepage from './AdminHomepage';
 import AdminNewPost from './AdminNewPost';
 import AdminEditPost from './AdminEditPost';
-import AdminValuationRequests from './AdminValuationRequests';
 import AdminEditHomepage from './AdminEditHomepage';
 import PrivateRoute from '../utils/PrivateRoute';
 import NotFound from './NotFound';
 
 const Root = () => {
   useEffect(() => {
-    AOS.init({
-      duration: 600,
-      once: true,
-    });
+    setTimeout(() => {
+      AOS.init({
+        duration: 600,
+        once: true,
+      });
+    }, 400);
   }, []);
 
   return (
@@ -42,7 +43,6 @@ const Root = () => {
           <PrivateRoute exact path="/admin" component={AdminHomepage} />
           <PrivateRoute path="/admin/new" component={AdminNewPost} />
           <PrivateRoute path="/admin/edit/:id" component={AdminEditPost} />
-          <PrivateRoute path="/admin/valuationRequests" component={AdminValuationRequests} />
           <PrivateRoute path="/admin/editHomepage" component={AdminEditHomepage} />
           <Route>
             <NotFound />

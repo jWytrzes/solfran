@@ -24,7 +24,7 @@ const Popup = ({ title, content, closePopup }) => {
         </StyledButton>
         <div>
           <H3> {title} </H3>
-          <P> {content} </P>
+          <P dangerouslySetInnerHTML={{ __html: content }} />
         </div>
       </StyledWrapper>
       <Layer onClick={handleClose} animate={animate} />

@@ -15,13 +15,15 @@ export const StyledWrapper = styled.div`
   @media (min-width: 1150px) {
     margin: 0;
   }
-`;
 
-export const StyledParagraph = styled(Paragraph)`
-  height: calc(1.4rem * 5 * 1.45);
-  overflow-y: hidden;
-  position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
+  p {
+    margin: 0;
+    font-size: ${({ theme }) => theme.font.size.s};
+    height: calc(1.4rem * 5 * 1.45);
+    overflow-y: hidden;
+    position: relative;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+  }
 `;
