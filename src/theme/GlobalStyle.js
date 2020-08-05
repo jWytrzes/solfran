@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
 		position: relative;
 		font-family: 'Montserrat', sans-serif;
 		font-size: 14px;
-		font-size: 1.4rem; 
+		font-size: 1.4rem;
 		line-height: 1.5;
 		color: #18516C;
 		overflow-x: hidden;
@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 
 		@media(min-width: 992px) {
 			font-size: 16px;
-			font-size: 1.6rem; 
+			font-size: 1.6rem;
 			padding-top: 0;
 		}
 	}
