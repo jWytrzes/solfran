@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import MainTemplate from '../templates/MainTemplate';
 import Home from './Home';
 import Blog from './Blog';
@@ -9,9 +11,8 @@ import AdminHomepage from './AdminHomepage';
 import AdminNewPost from './AdminNewPost';
 import AdminEditPost from './AdminEditPost';
 import AdminValuationRequests from './AdminValuationRequests';
+import EditHomepage from './EditHomepage';
 import PrivateRoute from '../utils/PrivateRoute';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import NotFound from './NotFound';
 
 const Root = () => {
@@ -42,6 +43,7 @@ const Root = () => {
           <PrivateRoute path="/admin/new" component={AdminNewPost} />
           <PrivateRoute path="/admin/edit/:id" component={AdminEditPost} />
           <PrivateRoute path="/admin/valuationRequests" component={AdminValuationRequests} />
+          <PrivateRoute path="/admin/editHomepage" component={EditHomepage} />
           <Route>
             <NotFound />
           </Route>

@@ -22,6 +22,10 @@ const AdminPanelTopBar = ({ location, ...props }) => {
       path: '/admin/valuationRequests',
       text: 'Prośby o wycenę',
     },
+    {
+      path: '/admin/editHomepage',
+      text: 'Edycja strony głównej',
+    },
   ];
 
   return (
