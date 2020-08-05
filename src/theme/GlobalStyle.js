@@ -47,6 +47,11 @@ const GlobalStyle = createGlobalStyle`
 
 	.ql-editor {
 		min-height: 350px;
+		background-color: #fff;
+	}
+
+	.smallEditor .ql-editor {
+		min-height: 200px;
 	}
 
 	#postShortContent .ql-editor {

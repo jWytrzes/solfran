@@ -11,7 +11,7 @@ import AdminHomepage from './AdminHomepage';
 import AdminNewPost from './AdminNewPost';
 import AdminEditPost from './AdminEditPost';
 import AdminValuationRequests from './AdminValuationRequests';
-import EditHomepage from './EditHomepage';
+import AdminEditHomepage from './AdminEditHomepage';
 import PrivateRoute from '../utils/PrivateRoute';
 import NotFound from './NotFound';
 
@@ -43,7 +43,7 @@ const Root = () => {
           <PrivateRoute path="/admin/new" component={AdminNewPost} />
           <PrivateRoute path="/admin/edit/:id" component={AdminEditPost} />
           <PrivateRoute path="/admin/valuationRequests" component={AdminValuationRequests} />
-          <PrivateRoute path="/admin/editHomepage" component={EditHomepage} />
+          <PrivateRoute path="/admin/editHomepage" component={AdminEditHomepage} />
           <Route>
             <NotFound />
           </Route>
