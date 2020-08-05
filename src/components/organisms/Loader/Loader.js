@@ -2,9 +2,9 @@ import React from 'react';
 import { StyledWrapper } from './styles';
 import { Loader as LoaderIcon } from 'react-feather';
 
-const Loader = () => {
+const Loader = ({ ...props }) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper {...props}>
       <LoaderIcon />
     </StyledWrapper>
   );

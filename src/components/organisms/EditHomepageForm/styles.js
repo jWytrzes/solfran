@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Input from '../../atoms/Input/Input';
 import Label from '../../atoms/Label/Label';
 import Button from '../../atoms/Button/Button';
+import Loader from '../Loader/Loader';
 
 export const StyledWrapper = styled.div`
   margin: 50px 0;
@@ -54,4 +55,12 @@ export const StyledItem = styled.div`
   background-color: rgba(0, 0, 0, 0.02);
   padding: 15px;
   border-radius: 10px;
+`;
+
+export const StyledLoader = styled(Loader)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-172%, 35%);
+  margin: 0;
 `;
