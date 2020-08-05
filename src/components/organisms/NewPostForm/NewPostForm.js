@@ -45,6 +45,7 @@ const NewPostForm = ({ edit }) => {
           console.error('Error removing document: ', error);
         });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSubmit = (e) => {

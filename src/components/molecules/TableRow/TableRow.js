@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Popup from '../Popup/Popup';
-import Button from '../../atoms/Button/Button';
 import { StyledWrapper, StyledHeader, StyledHeading, StyledId, StyledOptionsWrapper, StyledDate, StyledButtons, StyledButton } from './styles';
 import { Link as LinkIcon, Edit, X } from 'react-feather';
 

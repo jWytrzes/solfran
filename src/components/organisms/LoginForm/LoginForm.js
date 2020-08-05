@@ -38,6 +38,7 @@ const LoginForm = ({ history }) => {
   useEffect(() => {
     const authenticated = checkUserToken();
     if (authenticated) history.push('/admin');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -25,6 +25,7 @@ const RequestsTable = () => {
       });
 
     return () => subscribe;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const updateItem = (id, currentValue) => {
@@ -65,7 +66,11 @@ const RequestsTable = () => {
         </StyledTableCell>
       </StyledTableHeader>
       <div>
-        {requests.length ? requests.map((request, i) => <RequestTableRow key={request.id} data={request} num={i} updateItem={updateItem}  data-aos="fade-up" data-aos-delay={i*50} />) : null}
+        {requests.length
+          ? requests.map((request, i) => (
+              <RequestTableRow key={request.id} data={request} num={i} updateItem={updateItem} data-aos="fade-up" data-aos-delay={i * 50} />
+            ))
+          : null}
       </div>
       {loading && <Loader />}
     </StyledWrapper>

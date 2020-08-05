@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledWrapper, StyledLoader } from './styles';
+import { StyledWrapper } from './styles';
 import { Loader as LoaderIcon } from 'react-feather';
 
 const Loader = () => {

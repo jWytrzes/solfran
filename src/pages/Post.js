@@ -65,6 +65,7 @@ const Post = ({ history }) => {
       .catch(function (error) {
         console.error('Error finding document: ', error);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

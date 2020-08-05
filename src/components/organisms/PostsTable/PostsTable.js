@@ -54,6 +54,7 @@ const PostsTable = () => {
       });
 
     return () => subscribe;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const popupContent = (

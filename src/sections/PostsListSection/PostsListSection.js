@@ -29,6 +29,7 @@ const PostsListSection = () => {
       });
 
     return () => subscribe;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (posts.length) {

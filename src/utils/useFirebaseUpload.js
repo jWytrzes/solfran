@@ -50,6 +50,7 @@ const useFirebaseUpload = () => {
     };
 
     fileData && uploadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fileData]);
 
   return [{ data, isLoading, isError, progress }, setFileData, setData];
