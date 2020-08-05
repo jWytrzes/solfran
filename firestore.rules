@@ -5,8 +5,5 @@ service cloud.firestore {
       allow read: if true
       allow write: if request.auth.uid != null;
     }
-    match /valuationRequests/{id} {
-      allow read, write: if true;
-    }
   }
 }
