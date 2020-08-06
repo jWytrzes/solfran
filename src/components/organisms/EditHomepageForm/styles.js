@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Input from '../../atoms/Input/Input';
 import Label from '../../atoms/Label/Label';
 import Button from '../../atoms/Button/Button';
-import Loader from '../Loader/Loader';
 
 export const StyledWrapper = styled.div`
   margin: 50px 0;
@@ -24,6 +23,10 @@ export const StyledInput = styled(Input)`
   }
 `;
 
+export const StyledInlineInput = styled(StyledInput)`
+  margin-left: 20px;
+`;
+
 export const StyledLabel = styled(Label)`
   display: block;
   font-size: ${({ theme }) => theme.font.size.r};
@@ -39,6 +42,9 @@ export const StyledH2 = styled.h2`
   font-size: ${({ theme }) => theme.font.size.l};
   font-weight: ${({ theme }) => theme.font.weight.black};
   margin: 15px 0;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
 
   @media (min-width: 1440px) {
     font-size: ${({ theme }) => theme.font.size.xl};
@@ -59,14 +65,6 @@ export const StyledItem = styled.div`
   background-color: rgba(0, 0, 0, 0.02);
   padding: 15px;
   border-radius: 10px;
-`;
-
-export const StyledLoader = styled(Loader)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(-172%, 35%);
-  margin: 0;
 `;
 
 export const StyledNotification = styled.div`

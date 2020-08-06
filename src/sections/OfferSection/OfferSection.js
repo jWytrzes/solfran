@@ -8,13 +8,13 @@ import Popup from '../../components/molecules/Popup/Popup';
 import { StyledWrapper, FirstList, SecondList } from './styles';
 
 const OfferSection = ({ greyBackground }) => {
-  const [offerContent, setOfferContent] = useState([]);
+  const [offerContent, setOfferContent] = useState({ sectionTitle: '', content: [{ title: '', text: '' }] });
   const [popupTitle, setPopupTitle] = useState('');
   const [popupContent, setPopupContent] = useState('');
   const [isPopupVisible, togglePopup] = useState(false);
   const [leftArray, setLeftArray] = useState([]);
   const [rightArray, setRightArray] = useState([]);
-  const homepageOfferCollection = firestore.collection('homepageOffer');
+  const homepageContentCollection = firestore.collection('homepageContent');
 
   const openPopup = (title, content) => {
     setPopupTitle(title);
@@ -23,11 +23,12 @@ const OfferSection = ({ greyBackground }) => {
   };
 
   useEffect(() => {
-    homepageOfferCollection
+    homepageContentCollection
       .get()
       .then((snapshot) => {
         const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-        setOfferContent(data);
+        const section2 = data.find((obj) => obj.sectionId === 'section2');
+        setOfferContent(section2);
       })
       .catch(function (error) {
         console.error('Error: ', error);
@@ -36,23 +37,23 @@ const OfferSection = ({ greyBackground }) => {
   }, []);
 
   useEffect(() => {
-    const halfLength = Math.floor(offerContent.length / 2);
-    setLeftArray(offerContent.slice(0, halfLength));
-    setRightArray(offerContent.slice(halfLength, offerContent.length));
+    const halfLength = Math.floor(offerContent.content.length / 2);
+    setLeftArray(offerContent.content.slice(0, halfLength));
+    setRightArray(offerContent.content.slice(halfLength, offerContent.content.length));
   }, [offerContent]);
 
   return (
     <SectionTemplate id="offer" noBottomPadding greyBackground={greyBackground}>
       <Heading big data-aos="fade-up">
-        Oferta
+        {offerContent.sectionTitle}
       </Heading>
       <StyledWrapper>
         <FirstList>
           {leftArray.map((el, i) => (
             <OfferBox
-              onClick={() => openPopup(el.title, el.content)}
+              onClick={() => openPopup(el.title, el.text)}
               title={el.title}
-              content={el.content}
+              content={el.text}
               key={el.title}
               data-aos="fade-right"
               data-aos-delay={i * 100}
@@ -64,9 +65,9 @@ const OfferSection = ({ greyBackground }) => {
         <SecondList>
           {rightArray.map((el, i) => (
             <OfferBox
-              onClick={() => openPopup(el.title, el.content)}
+              onClick={() => openPopup(el.title, el.text)}
               title={el.title}
-              content={el.content}
+              content={el.text}
               key={el.title}
               data-aos="fade-left"
               data-aos-delay={i * 100}

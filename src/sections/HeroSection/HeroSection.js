@@ -7,15 +7,16 @@ import { StyledSectionTemplate, StyledWrapper, StyledButtonsWrapper, StyledImage
 import { HashLink } from 'react-router-hash-link';
 
 const HeroSection = ({ greyBackground }) => {
-  const [heroContent, setHeroContent] = useState({ title: '', content: '' });
-  const homepageHeroCollection = firestore.collection('homepageHero');
+  const [heroContent, setHeroContent] = useState(null);
+  const homepageContentCollection = firestore.collection('homepageContent');
 
   useEffect(() => {
-    homepageHeroCollection
+    homepageContentCollection
       .get()
       .then((snapshot) => {
         const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-        setHeroContent({ ...data[0] });
+        const section1 = data.find((obj) => obj.sectionId === 'section1');
+        setHeroContent(section1);
       })
       .catch(function (error) {
         console.error('Error: ', error);
@@ -27,8 +28,12 @@ const HeroSection = ({ greyBackground }) => {
     <StyledSectionTemplate id="hero" noBottomPadding topPadding greyBackground={greyBackground} className="section">
       <StyledWrapper>
         <StyledTextWrapper>
-          <H1 data-aos="fade-up">{heroContent.title}</H1>
-          <div data-aos="fade-up" data-aos-delay="50" dangerouslySetInnerHTML={{ __html: heroContent.content }} />
+          {heroContent && (
+            <>
+              <H1 data-aos="fade-up">{heroContent.sectionTitle}</H1>
+              <div data-aos="fade-up" data-aos-delay="50" dangerouslySetInnerHTML={{ __html: heroContent.content[0].text }} />
+            </>
+          )}
 
           <StyledButtonsWrapper data-aos="fade-up" data-aos-delay="100">
             <Button as={HashLink} smooth to="#offer">
