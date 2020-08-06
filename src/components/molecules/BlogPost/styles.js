@@ -32,7 +32,7 @@ export const StyledPhotoWrapper = styled.div`
   height: ${({ bigPost }) => (bigPost ? '160px' : '80px')};
   border-radius: ${({ bigPost }) => (bigPost ? '30px' : '15px')};
   overflow: hidden;
-
+  background-color: ${({ theme }) => theme.grey};
   img {
     object-fit: cover;
     display: block;

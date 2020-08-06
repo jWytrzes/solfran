@@ -15,14 +15,15 @@ export const StyledWrapper = styled.div`
     margin: 0;
   }
 
-  p {
+  div {
     margin: 0;
     font-size: ${({ theme }) => theme.font.size.s};
     height: calc(1.4rem * 5 * 1.45);
     overflow-y: hidden;
     position: relative;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
+
+    p:first-of-type {
+      margin-top: 0;
+    }
   }
 `;

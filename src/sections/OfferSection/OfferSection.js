@@ -75,7 +75,6 @@ const OfferSection = ({ greyBackground }) => {
             />
           ))}
         </SecondList>
-
         {isPopupVisible && <Popup title={popupTitle} content={popupContent} closePopup={() => togglePopup(false)} />}
       </StyledWrapper>
     </SectionTemplate>
