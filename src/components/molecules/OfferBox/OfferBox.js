@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import Truncate from 'react-truncate';
+import React from 'react';
 import parse from 'html-react-parser';
 import TextButton from '../../atoms/TextButton/TextButton';
 import Heading from '../../atoms/Heading/Heading';
