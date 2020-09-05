@@ -13,6 +13,7 @@ const Popup = ({ title, content, closePopup }) => {
   };
 
   useEffect(() => {
+    console.log(content);
     setAnimate(false);
   }, []);
 
@@ -24,7 +25,7 @@ const Popup = ({ title, content, closePopup }) => {
         </StyledButton>
         <div>
           <H3> {title} </H3>
-          <P dangerouslySetInnerHTML={{ __html: content }} />
+          <P> {content} </P>
         </div>
       </StyledWrapper>
       <Layer onClick={handleClose} animate={animate} />

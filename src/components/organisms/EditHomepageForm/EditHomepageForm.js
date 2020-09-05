@@ -215,7 +215,7 @@ const EditHomepageForm = () => {
       {valuation && (
         <div data-aos="fade-up">
           <StyledH2>
-            Sekcja 3:
+            Sekcja trzecia:
             <StyledInlineInput value={valuation.sectionTitle} onChange={(e) => setValuation({ ...valuation, sectionTitle: e.target.value })} />
           </StyledH2>
           <div>
