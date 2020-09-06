@@ -2,7 +2,7 @@ import React from 'react';
 import { auth } from '../../../base';
 import logo from '../../../assets/pictures/logo.png';
 import { Power } from 'react-feather';
-import { StyledWrapper, StyledLink, StyledLogoLink, StyledList, StyledTextLink } from './styles';
+import { StyledWrapper, StyledLink, StyledLogoLink, StyledList, StyledTextLink, StyledVersion } from './styles';
 import { withRouter } from 'react-router-dom';
 
 const AdminPanelTopBar = ({ location, ...props }) => {
@@ -26,6 +26,7 @@ const AdminPanelTopBar = ({ location, ...props }) => {
 
   return (
     <StyledWrapper {...props}>
+      <StyledVersion> v 1.0.0 </StyledVersion>
       <StyledLogoLink to="/admin">
         <img src={logo} alt="Logo" />
       </StyledLogoLink>

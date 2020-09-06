@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const StyledWrapper = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,4 +53,12 @@ export const StyledTextLink = styled(Link)`
   color: ${({ theme, isactive }) => (isactive ? theme.primary : '#333')};
   font-weight: ${({ theme, isactive }) => (isactive ? theme.font.weight.semiBold : theme.font.weight.regular)};
   margin-right: 30px;
+`;
+
+export const StyledVersion = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: ${({ theme }) => theme.font.size.xs};
+  transform: translateY(-150%);
 `;
