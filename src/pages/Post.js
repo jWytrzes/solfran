@@ -37,7 +37,7 @@ const StyledImg = styled.img`
   background-color: white;
 
   @media (min-width: 1150px) {
-    max-width: 50%;
+    max-width: 40%;
     float: left;
     margin: 0 15px 15px 0;
   }

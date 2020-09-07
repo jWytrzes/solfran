@@ -100,6 +100,10 @@ const GlobalStyle = createGlobalStyle`
 		position: relative;
 		z-index: 99;
 	}
+
+	img {
+		max-width: 100%;
+	}
 `;
 
 export default GlobalStyle;
