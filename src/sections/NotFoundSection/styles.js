@@ -12,7 +12,6 @@ export const StyledSectionTemplate = styled(SectionTemplate)`
     background-repeat: no-repeat;
     z-index: -1;
   }
-
   ::before {
     content: '';
     background-image: url(${shape2});
@@ -21,7 +20,6 @@ export const StyledSectionTemplate = styled(SectionTemplate)`
     width: 580px;
     height: 602px;
   }
-
   ::after {
     content: '';
     background-image: url(${shape3});
@@ -30,7 +28,6 @@ export const StyledSectionTemplate = styled(SectionTemplate)`
     width: 450px;
     height: 380px;
   }
-
   @media (min-width: 1150px) {
     ::before {
       width: 1000px;
@@ -40,7 +37,6 @@ export const StyledSectionTemplate = styled(SectionTemplate)`
       top: -280px;
       right: -300px;
     }
-
     ::after {
       background-position: unset;
       background-size: cover;
@@ -101,7 +97,6 @@ export const StyledTextWrapper = styled.div`
   @media (min-width: 1150px) {
     max-width: 400px;
   }
-
   @media (min-width: 1440px) {
     max-width: 500px;
   }

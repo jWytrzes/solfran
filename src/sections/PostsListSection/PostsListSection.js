@@ -1,45 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { firestore } from '../../base';
+import ReactHtmlParser from 'react-html-parser';
+import Loader from '../../components/organisms/Loader/Loader';
 import BlogGridTemplate from '../../templates/BlogGridTemplate';
 import BlogPost from '../../components/molecules/BlogPost/BlogPost';
-import photo1 from '../../assets/pictures/photo1.png';
-import photo2 from '../../assets/pictures/photo2.png';
-
-const posts = [
-  {
-    photo: '',
-    title: 'Lorem ipsum dolor sit amet, consetetur',
-    shortContent:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.At vero eos et  accusam et justo duo',
-    id: 'a1',
-  },
-  {
-    photo: photo1,
-    title: 'Lorem ipsum dolor sit amet, consetetur',
-    shortContent:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.At vero eos et accusam et justo duo',
-    id: 'a2',
-  },
-  {
-    photo: photo2,
-    title: 'Lorem ipsum sed diam at consetetur',
-    shortContent: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.',
-    id: 'a3',
-  },
-  {
-    photo: '',
-    title: 'Lorem ipsum sed diam at consetetur',
-    shortContent: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.',
-    id: 'a4',
-  },
-];
+import { StyledNoContent } from './styles';
 
 const PostsListSection = () => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [noPosts, setNoPosts] = useState(false);
+  const postsCollection = firestore.collection('posts');
+
+  const documentsCollection = (doc) => {
+    return { id: doc.id, ...doc.data() };
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    const subscribe = postsCollection
+      .orderBy('createdAt', 'desc')
+      .get()
+      .then((snapshot) => {
+        const dataFromCollection = snapshot.docs.map(documentsCollection);
+        setPosts(dataFromCollection);
+        !dataFromCollection.length && setNoPosts(true);
+        setLoading(false);
+      });
+
+    return () => subscribe;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (posts.length) {
+    return (
+      <BlogGridTemplate>
+        {posts.map((post, i) => (
+          <BlogPost
+            bigPost={i === 0}
+            title={post.title}
+            shortContent={ReactHtmlParser(post.shortContent)}
+            photo={post.photo}
+            key={post.id}
+            id={post.id}
+            data-aos="fade-up"
+            data-aos-delay={i * 50}
+          />
+        ))}
+        {loading && <Loader />}
+      </BlogGridTemplate>
+    );
+  }
+
   return (
-    <BlogGridTemplate>
-      {posts.map((post, i) => (
-        <BlogPost bigPost={i === 0} title={post.title} shortContent={post.shortContent} photo={post.photo} key={post.id} id={post.id} />
-      ))}
-    </BlogGridTemplate>
+    <StyledNoContent data-aos="fade-up">
+      {noPosts && <h2> Jeszcze nie ma tu postów. Wróć wkrótce! </h2>}
+      {loading && <Loader />}
+    </StyledNoContent>
   );
 };
 

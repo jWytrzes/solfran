@@ -45,7 +45,7 @@ const Menu = ({ location, toggleMenu, ...props }) => {
     const winHeight = window.innerHeight;
     let visibleSections = [];
 
-    sections.forEach(el => {
+    sections.forEach((el) => {
       checkIfOnScreen(el) && visibleSections.push(el);
     });
 
@@ -55,7 +55,7 @@ const Menu = ({ location, toggleMenu, ...props }) => {
     } else if (winHeight + scrollTop >= document.body.offsetHeight) {
       biggest = sections[sections.length - 1];
     } else {
-      visibleSections.forEach(section => {
+      visibleSections.forEach((section) => {
         const visiblePart = calculateVisiblePart(section);
         if (visiblePart > calculateVisiblePart(biggest)) biggest = section;
       });
@@ -80,6 +80,7 @@ const Menu = ({ location, toggleMenu, ...props }) => {
     return () => {
       window.removeEventListener('scroll', handleScrollDebounce);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   return (
