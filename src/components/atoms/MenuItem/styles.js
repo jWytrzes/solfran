@@ -27,34 +27,20 @@ export const StyledLi = styled.li`
       letter-spacing: 1px;
       visibility: hidden;
       opacity: 0;
-      transform: translateX(50%);
-      transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out,
-        visibility 0s 0.2s;
+      transition: opacity 0.2s ease-in-out, visibility 0s 0.2s;
       will-change: visibility;
-
-      ::before {
-        content: '';
-        position: absolute;
-        width: 15px;
-        height: 8px;
-        border-radius: 100%;
-        background-color: ${({ theme }) => theme.secondary};
-        top: 50%;
-        left: 0;
-        transform: translate(-30%, -50%);
-      }
     }
 
     :hover {
       .menu__text {
         visibility: visible;
         opacity: 1;
-        transform: translateX(0);
         transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
       }
 
       .menu__icon::after {
         opacity: 1;
+        transform: translateY(0);
       }
     }
   }
@@ -73,8 +59,7 @@ export const StyledIconWrapper = styled.span`
   align-items: center;
   justify-content: center;
   margin-right: 25px;
-  background-color: ${({ theme, isActive }) =>
-    isActive ? theme.primary : 'transparent'};
+  background-color: ${({ theme, isActive }) => (isActive ? theme.primary : 'transparent')};
   transition: background-color 0.2s ease-in-out;
   will-change: background-color;
 
@@ -88,7 +73,8 @@ export const StyledIconWrapper = styled.span`
     height: 100%;
     box-shadow: 0 10px 15px ${({ theme }) => theme.shadow};
     opacity: ${({ isActive }) => (isActive ? 1 : 0)};
-    transition: opacity 0.2s ease-in-out;
+    transform: ${({ isActive }) => (isActive ? 'translateY(0)' : 'translateY(-5px)')};
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
   }
 
   svg {

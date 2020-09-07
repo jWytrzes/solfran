@@ -1,5 +1,7 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Button from '../../atoms/Button/Button';
+import FormGroup from '../../atoms/FormGroup/FormGroup';
+import Input from '../../atoms/Input/Input';
 
 export const StyledForm = styled.form`
   margin-top: 50px;
@@ -23,6 +25,7 @@ export const StyledInlineInputs = styled.div`
 export const StyledButton = styled(Button)`
   text-transform: none;
   margin-left: auto;
+  margin-top: 30px;
 
   @media (min-width: 1440px) {
     margin-top: 60px;
@@ -107,4 +110,53 @@ export const StyledFieldsWrapper = styled.div`
   .ten {
     grid-area: ten;
   }
+`;
+
+export const StyledRecaptchaWrapper = styled.div`
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const spin = keyframes`
+  100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
+`;
+
+export const StyledLoader = styled.div`
+  margin: 20px 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+
+  svg {
+    animation: ${spin} 2s linear infinite;
+  }
+`;
+
+export const StyledFormGroup = styled(FormGroup)`
+  display: flex;
+  margin-top: 30px;
+
+  span {
+    white-space: normal;
+    text-align: justify;
+    display: inline-flex;
+    width: calc(100% - 33px);
+  }
+
+  @media (min-width: 768px) {
+    width: 100%;
+  }
+
+  @media (min-width: 1366px) {
+    width: calc(50% - 30px);
+    margin-left: auto;
+  }
+`;
+
+export const StyledCheckbox = styled(Input)`
+  position: relative;
+  top: 3px;
+  margin-right: 10px;
 `;

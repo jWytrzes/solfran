@@ -1,6 +1,9 @@
 import firebase from 'firebase/app';
-import analytics from 'firebase/analytics';
-import database from 'firebase/firestore';
+import 'firebase/analytics';
+import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/storage';
+import 'firebase/functions';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FB_API_KEY,
@@ -10,9 +13,13 @@ const firebaseConfig = {
   storageBucket: process.env.REACT_APP_FB_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FB_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FB_APP_ID,
-  measurementId: process.env.REACT_APP_FB_MEASURMENT_ID,
+  measurementId: process.env.REACT_APP_FB_MEASUREMENT_ID,
 };
 
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+
 export const firestore = firebase.firestore();
+export const auth = firebase.auth();
+export const storage = firebase.storage();
+export const functions = firebase.functions();

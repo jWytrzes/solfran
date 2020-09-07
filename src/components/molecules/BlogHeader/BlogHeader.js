@@ -5,7 +5,7 @@ import { StyledWrapper } from './styles';
 const BlogHeader = ({ children, dark, alignLeft }) => {
   return (
     <StyledWrapper dark={dark} alignLeft={alignLeft}>
-      <H1> {children} </H1>
+      <H1 data-aos="fade-up"> {children} </H1>
     </StyledWrapper>
   );
 };

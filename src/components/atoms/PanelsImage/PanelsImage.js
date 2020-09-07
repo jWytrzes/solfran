@@ -1,72 +1,29 @@
 import React from 'react';
 import { StyledWrapper } from './styles';
 
-const PanelsImage = () => {
+const PanelsImage = ({ ...props }) => {
   return (
-    <StyledWrapper>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
-        viewBox="0 0 1174.955 483.275"
-      >
+    <StyledWrapper {...props}>
+      <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1174.955 483.275">
         <defs>
-          <linearGradient
-            id="a"
-            x1="-5.017"
-            x2="-5.016"
-            y1="2.072"
-            y2="2.072"
-            gradientUnits="objectBoundingBox"
-          >
+          <linearGradient id="a" x1="-5.017" x2="-5.016" y1="2.072" y2="2.072" gradientUnits="objectBoundingBox">
             <stop offset="0" stopColor="#7bb3fe"></stop>
             <stop offset="1" stopColor="#9178ff"></stop>
           </linearGradient>
-          <linearGradient
-            id="b"
-            x1="0.5"
-            x2="0.5"
-            y2="1"
-            gradientUnits="objectBoundingBox"
-          >
+          <linearGradient id="b" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
             <stop offset="0" stopColor="#7bb3fe"></stop>
             <stop offset="1" stopColor="#8e7ffe"></stop>
           </linearGradient>
-          <linearGradient
-            id="c"
-            x1="-0.712"
-            x2="-0.711"
-            y1="2.608"
-            y2="2.608"
-            xlinkHref="#a"
-          ></linearGradient>
-          <linearGradient
-            id="d"
-            x1="0.5"
-            x2="0.5"
-            y2="1"
-            gradientUnits="objectBoundingBox"
-          >
+          <linearGradient id="c" x1="-0.712" x2="-0.711" y1="2.608" y2="2.608" xlinkHref="#a"></linearGradient>
+          <linearGradient id="d" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
             <stop offset="0" stopColor="#7bb3fe"></stop>
             <stop offset="1" stopColor="#8c84fe"></stop>
           </linearGradient>
-          <linearGradient
-            id="e"
-            x1="-4.465"
-            x2="-4.464"
-            y1="4.184"
-            y2="4.184"
-            gradientUnits="objectBoundingBox"
-          >
+          <linearGradient id="e" x1="-4.465" x2="-4.464" y1="4.184" y2="4.184" gradientUnits="objectBoundingBox">
             <stop offset="0" stopColor="#7c8a9e"></stop>
             <stop offset="1" stopColor="#9178ff"></stop>
           </linearGradient>
-          <linearGradient
-            id="f"
-            x1="0.5"
-            x2="0.5"
-            y2="1"
-            gradientUnits="objectBoundingBox"
-          >
+          <linearGradient id="f" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
             <stop offset="0" stopColor="#74b0fc"></stop>
             <stop offset="1" stopColor="#8c8ffe"></stop>
           </linearGradient>
@@ -111,11 +68,7 @@ const PanelsImage = () => {
           d="M657.526-423.608a147.382 147.382 0 00-34.519 4.184 193.15 193.15 0 0139.893 12.437c10.583 4.66 21.283 10.789 26.9 20.893 4.625 8.313 5.136 18.356 3.253 27.733h54.831a8.112 8.112 0 008.116-8.111v-7.34c0-19.2-44.086-49.8-98.473-49.8"
           transform="translate(-212.522 841.635)"
         ></path>
-        <path
-          fill="#0088db"
-          d="M975.116-737.518H499.684L361.81-495.048h475.432l137.874-242.47"
-          transform="translate(-212.522 841.635)"
-        ></path>
+        <path fill="#0088db" d="M975.116-737.518H499.684L361.81-495.048h475.432l137.874-242.47" transform="translate(-212.522 841.635)"></path>
         <path
           fill="#0049bf"
           d="M975.116-737.518l-137.874 242.47H361.81l6.652 13.14h475.431l137.874-242.47-6.651-13.14"
@@ -136,11 +89,7 @@ const PanelsImage = () => {
           d="M873.054-609.392H747.769L723.3-566.361l-24.47 43.033h125.289l48.935-86.064M601.484-609.392l-48.937 86.064h130.438l48.939-86.064h-130.44"
           transform="translate(-212.522 841.635)"
         ></path>
-        <path
-          fill="#a1d3f2"
-          d="M438.848-595.328l12.488-21.963-12.488 21.963"
-          transform="translate(-212.522 841.635)"
-        ></path>
+        <path fill="#a1d3f2" d="M438.848-595.328l12.488-21.963-12.488 21.963" transform="translate(-212.522 841.635)"></path>
         <path
           fill="#ebf7f4"
           d="M485.516-623.169h-14.992l25.663-45.131 68.61-40.932h64.981l-144.262 86.063"
@@ -181,11 +130,7 @@ const PanelsImage = () => {
           d="M430.184-509.551H416.51l23.09-13.777h13.673l-23.092 13.777m149.345-89.1l6.109-10.743h-1.773l26.667-15.906-1.211 2.131h11.313l-41.1 24.521m185.363-110.586h-13.673l23.092-13.776h13.675l-23.093 13.776"
           transform="translate(-212.522 841.635)"
         ></path>
-        <path
-          fill="#ebf7f4"
-          d="M536.7-523.328h-4.839l7.324-4.369-2.485 4.369"
-          transform="translate(-212.522 841.635)"
-        ></path>
+        <path fill="#ebf7f4" d="M536.7-523.328h-4.839l7.324-4.369-2.485 4.369" transform="translate(-212.522 841.635)"></path>
         <path
           fill="#f9ffff"
           d="M530.3-509.551h-21.532l23.093-13.777h4.839l2.485-4.369L563.165-542l-10.619 18.676h.845L530.3-509.551"
@@ -226,11 +171,7 @@ const PanelsImage = () => {
           d="M1135.863-408.992a114.382 114.382 0 00-26.785 3.245 149.968 149.968 0 0130.955 9.652c8.213 3.617 16.515 8.372 20.879 16.213 3.588 6.452 3.985 14.244 2.524 21.521h42.548a6.3 6.3 0 006.3-6.3v-5.7c0-14.9-34.212-38.64-76.416-38.64"
           transform="translate(-212.522 841.635)"
         ></path>
-        <path
-          fill="#0088db"
-          d="M1382.317-652.588h-368.941L906.386-464.43h368.935l107-188.158"
-          transform="translate(-212.522 841.635)"
-        ></path>
+        <path fill="#0088db" d="M1382.317-652.588h-368.941L906.386-464.43h368.935l107-188.158" transform="translate(-212.522 841.635)"></path>
         <path
           fill="#014ec0"
           d="M1382.317-652.586l-107 188.157H906.386l5.163 10.2h368.934l106.994-188.161-5.16-10.2"
@@ -261,11 +202,7 @@ const PanelsImage = () => {
           d="M966.168-542.247l9.691-17.044 16.2-28.484 18.608-11.1-19.917 35.022h11.633l-36.215 21.607m148.161-88.392h-50.424l17.919-10.691h50.425l-17.92 10.691"
           transform="translate(-212.522 841.635)"
         ></path>
-        <path
-          fill="#a1d3f2"
-          d="M1321.487-563.853l4.817-8.472-4.817 8.472"
-          transform="translate(-212.522 841.635)"
-        ></path>
+        <path fill="#a1d3f2" d="M1321.487-563.853l4.817-8.472-4.817 8.472" transform="translate(-212.522 841.635)"></path>
         <path
           fill="#f9ffff"
           d="M1271.356-475.685h-107.041l17.92-10.689h82.905l37.973-66.786h-8.931l32.123-19.164-4.817 8.472-21.07 37.052-29.062 51.115"
@@ -291,11 +228,7 @@ const PanelsImage = () => {
           d="M959.446-475.685h-10.612l17.92-10.689h10.611l-17.919 10.689m115.892-69.139l4.74-8.337h-1.378l20.691-12.343-.939 1.651h8.78l-31.9 19.029m143.844-85.814h-10.606l17.919-10.691h10.611l-17.92 10.691"
           transform="translate(-212.522 841.635)"
         ></path>
-        <path
-          fill="#ebf7f4"
-          d="M1042.1-486.375h-3.755l5.683-3.392-1.929 3.393"
-          transform="translate(-212.522 841.635)"
-        ></path>
+        <path fill="#ebf7f4" d="M1042.1-486.375h-3.755l5.683-3.392-1.929 3.393" transform="translate(-212.522 841.635)"></path>
         <path
           fill="#f9ffff"
           d="M1037.135-475.685h-16.709l17.921-10.689h3.755l1.929-3.393 18.607-11.1-8.239 14.493h.656l-17.92 10.689"

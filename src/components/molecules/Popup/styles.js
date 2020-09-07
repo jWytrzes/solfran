@@ -15,6 +15,8 @@ export const StyledWrapper = styled.div`
   max-height: 80vh;
   overflow-y: auto;
   max-width: 600px;
+  opacity: ${({ animate }) => (animate ? 0 : 1)} !important;
+  transition: opacity 0.15s ease-in;
 `;
 
 export const StyledButton = styled.button`
@@ -37,6 +39,9 @@ export const Layer = styled.div`
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 9998;
+  opacity: 0;
+  opacity: ${({ animate }) => (animate ? 0 : 1)} !important;
+  transition: opacity 0.15s ease-in;
 `;
 
 export const H3 = styled.h3`

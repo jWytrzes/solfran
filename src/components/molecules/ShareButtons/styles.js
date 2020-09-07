@@ -19,9 +19,14 @@ export const StyledWrapper = styled.ul`
 export const StyledLi = styled.li`
   margin-left: 20px;
   position: relative;
+  transition: transform 0.15s ease-in;
 
   @media (min-width: 1150px) {
     margin-left: 0;
     margin-bottom: 10px;
+  }
+
+  :hover {
+    transform: scale(1.15);
   }
 `;

@@ -1,34 +1,55 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import GoogleFontLoader from 'react-google-font-loader';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import MainTemplate from '../templates/MainTemplate';
 import Home from './Home';
+import Blog from './Blog';
+import Post from './Post';
+import Login from './Login';
+import AdminHomepage from './AdminHomepage';
+import AdminNewPost from './AdminNewPost';
+import AdminEditPost from './AdminEditPost';
+import AdminEditHomepage from './AdminEditHomepage';
+import PrivateRoute from '../utils/PrivateRoute';
 import NotFound from './NotFound';
 
 const Root = () => {
-  return (
-    <>
-      <GoogleFontLoader
-        fonts={[
-          {
-            font: 'Montserrat',
-            weights: [400, 500, 600, 700, 900],
-          },
-        ]}
-        subsets={['latin-ext']}
-      />
+  useEffect(() => {
+    setTimeout(() => {
+      AOS.init({
+        duration: 600,
+        once: true,
+      });
+    }, 400);
+  }, []);
 
-      <Router>
-        <MainTemplate>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route component={NotFound} />
-          </Switch>
-        </MainTemplate>
-      </Router>
-    </>
+  return (
+    <Router>
+      <MainTemplate>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/blog">
+            <Blog />
+          </Route>
+          <Route path="/blog/:id">
+            <Post />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <PrivateRoute exact path="/admin" component={AdminHomepage} />
+          <PrivateRoute path="/admin/new" component={AdminNewPost} />
+          <PrivateRoute path="/admin/edit/:id" component={AdminEditPost} />
+          <PrivateRoute path="/admin/editHomepage" component={AdminEditHomepage} />
+          <Route>
+            <NotFound />
+          </Route>
+        </Switch>
+      </MainTemplate>
+    </Router>
   );
 };
 
