@@ -9,3 +9,8 @@ export const StyledParagraph = styled.div`
     max-width: 50%;
   }
 `;
+
+export const StyledIframe = styled.iframe`
+  margin-top: 50px;
+  border: none;
+`;
