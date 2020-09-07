@@ -127,6 +127,8 @@ export const StyledButtonsWrapper = styled.div`
 
 export const StyledImageWrapper = styled.div`
   display: flex;
+  width: 100%;
+  height: 100%;
   margin-top: auto;
 
   @media (min-width: 768px) {

@@ -2,9 +2,9 @@ import React from 'react';
 import { PhoneCall, AtSign } from 'react-feather';
 import { StyledUl, StyledWrapper, StyledLi } from './styles';
 
-const ContactData = () => {
+const ContactData = ({ ...props }) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper {...props}>
       <StyledUl>
         <StyledLi>
           <PhoneCall size="18" />

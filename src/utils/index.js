@@ -1,4 +1,17 @@
-export const calculateVisiblePart = element => {
+import jwtDecode from 'jwt-decode';
+
+export const checkUserToken = () => {
+  const token = localStorage.getItem('userToken');
+  if (token) {
+    const decodedToken = jwtDecode(token);
+    if (decodedToken.exp * 1000 < Date.now()) {
+      return false;
+    }
+    return true;
+  }
+};
+
+export const calculateVisiblePart = (element) => {
   const scrollTop = window.pageYOffset;
   const scrollBottom = scrollTop + window.innerHeight;
   const elementHeight = element.clientHeight;
@@ -17,7 +30,7 @@ export const calculateVisiblePart = element => {
   return visiblePart;
 };
 
-export const checkIfOnScreen = element => {
+export const checkIfOnScreen = (element) => {
   const posTop = element.offsetTop;
   const posBottom = posTop + element.clientHeight;
   const scrollTop = window.pageYOffset;

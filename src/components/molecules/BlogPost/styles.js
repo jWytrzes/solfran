@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import Button from '../../atoms/Button/Button';
-import Paragraph from '../../atoms/Paragraph/Paragraph';
 
 export const StyledWrapper = styled.div`
   margin-bottom: 70px;
@@ -33,7 +32,7 @@ export const StyledPhotoWrapper = styled.div`
   height: ${({ bigPost }) => (bigPost ? '160px' : '80px')};
   border-radius: ${({ bigPost }) => (bigPost ? '30px' : '15px')};
   overflow: hidden;
-
+  background-color: ${({ theme }) => theme.grey};
   img {
     object-fit: cover;
     display: block;
@@ -70,8 +69,25 @@ export const StyledTextWrapper = styled.div`
   }
 `;
 
+export const StyledShortContent = styled.div`
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 88px;
+  word-break: break-word;
+
+  p {
+    margin: 0;
+  }
+
+  @media (min-width: 992px) {
+    height: 94px;
+  }
+`;
+
 export const StyledH3 = styled.h3`
-  font-size: ${({ theme }) => theme.font.size.m};
+  font-size: ${({ theme, bigPost }) => (bigPost ? theme.font.size.l : theme.font.size.m)};
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   margin: 25px 0;
   min-height: 72px;
@@ -81,12 +97,4 @@ export const StyledH3 = styled.h3`
 export const StyledButton = styled(Button)`
   margin-top: 25px;
   cursor: pointer;
-`;
-
-export const StyledParagraph = styled(Paragraph)`
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  height: 85px;
 `;
