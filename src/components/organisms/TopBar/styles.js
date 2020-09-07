@@ -10,6 +10,10 @@ export const StyledWrapper = styled.div`
   left: 0;
   width: 100%;
   z-index: 999;
+  background-color: ${({ background }) => (background ? 'white' : 'transparent')};
+  box-shadow: ${({ background }) => (background ? '0px 0 20px rgba(51, 51, 51, 0.14)' : 'none')};
+  transition: background-color 0.4s ease-in-out;
+  will-change: background-color;
 
   @media (min-width: 1150px) {
     width: 100px;

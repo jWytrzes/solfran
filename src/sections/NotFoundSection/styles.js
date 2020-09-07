@@ -47,6 +47,7 @@ export const StyledSectionTemplate = styled(SectionTemplate)`
       transform: translate(25%, -40%);
     }
   }
+
   @media (min-width: 1440px) {
     ::before {
       width: 1192px;
@@ -56,12 +57,14 @@ export const StyledSectionTemplate = styled(SectionTemplate)`
       transform: translate(14.3%, -20%);
       z-index: 0;
     }
+
     ::after {
       z-index: 0;
       width: 600px;
       height: 505px;
     }
   }
+
   @media (min-width: 1600px) {
     ::before {
       width: 1400px;
@@ -71,6 +74,7 @@ export const StyledSectionTemplate = styled(SectionTemplate)`
       transform: translate(12.5%, -24.5%);
       z-index: 0;
     }
+
     ::after {
       z-index: 0;
       width: 600px;
@@ -89,12 +93,14 @@ export const StyledWrapper = styled.div`
 
 export const StyledTextWrapper = styled.div`
   margin: auto 0;
+
   @media (min-width: 1150px) {
     max-width: 400px;
   }
   @media (min-width: 1440px) {
     max-width: 500px;
   }
+
   @media (min-width: 1600px) {
     max-width: 600px;
   }
@@ -104,8 +110,10 @@ export const StyledButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
+
   @media (min-width: 768px) {
     justify-content: flex-start;
+
     a {
       margin-right: 25px;
     }
@@ -115,16 +123,19 @@ export const StyledButtonsWrapper = styled.div`
 export const StyledImageWrapper = styled.div`
   display: flex;
   margin-top: auto;
+
   @media (min-width: 768px) {
     max-width: 75%;
     margin: auto 12.5% 0;
   }
+
   @media (min-width: 1150px) {
     position: absolute;
     width: 60%;
     right: -10%;
     margin: 0;
   }
+
   @media (min-width: 1600px) {
     max-width: 850px;
   }
@@ -135,6 +146,7 @@ export const StyledH2 = styled.h2`
   font-size: ${({ theme }) => theme.font.size.l};
   font-weight: ${({ theme }) => theme.font.weight.black};
   margin: 0;
+
   @media (min-width: 1440px) {
     font-size: ${({ theme }) => theme.font.size.xl};
   }

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { calculateVisiblePart, checkIfOnScreen } from '../../../utils';
 import MenuItem from '../../atoms/MenuItem/MenuItem';
 import SocialMedia from '../SocialMedia/SocialMedia';
-import { Home, DollarSign, BookOpen, Monitor, PhoneCall } from 'react-feather';
+import { Home, DollarSign, BookOpen, PhoneCall } from 'react-feather';
 import { StyledWrapper, StyledUl } from './styles';
 
 const menuItems = [
@@ -14,7 +14,6 @@ const menuItems = [
     link: '/#hero',
     dataSection: 'hero',
   },
-
   {
     icon: <BookOpen />,
     text: 'Oferta',
@@ -27,7 +26,6 @@ const menuItems = [
     link: '/#valuation',
     dataSection: 'valuation',
   },
-  { icon: <Monitor />, text: 'Blog', link: '/blog', dataSection: 'blog' },
   {
     icon: <PhoneCall />,
     text: 'Kontakt',
