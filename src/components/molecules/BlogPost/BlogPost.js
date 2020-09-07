@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import placeholder from '../../../assets/pictures/panelsPhoto.png';
-import { StyledWrapper, StyledPhotoWrapper, StyledH3, StyledButton, StyledTextWrapper, StyledParagraph } from './styles';
+import { StyledWrapper, StyledPhotoWrapper, StyledH3, StyledButton, StyledTextWrapper, StyledShortContent } from './styles';
 
-const BlogPost = ({ title, shortContent, photo, bigPost, id }) => {
+const BlogPost = ({ title, shortContent, content, photo, bigPost, id, ...props }) => {
   const [redirect, setRedirect] = useState(false);
 
   const handleTileClick = () => setRedirect(true);
@@ -13,15 +13,16 @@ const BlogPost = ({ title, shortContent, photo, bigPost, id }) => {
   }
 
   return (
-    <StyledWrapper onClick={handleTileClick} bigPost={bigPost}>
+    <StyledWrapper onClick={handleTileClick} bigPost={bigPost} {...props}>
       <StyledPhotoWrapper bigPost={bigPost}>
-        <img src={photo || placeholder} alt="Post photo" />
+        <img src={photo || placeholder} alt="Post" />
       </StyledPhotoWrapper>
       <StyledTextWrapper bigPost={bigPost}>
         <header>
-          <StyledH3> {title} </StyledH3>
+          <StyledH3 bigPost={bigPost}> {title} </StyledH3>
         </header>
-        <StyledParagraph>{shortContent}</StyledParagraph>
+        <StyledShortContent>{shortContent}</StyledShortContent>
+
         <StyledButton primary>Więcej</StyledButton>
       </StyledTextWrapper>
     </StyledWrapper>

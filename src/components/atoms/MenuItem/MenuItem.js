@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { StyledLi, StyledIconWrapper } from './styles';
 
@@ -37,4 +37,4 @@ const MenuItem = ({ icon, children, isActive, link, toggleMenu, dataSection }) =
   );
 };
 
-export default withRouter(MenuItem);
+export default MenuItem;
