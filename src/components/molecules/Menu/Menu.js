@@ -26,6 +26,7 @@ const menuItems = [
     link: '/#valuation',
     dataSection: 'valuation',
   },
+  { icon: <Monitor />, text: 'Blog', link: '/blog', dataSection: 'blog' },
   {
     icon: <PhoneCall />,
     text: 'Kontakt',
