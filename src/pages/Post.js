@@ -78,7 +78,7 @@ const Post = ({ history }) => {
           <meta property="og:type" content="article" />
           <meta property="og:title" content={`${item.title} | SolFran Energy`} />
           <meta property="og:description" content={item.shortContent} />
-          <meta property="og:image" content={item.photo || '%PUBLIC_URL%/logo192.png'} />
+          <meta property="og:image" content={item.photo || `${process.env.PUBLIC_URL}/logo512.png`} />
         </Helmet>
       )}
       <TopBar />
