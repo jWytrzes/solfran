@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, withRouter } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { firestore } from '../base';
 import ReactHtmlParser from 'react-html-parser';
 import styled from 'styled-components';
@@ -70,8 +71,17 @@ const Post = ({ history }) => {
 
   return (
     <>
+      {item.title && (
+        <Helmet>
+          <title>{`${item.title} | SolFran Energy`}</title>
+          <meta property="og:url" content={`https://www.solfranenergy.pl/blog/${id}`} />
+          <meta property="og:type" content="article" />
+          <meta property="og:title" content={`${item.title} | SolFran Energy`} />
+          <meta property="og:description" content={item.shortContent} />
+          <meta property="og:image" content={item.photo || '%PUBLIC_URL%/logo192.png'} />
+        </Helmet>
+      )}
       <TopBar />
-
       <article>
         <BlogHeader dark alignLeft>
           {item.title}
