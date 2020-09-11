@@ -17,7 +17,7 @@ const Home = () => {
           property="og:description"
           content="SolFran Energy - firma rodzinna, założona przez pasjonatów odnawialnych źródeł energii. Pełny profezjonalizm i oddanie. Jesteśmy firmą regionalną. Do każdego klienta podchodzimy indywidualnie."
         />
-        <meta property="og:image" content="%PUBLIC_URL%/logo192.png" />
+        <meta property="og:image" content={`${process.env.PUBLIC_URL}/logo512.png`} />
       </Helmet>
       <TopBar data-aos="fade-right" data-aos-delay="300" />
       <HeroSection />
