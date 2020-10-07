@@ -14,11 +14,11 @@ const MenuItem = ({ icon, children, isActive, link, toggleMenu, dataSection }) =
 
   if (!isAnchorLink) {
     return (
-      <StyledLi onClick={toggleMenu} data-section={dataSection} className="menuItem">
+      <StyledLi onClick={toggleMenu} data-section={dataSection} className="menuItem" isActive={isActive}>
         <Link to={link}>
-          <StyledIconWrapper className="menu__icon" isActive={isActive}>
+          {/* <StyledIconWrapper className="menu__icon">
             {icon}
-          </StyledIconWrapper>
+          </StyledIconWrapper> */}
           <span className="menu__text"> {children} </span>
         </Link>
       </StyledLi>
@@ -26,11 +26,11 @@ const MenuItem = ({ icon, children, isActive, link, toggleMenu, dataSection }) =
   }
 
   return (
-    <StyledLi onClick={toggleMenu} data-section={dataSection} className="menuItem">
+    <StyledLi onClick={toggleMenu} data-section={dataSection} className="menuItem" isActive={isActive}>
       <HashLink smooth to={link} aria-label={`Przejdź do sekcji ${children}`}>
-        <StyledIconWrapper className="menu__icon" isActive={isActive}>
+        {/* <StyledIconWrapper className="menu__icon" isActive={isActive}>
           {icon}
-        </StyledIconWrapper>
+        </StyledIconWrapper> */}
         <span className="menu__text"> {children} </span>
       </HashLink>
     </StyledLi>

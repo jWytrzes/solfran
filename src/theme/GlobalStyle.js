@@ -63,10 +63,16 @@ const GlobalStyle = createGlobalStyle`
 		font-size: inherit;
 	}
 
-	#root > div {
-		min-height: 100vh;
-		display: flex;
-		flex-direction: column;
+	#root {
+		& > div {
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+		}
+
+		@media(min-width: 1150px) {
+			padding-top: 70px;
+		}
 	}
 
 	blockquote {
