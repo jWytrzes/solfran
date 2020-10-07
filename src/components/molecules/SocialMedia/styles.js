@@ -15,6 +15,8 @@ export const StyledUl = styled.ul`
   }
 
   @media (min-width: 1150px) {
+    margin-left: 0;
+
     ${({ vertical }) =>
       vertical &&
       `flex-direction: column;

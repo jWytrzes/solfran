@@ -36,7 +36,7 @@ const menuItems = [
 ];
 
 const Menu = ({ location, toggleMenu, ...props }) => {
-  const [isDesktop, toggleIsDesktop] = useState(false);
+  // const [isDesktop, toggleIsDesktop] = useState(false);
   const { pathname } = location;
   const [activeMenuItem, setActiveMenuItem] = useState('hero');
 
@@ -69,7 +69,7 @@ const Menu = ({ location, toggleMenu, ...props }) => {
 
   useEffect(() => {
     const width = window.innerWidth;
-    if (width >= 1150) toggleIsDesktop(true);
+    // if (width >= 1150) toggleIsDesktop(true);
 
     if (pathname === '/') {
       setActiveMenuItem('hero');
@@ -100,7 +100,7 @@ const Menu = ({ location, toggleMenu, ...props }) => {
           </MenuItem>
         ))}
       </StyledUl>
-      <SocialMedia vertical={isDesktop} />
+      <SocialMedia />
     </StyledWrapper>
   );
 };

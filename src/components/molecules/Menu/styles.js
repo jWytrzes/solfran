@@ -13,8 +13,7 @@ export const StyledWrapper = styled.div`
   padding: 25px;
   align-items: center;
   justify-content: center;
-  transform: ${({ active }) =>
-    active ? 'translateX(0)' : 'translateX(-100%)'};
+  transform: ${({ active }) => (active ? 'translateX(0)' : 'translateX(-100%)')};
   transition: transform 0.2s ease-in-out;
   z-index: 999;
   overflow: hidden;
@@ -42,6 +41,7 @@ export const StyledWrapper = styled.div`
     height: 100%;
     padding: 0;
     overflow: visible;
+    flex-direction: row;
   }
 `;
 
@@ -58,6 +58,8 @@ export const StyledUl = styled.ul`
 
   @media (min-width: 1150px) {
     height: auto;
-    margin: auto 0;
+    margin: 0 100px 0 auto;
+    flex-direction: row;
+    width: fit-content;
   }
 `;
