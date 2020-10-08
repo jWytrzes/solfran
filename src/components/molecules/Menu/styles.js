@@ -58,7 +58,7 @@ export const StyledUl = styled.ul`
 
   @media (min-width: 1150px) {
     height: auto;
-    margin: 0 100px 0 auto;
+    margin: 0 60px 0 auto;
     flex-direction: row;
     width: fit-content;
   }
