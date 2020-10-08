@@ -12,6 +12,7 @@ export const StyledLi = styled.li`
     color: inherit;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   &:hover {

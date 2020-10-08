@@ -20,11 +20,13 @@ export const StyledWrapper = styled.div`
     height: 70px;
     flex-direction: row;
     background-color: white;
-    padding: 15px;
+    padding: 15px 12.5%;
     box-shadow: 5px 0 20px rgba(51, 51, 51, 0.14);
   }
 `;
 
 export const StyledLogo = styled.img`
   width: 70px;
+  position: relative;
+  z-index: 9999;
 `;
