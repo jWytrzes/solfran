@@ -41,7 +41,7 @@ export const StyledWrapper = styled.div`
     height: 100%;
     padding: 0;
     overflow: visible;
-    flex-direction: row;
+    flex-direction: ${({ vertical }) => (vertical ? 'column' : 'row')};
   }
 `;
 
@@ -58,8 +58,8 @@ export const StyledUl = styled.ul`
 
   @media (min-width: 1150px) {
     height: auto;
-    margin: 0 60px 0 auto;
-    flex-direction: row;
-    width: fit-content;
+    margin: ${({ vertical }) => (vertical ? 'auto 0' : '0 60px 0 auto')};
+    flex-direction: ${({ vertical }) => (vertical ? 'column' : 'row')};
+    width: ${({ vertical }) => (vertical ? 'unset' : 'fit-content')};
   }
 `;

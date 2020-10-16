@@ -35,7 +35,7 @@ const menuItems = [
   },
 ];
 
-const Menu = ({ location, toggleMenu, ...props }) => {
+const Menu = ({ location, toggleMenu, vertical, ...props }) => {
   // const [isDesktop, toggleIsDesktop] = useState(false);
   const { pathname } = location;
   const [activeMenuItem, setActiveMenuItem] = useState('hero');
@@ -85,8 +85,8 @@ const Menu = ({ location, toggleMenu, ...props }) => {
   }, [pathname]);
 
   return (
-    <StyledWrapper {...props}>
-      <StyledUl>
+    <StyledWrapper {...props} vertical={vertical}>
+      <StyledUl vertical={vertical}>
         {menuItems.map((el, i) => (
           <MenuItem
             isActive={el.dataSection === activeMenuItem}
@@ -95,12 +95,13 @@ const Menu = ({ location, toggleMenu, ...props }) => {
             link={el.link}
             dataSection={el.dataSection}
             toggleMenu={toggleMenu}
+            vertical={vertical}
           >
             {el.text}
           </MenuItem>
         ))}
       </StyledUl>
-      <SocialMedia />
+      <SocialMedia vertical />
     </StyledWrapper>
   );
 };

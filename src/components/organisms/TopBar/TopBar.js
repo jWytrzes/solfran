@@ -5,14 +5,14 @@ import logo from '../../../assets/pictures/logo.png';
 
 import { StyledWrapper, StyledLogo } from './styles';
 
-const TopBar = ({ ...props }) => {
+const TopBar = ({ vertical, ...props }) => {
   const [isMenuActive, toggleMenu] = useState(false);
-  
+
   return (
-    <StyledWrapper {...props}>
+    <StyledWrapper vertical={vertical} {...props}>
       <BurgerMenu active={isMenuActive} onClick={() => toggleMenu(!isMenuActive)} />
       <StyledLogo src={logo} alt="logo" />
-      <Menu active={isMenuActive} toggleMenu={() => toggleMenu(!isMenuActive)} />
+      <Menu vertical={vertical} active={isMenuActive} toggleMenu={() => toggleMenu(!isMenuActive)} />
     </StyledWrapper>
   );
 };
