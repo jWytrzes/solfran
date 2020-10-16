@@ -6,7 +6,7 @@ import TopBar from '../components/organisms/TopBar/TopBar';
 const Login = () => {
   return (
     <>
-      <TopBar />
+      <TopBar vertical />
       <LoginTemplate>
         <LoginForm />
       </LoginTemplate>

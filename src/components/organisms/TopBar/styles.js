@@ -16,11 +16,11 @@ export const StyledWrapper = styled.div`
   will-change: background-color;
 
   @media (min-width: 1150px) {
-    width: 100%;
-    height: 70px;
-    flex-direction: row;
+    width: ${({ vertical }) => (vertical ? '100px' : '100%')};
+    height: ${({ vertical }) => (vertical ? '100vh' : '70px')};
+    flex-direction: ${({ vertical }) => (vertical ? 'column' : 'row')};
     background-color: white;
-    padding: 15px 12.5%;
+    padding: ${({ vertical }) => (vertical ? '40px 15px' : '15px 12.5%')};
     box-shadow: 5px 0 20px rgba(51, 51, 51, 0.14);
   }
 `;

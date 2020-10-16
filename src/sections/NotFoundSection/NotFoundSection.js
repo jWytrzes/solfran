@@ -8,7 +8,7 @@ import TopBar from '../../components/organisms/TopBar/TopBar';
 const NotFoundSection = ({ greyBackground }) => {
   return (
     <StyledSectionTemplate id="hero" noBottomPadding topPadding greyBackground={greyBackground} className="section">
-      <TopBar />
+      <TopBar vertical />
       <StyledWrapper>
         <StyledTextWrapper>
           <H1> 404 </H1>
