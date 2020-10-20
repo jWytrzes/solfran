@@ -15,9 +15,11 @@ const Blog = () => {
         <meta property="og:description" content="Zapraszamy do zapoznania się z aktualnościami oraz artykułami związanymi z fotowoltaiką." />
         <meta property="og:image" content={`${process.env.PUBLIC_URL}/logo512.png`} />
       </Helmet>
-      <TopBar data-aos="fade-right" data-aos-delay="300" vertical />
-      <BlogHeader> Blog </BlogHeader>
-      <PostsListSection />
+      <div id="blog" className="section">
+        <TopBar data-aos="fade-right" data-aos-delay="300" />
+        <BlogHeader> Blog </BlogHeader>
+        <PostsListSection />
+      </div>
     </>
   );
 };

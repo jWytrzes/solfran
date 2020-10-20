@@ -81,8 +81,8 @@ const Post = ({ history }) => {
           <meta property="og:image" content={item.photo || `${process.env.PUBLIC_URL}/logo512.png`} />
         </Helmet>
       )}
-      <TopBar vertical />
-      <article>
+      <TopBar />
+      <article class="section" id="blog">
         <BlogHeader dark alignLeft>
           {item.title}
         </BlogHeader>

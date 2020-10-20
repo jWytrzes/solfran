@@ -25,40 +25,14 @@ export const StyledLi = styled.li`
     margin: 10px 0 10px 10px;
 
     .menu__text {
-      /* position: absolute; */
-      /* left: 90%; */
-      /* color: white; */
-      /* background-color: ${({ theme }) => theme.secondary}; */
       border-radius: 5px;
       padding: 5px 10px;
       font-size: ${({ theme }) => theme.font.size.xs};
       white-space: ${({ vertical }) => (vertical ? 'unset' : 'nowrap')};
       text-align: center;
-      /* text-transform: uppercase; */
       letter-spacing: 1px;
-      /* visibility: hidden; */
-      /* opacity: 0; */
-      /* transition: opacity 0.2s ease-in-out, visibility 0s 0.2s; */
-      /* will-change: visibility; */
-    }
-
-    :hover {
-      /* .menu__text {
-        visibility: visible;
-        opacity: 1;
-        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-      } */
-
-      /* .menu__icon::after {
-        opacity: 1;
-        transform: translateY(0);
-      } */
     }
   }
-
-  /* @media (min-width: 1300px) {
-    margin: 20px 0;
-  } */
 `;
 
 export const StyledIconWrapper = styled.span`
@@ -69,7 +43,6 @@ export const StyledIconWrapper = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
   background-color: ${({ theme, isActive }) => (isActive ? theme.primary : 'transparent')};
   transition: background-color 0.2s ease-in-out;
   will-change: background-color;

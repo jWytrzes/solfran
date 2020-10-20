@@ -36,7 +36,6 @@ const menuItems = [
 ];
 
 const Menu = ({ location, toggleMenu, vertical, ...props }) => {
-  // const [isDesktop, toggleIsDesktop] = useState(false);
   const { pathname } = location;
   const [activeMenuItem, setActiveMenuItem] = useState('hero');
 
@@ -49,10 +48,16 @@ const Menu = ({ location, toggleMenu, vertical, ...props }) => {
     sections.forEach((el) => {
       checkIfOnScreen(el) && visibleSections.push(el);
     });
+    console.log(visibleSections);
 
     let biggest = visibleSections[0];
+
     if (scrollTop === 0) {
-      biggest = document.getElementById('hero');
+      if (pathname === '/') {
+        biggest = document.getElementById('hero');
+      } else if (pathname === '/blog') {
+        biggest = document.getElementById('blog');
+      }
     } else if (winHeight + scrollTop >= document.body.offsetHeight) {
       biggest = sections[sections.length - 1];
     } else {
@@ -68,14 +73,12 @@ const Menu = ({ location, toggleMenu, vertical, ...props }) => {
   const handleScrollDebounce = debounce(handleScroll, 250);
 
   useEffect(() => {
-    const width = window.innerWidth;
-    // if (width >= 1150) toggleIsDesktop(true);
-
     if (pathname === '/') {
       setActiveMenuItem('hero');
       window.addEventListener('scroll', handleScrollDebounce);
     } else {
       setActiveMenuItem('blog');
+      window.addEventListener('scroll', handleScrollDebounce);
     }
 
     return () => {
@@ -83,6 +86,10 @@ const Menu = ({ location, toggleMenu, vertical, ...props }) => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
+
+  useEffect(() => {
+    console.log(activeMenuItem);
+  }, [activeMenuItem]);
 
   return (
     <StyledWrapper {...props} vertical={vertical}>
@@ -101,7 +108,7 @@ const Menu = ({ location, toggleMenu, vertical, ...props }) => {
           </MenuItem>
         ))}
       </StyledUl>
-      <SocialMedia vertical />
+      <SocialMedia vertical={vertical} />
     </StyledWrapper>
   );
 };

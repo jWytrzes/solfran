@@ -11,6 +11,7 @@ const StyledSection = styled.section`
 
   @media (min-width: 1150px) {
     padding: 50px 12.5%;
+    scroll-margin-top: 70px;
   }
 
   &#valuation a {
