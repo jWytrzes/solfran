@@ -19,7 +19,7 @@ const Home = () => {
         />
         <meta property="og:image" content={`${process.env.PUBLIC_URL}/logo512.png`} />
       </Helmet>
-      <TopBar data-aos="fade-right" data-aos-delay="300" />
+      <TopBar data-aos="fade-down" data-aos-delay="300" />
       <HeroSection />
       <OfferSection greyBackground />
       <ValuationSection />
