@@ -12,9 +12,14 @@ const MenuItem = ({ icon, children, isActive, link, vertical, toggleMenu, dataSe
     }
   }, [link]);
 
+  const handleLinkClick = () => {
+    toggleMenu();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   if (!isAnchorLink) {
     return (
-      <StyledLi onClick={toggleMenu} data-section={dataSection} className="menuItem" isActive={isActive} vertical={vertical}>
+      <StyledLi onClick={handleLinkClick} data-section={dataSection} className="menuItem" isActive={isActive} vertical={vertical}>
         <Link to={link}>
           {vertical && <StyledIconWrapper className="menu__icon">{icon}</StyledIconWrapper>}
           <span className="menu__text"> {children} </span>
