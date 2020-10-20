@@ -16,7 +16,7 @@ const Blog = () => {
         <meta property="og:image" content={`${process.env.PUBLIC_URL}/logo512.png`} />
       </Helmet>
       <div id="blog" className="section">
-        <TopBar data-aos="fade-right" data-aos-delay="300" />
+        <TopBar data-aos="fade-down" data-aos-delay="0" />
         <BlogHeader> Blog </BlogHeader>
         <PostsListSection />
       </div>
