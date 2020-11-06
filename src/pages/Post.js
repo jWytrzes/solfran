@@ -82,7 +82,7 @@ const Post = ({ history }) => {
         </Helmet>
       )}
       <TopBar />
-      <article>
+      <article class="section" id="blog">
         <BlogHeader dark alignLeft>
           {item.title}
         </BlogHeader>

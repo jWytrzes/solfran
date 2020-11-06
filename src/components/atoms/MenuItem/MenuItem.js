@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { StyledLi, StyledIconWrapper } from './styles';
 
-const MenuItem = ({ icon, children, isActive, link, toggleMenu, dataSection }) => {
+const MenuItem = ({ icon, children, isActive, link, vertical, toggleMenu, dataSection }) => {
   const [isAnchorLink, setIsAnchorLink] = useState(true);
 
   useEffect(() => {
@@ -12,13 +12,16 @@ const MenuItem = ({ icon, children, isActive, link, toggleMenu, dataSection }) =
     }
   }, [link]);
 
+  const handleLinkClick = () => {
+    toggleMenu();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   if (!isAnchorLink) {
     return (
-      <StyledLi onClick={toggleMenu} data-section={dataSection} className="menuItem">
+      <StyledLi onClick={handleLinkClick} data-section={dataSection} className="menuItem" isActive={isActive} vertical={vertical}>
         <Link to={link}>
-          <StyledIconWrapper className="menu__icon" isActive={isActive}>
-            {icon}
-          </StyledIconWrapper>
+          {vertical && <StyledIconWrapper className="menu__icon">{icon}</StyledIconWrapper>}
           <span className="menu__text"> {children} </span>
         </Link>
       </StyledLi>
@@ -26,11 +29,13 @@ const MenuItem = ({ icon, children, isActive, link, toggleMenu, dataSection }) =
   }
 
   return (
-    <StyledLi onClick={toggleMenu} data-section={dataSection} className="menuItem">
+    <StyledLi onClick={toggleMenu} data-section={dataSection} className="menuItem" isActive={isActive} vertical={vertical}>
       <HashLink smooth to={link} aria-label={`Przejdź do sekcji ${children}`}>
-        <StyledIconWrapper className="menu__icon" isActive={isActive}>
-          {icon}
-        </StyledIconWrapper>
+        {vertical && (
+          <StyledIconWrapper className="menu__icon" isActive={isActive}>
+            {icon}
+          </StyledIconWrapper>
+        )}
         <span className="menu__text"> {children} </span>
       </HashLink>
     </StyledLi>
