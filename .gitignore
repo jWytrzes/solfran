@@ -6,6 +6,7 @@
 /functions
 .pnp.js
 .env
+/.env
 /.firebase
 .firebase
 /.firebaserc
