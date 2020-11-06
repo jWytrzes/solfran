@@ -4,7 +4,7 @@ export const StyledUl = styled.ul`
   display: flex;
   list-style: none;
   padding: 0;
-  margin: auto 0 0 auto;
+  margin: ${({ vertical }) => (vertical ? 'auto 0 0 auto' : 'auto 0 auto auto')};
   justify-content: right;
   color: ${({ theme, white }) => (white ? 'white' : theme.secondary)};
 
@@ -15,6 +15,8 @@ export const StyledUl = styled.ul`
   }
 
   @media (min-width: 1150px) {
+    margin-left: 0;
+
     ${({ vertical }) =>
       vertical &&
       `flex-direction: column;
@@ -48,9 +50,13 @@ export const StyledLi = styled.li`
 
   a {
     display: block;
+    height: fit-content;
   }
 
   svg {
+    width: 25px;
+    height: 25px;
+    display: flex;
     transition: transform 0.15s ease-in-out;
   }
 

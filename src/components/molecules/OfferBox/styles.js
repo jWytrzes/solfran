@@ -10,6 +10,8 @@ export const StyledWrapper = styled.div`
   z-index: 7;
   cursor: pointer;
   z-index: 99;
+  display: flex;
+  flex-direction: column;
 
   @media (min-width: 1150px) {
     margin: 0;
@@ -21,6 +23,7 @@ export const StyledWrapper = styled.div`
     height: calc(1.4rem * 5 * 1.45);
     overflow-y: hidden;
     position: relative;
+    margin-top: auto;
 
     p:first-of-type {
       margin-top: 0;

@@ -16,15 +16,17 @@ export const StyledWrapper = styled.div`
   will-change: background-color;
 
   @media (min-width: 1150px) {
-    width: 100px;
-    height: 100vh;
-    flex-direction: column;
+    width: ${({ vertical }) => (vertical ? '100px' : '100%')};
+    height: ${({ vertical }) => (vertical ? '100vh' : '70px')};
+    flex-direction: ${({ vertical }) => (vertical ? 'column' : 'row')};
     background-color: white;
-    padding: 40px 15px;
+    padding: ${({ vertical }) => (vertical ? '40px 15px' : '15px 12.5%')};
     box-shadow: 5px 0 20px rgba(51, 51, 51, 0.14);
   }
 `;
 
 export const StyledLogo = styled.img`
   width: 70px;
+  position: relative;
+  z-index: 9999;
 `;

@@ -35,8 +35,7 @@ const menuItems = [
   },
 ];
 
-const Menu = ({ location, toggleMenu, ...props }) => {
-  const [isDesktop, toggleIsDesktop] = useState(false);
+const Menu = ({ location, toggleMenu, vertical, ...props }) => {
   const { pathname } = location;
   const [activeMenuItem, setActiveMenuItem] = useState('hero');
 
@@ -49,10 +48,16 @@ const Menu = ({ location, toggleMenu, ...props }) => {
     sections.forEach((el) => {
       checkIfOnScreen(el) && visibleSections.push(el);
     });
+    console.log(visibleSections);
 
     let biggest = visibleSections[0];
+
     if (scrollTop === 0) {
-      biggest = document.getElementById('hero');
+      if (pathname === '/') {
+        biggest = document.getElementById('hero');
+      } else if (pathname === '/blog') {
+        biggest = document.getElementById('blog');
+      }
     } else if (winHeight + scrollTop >= document.body.offsetHeight) {
       biggest = sections[sections.length - 1];
     } else {
@@ -68,14 +73,12 @@ const Menu = ({ location, toggleMenu, ...props }) => {
   const handleScrollDebounce = debounce(handleScroll, 250);
 
   useEffect(() => {
-    const width = window.innerWidth;
-    if (width >= 1150) toggleIsDesktop(true);
-
     if (pathname === '/') {
       setActiveMenuItem('hero');
       window.addEventListener('scroll', handleScrollDebounce);
     } else {
       setActiveMenuItem('blog');
+      window.addEventListener('scroll', handleScrollDebounce);
     }
 
     return () => {
@@ -84,9 +87,13 @@ const Menu = ({ location, toggleMenu, ...props }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
+  useEffect(() => {
+    console.log(activeMenuItem);
+  }, [activeMenuItem]);
+
   return (
-    <StyledWrapper {...props}>
-      <StyledUl>
+    <StyledWrapper {...props} vertical={vertical}>
+      <StyledUl vertical={vertical}>
         {menuItems.map((el, i) => (
           <MenuItem
             isActive={el.dataSection === activeMenuItem}
@@ -95,12 +102,13 @@ const Menu = ({ location, toggleMenu, ...props }) => {
             link={el.link}
             dataSection={el.dataSection}
             toggleMenu={toggleMenu}
+            vertical={vertical}
           >
             {el.text}
           </MenuItem>
         ))}
       </StyledUl>
-      <SocialMedia vertical={isDesktop} />
+      <SocialMedia vertical={vertical} />
     </StyledWrapper>
   );
 };
