@@ -33,13 +33,16 @@ const StyledUl = styled.ul`
 const StyledImages = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   margin: 2rem 0;
   overflow-x: auto;
+  max-height: 20rem;
 
   img {
     display: inline-block;
     max-width: 33%;
     min-width: 26rem;
+    max-height: 20rem;
     margin-right: 1rem;
 
     &:last-of-type {
