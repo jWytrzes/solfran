@@ -25,12 +25,6 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const StyledContentWrapper = styled.div`
-  /* p {
-    margin: 0;
-  } */
-`;
-
 const StyledUl = styled.ul`
   list-style: none;
   padding-left: 1rem;
@@ -80,7 +74,7 @@ const Service = () => {
         </BlogHeader>
         <StyledWrapper>
           <ShareButtons data-aos="fade-right" />
-          <StyledContentWrapper data-aos="fade-up">
+          <div data-aos="fade-up">
             <p>
               Nasza firma składa się z najlepszych specjalistów w dziedzinie elektroniki. Serwis wyposażony jest w niezbędne do pracy narzędzia
               służące do napraw oraz konserwacji. Naszym priorytetem jest świadczenie usług najwyższej jakości za niewielką cenę.
@@ -115,7 +109,7 @@ const Service = () => {
             <p>
               <i>Zapraszamy, zespół SolFran Energy</i>
             </p>
-          </StyledContentWrapper>
+          </div>
         </StyledWrapper>
       </article>
     </>

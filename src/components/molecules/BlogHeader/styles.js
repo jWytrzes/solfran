@@ -3,7 +3,7 @@ import shape8 from '../../../assets/pictures/shape8.svg';
 import shape7 from '../../../assets/pictures/shape7.svg';
 
 export const StyledWrapper = styled.header`
-  padding: 50px 25px;
+  padding: 80px 25px 50px;
   text-align: ${({ alignLeft }) => (alignLeft ? 'left' : 'right')};
   color: ${({ theme, dark }) => (dark ? theme.secondary : 'white')};
   position: relative;
