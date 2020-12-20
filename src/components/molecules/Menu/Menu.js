@@ -26,6 +26,7 @@ const menuItems = [
     link: '/#valuation',
     dataSection: 'valuation',
   },
+  { text: 'Serwis', link: '/service', dataSection: 'service' },
   { icon: <Monitor />, text: 'Blog', link: '/blog', dataSection: 'blog' },
   {
     icon: <PhoneCall />,
@@ -48,7 +49,6 @@ const Menu = ({ location, toggleMenu, vertical, ...props }) => {
     sections.forEach((el) => {
       checkIfOnScreen(el) && visibleSections.push(el);
     });
-    console.log(visibleSections);
 
     let biggest = visibleSections[0];
 
@@ -57,6 +57,8 @@ const Menu = ({ location, toggleMenu, vertical, ...props }) => {
         biggest = document.getElementById('hero');
       } else if (pathname === '/blog') {
         biggest = document.getElementById('blog');
+      } else if (pathname === '/service') {
+        biggest = document.getElementById('service');
       }
     } else if (winHeight + scrollTop >= document.body.offsetHeight) {
       biggest = sections[sections.length - 1];
@@ -75,21 +77,19 @@ const Menu = ({ location, toggleMenu, vertical, ...props }) => {
   useEffect(() => {
     if (pathname === '/') {
       setActiveMenuItem('hero');
-      window.addEventListener('scroll', handleScrollDebounce);
+    } else if (pathname === '/service') {
+      setActiveMenuItem('service');
     } else {
       setActiveMenuItem('blog');
-      window.addEventListener('scroll', handleScrollDebounce);
     }
+
+    window.addEventListener('scroll', handleScrollDebounce);
 
     return () => {
       window.removeEventListener('scroll', handleScrollDebounce);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
-
-  useEffect(() => {
-    console.log(activeMenuItem);
-  }, [activeMenuItem]);
 
   return (
     <StyledWrapper {...props} vertical={vertical}>

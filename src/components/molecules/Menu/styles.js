@@ -26,9 +26,9 @@ export const StyledWrapper = styled.div`
     background-repeat: no-repeat;
     width: 280px;
     height: 295px;
-    top: 61%;
+    bottom: 5%;
     right: -95px;
-    transform: translateY(-50%);
+    z-index: 0;
 
     @media (min-width: 1150px) {
       display: none;
