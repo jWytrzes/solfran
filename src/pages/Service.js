@@ -52,6 +52,14 @@ const StyledImages = styled.div`
     @media (min-width: 768px) {
       min-width: 31rem;
     }
+
+    @media (min-width: 1150px) {
+      max-height: 34rem;
+    }
+  }
+
+  @media (min-width: 1150px) {
+    max-height: 34rem;
   }
 `;
 
