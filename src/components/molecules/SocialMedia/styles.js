@@ -7,6 +7,8 @@ export const StyledUl = styled.ul`
   margin: ${({ vertical }) => (vertical ? 'auto 0 0 auto' : 'auto 0 auto auto')};
   justify-content: right;
   color: ${({ theme, white }) => (white ? 'white' : theme.secondary)};
+  position: relative;
+  z-index: 10;
 
   svg path {
     fill: ${({ theme, white }) => (white ? 'white' : theme.secondary)};

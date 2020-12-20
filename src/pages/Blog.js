@@ -17,7 +17,9 @@ const Blog = () => {
       </Helmet>
       <div id="blog" className="section">
         <TopBar data-aos="fade-down" data-aos-delay="0" />
-        <BlogHeader> Blog </BlogHeader>
+        <BlogHeader dark alignLeft>
+          Blog
+        </BlogHeader>
         <PostsListSection />
       </div>
     </>

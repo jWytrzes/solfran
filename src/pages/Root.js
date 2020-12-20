@@ -13,6 +13,7 @@ import AdminEditPost from './AdminEditPost';
 import AdminEditHomepage from './AdminEditHomepage';
 import PrivateRoute from '../utils/PrivateRoute';
 import NotFound from './NotFound';
+import Service from './Service';
 
 const Root = () => {
   useEffect(() => {
@@ -30,6 +31,9 @@ const Root = () => {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/service">
+            <Service />
           </Route>
           <Route exact path="/blog">
             <Blog />
